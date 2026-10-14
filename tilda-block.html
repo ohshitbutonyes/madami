@@ -1,0 +1,1025 @@
+<!-- Из Дома МаДаМи — сайт v1. Вставлять целиком в блок T123 «HTML-код». -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.mdm { --milk: #f6f1e7;
+  --paper: #fbf8f2;
+  --sand: #ead9bd;
+  --wood: #b98a5e;
+  --wood-dark: #6b4a2f;
+  --rust: #b0532b;        
+  --rust-dark: #8f3f1d;
+  --meadow: #5e6b34;
+  --meadow-dark: #3f4a22;
+  --jade: #7c9a63;
+  --sky: #a9c8e3;
+  --sky-pale: #dfeaf3;
+  --sun: #f2b84b;
+  --ink: #1f1b17;         
+  --ink-soft: #4a433c;
+  --choc: #5b3a2b;        
+  --choc-deep: #3b261c;
+  --cocoa: #a57b63;
+  --latte: #f2e8de;
+  --line: rgba(31, 27, 23, .14);
+  --radius: 18px;
+  --shadow: 0 18px 40px -24px rgba(60, 40, 20, .45);
+  --serif: "Lora", Georgia, serif;
+  --sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --wrap: 1200px; }
+.mdm, .mdm * { box-sizing: border-box; }
+.mdm { scroll-padding-top: 84px; }
+.mdm { margin: 0;
+  font: 400 17px/1.6 var(--sans);
+  color: var(--ink);
+  background: var(--milk);
+  -webkit-font-smoothing: antialiased; }
+.mdm img { max-width: 100%; display: block; }
+.mdm a { color: inherit; }
+.mdm h1, .mdm h2, .mdm h3 { font-family: var(--serif); font-weight: 500; line-height: 1.12; margin: 0; letter-spacing: -.01em; color: #2f2119; }
+.mdm h1 { font-size: clamp(40px, 6vw, 76px); }
+.mdm h2 { font-size: clamp(32px, 4.2vw, 52px); }
+.mdm h3 { font-size: 22px; }
+.mdm p { margin: 0 0 1em; }
+.mdm em { font-style: italic; color: var(--rust); }
+.mdm .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+.mdm .section { padding: clamp(72px, 10vw, 130px) 0; position: relative; }
+.mdm .eyebrow { display: inline-flex; align-items: center; gap: 10px;
+  font: 600 13px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--meadow); margin-bottom: 18px; }
+.mdm .eyebrow::before { content: ""; width: 22px; height: 22px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23b98a5e' stroke-width='3.2'%3E%3Cpath d='M50 6c25 1 44 19 44 44S75 95 50 94 5 76 6 50 26 5 50 6z'/%3E%3Cpath d='M51 17c18 0 32 15 32 33S68 83 50 83 18 68 18 50 33 17 51 17z' stroke-width='2.6'/%3E%3Cpath d='M49 28c13 0 23 9 23 22s-10 22-23 22-21-10-21-22 9-22 21-22z' stroke-width='2.2'/%3E%3Cpath d='M50 39c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11z' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='2.5' fill='%23b98a5e' stroke='none'/%3E%3C/svg%3E") center/contain no-repeat; }
+.mdm .lead { font-size: clamp(18px, 1.6vw, 21px); color: var(--ink-soft); max-width: 640px; }
+.mdm .section-head { display: grid; gap: 8px; margin-bottom: clamp(36px, 5vw, 60px); max-width: 760px; }
+.mdm .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 26px; border-radius: 999px; border: 1.5px solid transparent;
+  font: 600 16px/1 var(--sans); text-decoration: none; cursor: pointer;
+  transition: transform .2s, background .2s, color .2s, border-color .2s; }
+.mdm .btn:hover { transform: translateY(-2px); }
+.mdm .btn-primary { background: var(--rust); color: #fff; }
+.mdm .btn-primary:hover { background: var(--rust-dark); }
+.mdm .btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.mdm .btn-ghost:hover { background: var(--ink); color: var(--milk); }
+.mdm .btn-light { background: var(--paper); color: var(--ink); }
+.mdm .btn-sm { padding: 11px 18px; font-size: 14px; }
+.mdm .header { position: fixed; inset: 0 0 auto; z-index: 50;
+  transition: background .3s, box-shadow .3s; }
+.mdm .header.scrolled { background: rgba(246, 241, 231, .92); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--line); }
+.mdm .header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
+.mdm .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.mdm .logo-mark { width: 40px; height: 40px; }
+.mdm .logo-text { font: 500 21px/1 var(--serif); }
+.mdm .logo-text small { display: block; font: 600 10.5px/1.4 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; }
+.mdm .nav { display: flex; gap: 26px; }
+.mdm .nav a { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--ink-soft); }
+.mdm .nav a:hover { color: var(--rust); }
+.mdm .burger { display: none; background: none; border: 0; width: 44px; height: 44px; cursor: pointer; }
+.mdm .burger span { display: block; height: 2px; background: var(--ink); margin: 6px 8px; transition: .3s; }
+.mdm .hero { position: relative; overflow: hidden;
+  padding: 130px 0 0;
+  background: linear-gradient(180deg, var(--sky) 0%, var(--sky-pale) 46%, var(--milk) 88%); }
+.mdm .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: end; position: relative; z-index: 2; }
+.mdm .hero-copy { padding-bottom: 120px; }
+.mdm .hero h1 em { color: var(--rust); }
+.mdm .hero .lead { margin: 26px 0 34px; }
+.mdm .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.mdm .hero-note { margin-top: 18px; font-size: 14px; color: var(--ink-soft); }
+.mdm .hero-photo { position: relative; align-self: stretch; display: flex; align-items: flex-end; }
+.mdm .hero-photo img { width: 100%; height: min(78vh, 720px); object-fit: cover; object-position: 50% 30%;
+  border-radius: 260px 260px 0 0; box-shadow: var(--shadow); }
+.mdm .hero-badge { position: absolute; left: -36px; bottom: 90px; z-index: 3;
+  background: var(--paper); border-radius: 16px; padding: 16px 18px; box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 14px; width: 300px; }
+.mdm .hero-badge b { font: 600 30px/1 var(--serif); color: var(--rust); }
+.mdm .hero-badge span { font-size: 13.5px; line-height: 1.35; color: var(--ink-soft); }
+.mdm .hills { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 160px; z-index: 1; }
+.mdm .sun { position: absolute; width: 340px; height: 340px; border-radius: 50%; right: 8%; top: 60px;
+  background: radial-gradient(circle, rgba(255, 226, 150, .9) 0%, rgba(255, 226, 150, 0) 70%); z-index: 0; }
+.mdm .facts { background: var(--milk); padding: 0 0 40px; position: relative; z-index: 3; }
+.mdm .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.mdm .fact { padding: 28px 24px 8px 0; }
+.mdm .fact + .fact { padding-left: 24px; border-left: 1px solid var(--line); }
+.mdm .fact b { display: block; font: 500 clamp(30px, 3.4vw, 42px)/1 var(--serif); margin-bottom: 10px; }
+.mdm .fact span { font-size: 14.5px; color: var(--ink-soft); line-height: 1.45; display: block; }
+.mdm .paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.mdm .path { background: var(--paper); border-radius: var(--radius); padding: 32px 28px; border: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 14px; transition: transform .25s, box-shadow .25s; }
+.mdm .path:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.mdm .path .tag { font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--meadow); }
+.mdm .path p { color: var(--ink-soft); font-size: 15.5px; flex: 1; margin: 0; }
+.mdm .path a { font-weight: 600; color: var(--rust); text-decoration: none; }
+.mdm .path a::after { content: " →"; }
+.mdm .path.featured { background: var(--meadow-dark); color: var(--milk); border-color: transparent; }
+.mdm .path.featured p { color: rgba(246, 241, 231, .78); }
+.mdm .path.featured .tag { color: var(--sun); }
+.mdm .path.featured a { color: var(--sun); }
+.mdm .home { background: var(--paper); }
+.mdm .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+.mdm .home-photos { position: relative; height: 620px; }
+.mdm .home-photos img { position: absolute; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+.mdm .home-photos .p1 { width: 66%; height: 78%; left: 0; top: 0; }
+.mdm .home-photos .p2 { width: 52%; height: 48%; right: 0; bottom: 0; border: 8px solid var(--paper); }
+.mdm .home-photos .ring-deco { position: absolute; right: 6%; top: 4%; width: 120px; opacity: .9; }
+.mdm .checks { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+.mdm .checks li { padding-left: 36px; position: relative; }
+.mdm .checks li::before { content: ""; position: absolute; left: 0; top: 3px; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--jade) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/14px no-repeat; }
+.mdm .quote { font: italic 400 24px/1.4 var(--serif); color: var(--wood-dark); border-left: 3px solid var(--sun); padding-left: 20px; margin: 30px 0 0; }
+.mdm .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.mdm .trust { border-radius: var(--radius); padding: 30px 28px; background: var(--paper); border: 1px solid var(--line); }
+.mdm .trust .ic { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--sand); margin-bottom: 22px; }
+.mdm .trust .ic svg { width: 26px; height: 26px; stroke: var(--wood-dark); }
+.mdm .trust h3 { margin-bottom: 10px; }
+.mdm .trust p { font-size: 15.5px; color: var(--ink-soft); margin: 0; }
+.mdm .trust .proof { display: inline-block; margin-top: 14px; font: 600 13px/1 var(--sans); background: var(--sky-pale); color: #2e5373; padding: 8px 12px; border-radius: 999px; }
+.mdm .breed { background: linear-gradient(180deg, var(--milk), #efe6d4); }
+.mdm .breed-top { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(30px, 5vw, 70px); align-items: start; }
+.mdm .breed-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); position: relative; }
+.mdm .breed-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.mdm .breed-photo figcaption { position: absolute; left: 14px; bottom: 14px; background: rgba(251, 248, 242, .92); padding: 8px 12px; border-radius: 10px; font-size: 13px; }
+.mdm .spec { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 28px 0 0; border-top: 1px solid var(--line); }
+.mdm .spec div { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.mdm .spec div:nth-child(odd) { padding-right: 16px; }
+.mdm .spec dt { font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
+.mdm .spec dd { margin: 0; font-weight: 500; }
+.mdm .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
+.mdm .fit-card { border-radius: var(--radius); padding: 32px; }
+.mdm .fit-card h3 { margin-bottom: 18px; }
+.mdm .fit-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.mdm .fit-card li { padding-left: 28px; position: relative; font-size: 16px; }
+.mdm .fit-yes { background: #e3e8d3; }
+.mdm .fit-yes li::before { content: "✓"; position: absolute; left: 0; color: var(--meadow); font-weight: 700; }
+.mdm .fit-no { background: #f3dfd0; }
+.mdm .fit-no li::before { content: "!"; position: absolute; left: 4px; color: var(--rust); font-weight: 800; }
+@property --ax { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+@property --ay { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+@property --ar { syntax: "<percentage>"; inherits: true; initial-value: 20%; }
+.mdm .anat { background: var(--latte); }
+.mdm .anat .eyebrow { color: var(--choc); }
+.mdm .anat-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.mdm .anat-stage { position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 24px 50px -30px rgba(59, 38, 28, .55);
+  --ax: 50%; --ay: 50%; --ar: 20%;
+  transition: --ax .45s ease, --ay .45s ease, --ar .45s ease; }
+.mdm .anat-stage img { width: 100%; height: 100%; object-fit: cover; }
+.mdm .anat-dim { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .35s;
+  background: radial-gradient(var(--ar) var(--ar) at var(--ax) var(--ay), rgba(59, 38, 28, 0) 62%, rgba(59, 38, 28, .62) 100%); }
+.mdm .anat-ring { position: absolute; left: var(--ax); top: var(--ay); width: calc(var(--ar) * 1.25); aspect-ratio: 1;
+  transform: translate(-50%, -50%) scale(.85); border-radius: 50%; pointer-events: none;
+  border: 2px dashed rgba(255, 248, 238, .9); box-shadow: 0 0 0 6px rgba(165, 123, 99, .25);
+  opacity: 0; transition: opacity .3s, transform .45s ease; }
+.mdm .anat-ring span { position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%); white-space: nowrap;
+  background: var(--paper); color: var(--choc); font: 600 13px/1 var(--sans); padding: 8px 12px; border-radius: 999px;
+  box-shadow: 0 8px 20px -10px rgba(59, 38, 28, .6); }
+.mdm .anat-stage.on .anat-dim { opacity: 1; }
+.mdm .anat-stage.on .anat-ring { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.mdm .anat-dot { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+  background: var(--paper); color: var(--choc); font: 700 13px/30px var(--sans); text-align: center;
+  box-shadow: 0 0 0 4px rgba(255, 248, 238, .35), 0 6px 14px -6px rgba(0, 0, 0, .5);
+  transition: transform .2s, background .2s, color .2s; z-index: 2; }
+.mdm .anat-dot::before { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(255, 248, 238, .8); animation: anat-pulse 2.4s ease-out infinite; }
+.mdm .anat-dot:hover, .mdm .anat-dot:focus-visible, .mdm .anat-dot.active { transform: scale(1.18); background: var(--choc); color: var(--paper); outline: none; }
+.mdm .anat-stage.on .anat-dot:not(.active) { opacity: .55; }
+.mdm .anat-stage.on .anat-dot::before { animation: none; opacity: 0; }
+@keyframes anat-pulse { 0% { transform: scale(.8); opacity: 1; } 100% { transform: scale(1.7); opacity: 0; } }
+.mdm .anat-panel { background: var(--paper); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); border: 1px solid rgba(91, 58, 43, .12); position: sticky; top: 96px; }
+.mdm #mdm-anatCard { min-height: 320px; }
+.mdm #mdm-anatCard.swap { animation: anat-in .35s ease; }
+@keyframes anat-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.mdm .anat-num { display: inline-block; font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--cocoa); margin-bottom: 14px; }
+.mdm .anat-panel h3 { font-size: clamp(24px, 2.4vw, 30px); color: var(--choc); margin-bottom: 14px; }
+.mdm .anat-panel p { color: var(--ink-soft); font-size: 15.5px; }
+.mdm .anat-panel .why { border-left: 3px solid var(--cocoa); padding-left: 14px; color: var(--ink); }
+.mdm .anat-panel .why b { display: block; font: 600 12px/1.4 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--choc); margin-bottom: 4px; }
+.mdm .anat-panel .std { font-size: 14px; background: var(--latte); border-radius: 12px; padding: 12px 14px; margin: 0; color: var(--choc-deep); }
+.mdm .anat-stats { display: grid; grid-template-columns: 1fr 1fr; margin: 6px 0 0; }
+.mdm .anat-stats div { padding: 14px 0; border-bottom: 1px solid rgba(91, 58, 43, .14); }
+.mdm .anat-stats dt { font: 600 11.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--cocoa); margin-bottom: 6px; }
+.mdm .anat-stats dd { margin: 0; font: 500 22px/1.2 var(--serif); color: var(--choc); }
+.mdm .anat-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(91, 58, 43, .14); }
+.mdm .anat-chips button { font: 500 13.5px/1 var(--sans); padding: 9px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(91, 58, 43, .22); background: transparent; color: var(--choc); transition: .2s; }
+.mdm .anat-chips button:hover, .mdm .anat-chips button.active { background: var(--choc); color: var(--paper); border-color: var(--choc); }
+@media (max-width: 900px) {
+  .mdm .anat-grid { grid-template-columns: 1fr; }
+  .mdm .anat-panel { position: static; }
+  .mdm #mdm-anatCard { min-height: 0; }
+}
+@media (max-width: 560px) {
+  .mdm .anat-dot { width: 26px; height: 26px; margin: -13px 0 0 -13px; line-height: 26px; font-size: 12px; }
+  .mdm .anat-ring span { font-size: 12px; padding: 6px 10px; }
+}
+.mdm .dogs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; }
+.mdm .dog { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;
+  display: flex; flex-direction: column; gap: 10px; }
+.mdm .dog h3 { font-size: 19px; line-height: 1.25; }
+.mdm .dog .meta { font-size: 13.5px; color: var(--ink-soft); }
+.mdm .dog .titles { font-size: 14.5px; flex: 1; }
+.mdm .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.mdm .chip { font: 600 12px/1 var(--sans); padding: 7px 10px; border-radius: 999px; background: #e3e8d3; color: var(--meadow-dark); }
+.mdm .chip.gold { background: #fbe8bf; color: #7a5410; }
+.mdm .chip.muted { background: #ece6db; color: var(--ink-soft); }
+.mdm .males { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0 32px; }
+.mdm .male { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); font-weight: 500; }
+.mdm .male span { font-size: 13px; color: var(--ink-soft); text-align: right; font-weight: 400; }
+.mdm .note { font-size: 14.5px; color: var(--ink-soft); margin-top: 22px; }
+.mdm .champ { background: var(--choc-deep); color: var(--milk); overflow: hidden; }
+.mdm .champ .eyebrow { color: var(--sun); }
+.mdm .champ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 80px); align-items: center; }
+.mdm .champ img { border-radius: var(--radius); width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.mdm .champ .lead { color: rgba(246, 241, 231, .75); }
+.mdm .titles-list { margin: 28px 0 32px; display: grid; gap: 0; }
+.mdm .titles-list div { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid rgba(246, 241, 231, .16); }
+.mdm .titles-list b { font-family: var(--serif); font-weight: 500; font-size: 18px; }
+.mdm .titles-list span { color: var(--sun); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; text-align: right; }
+.mdm .litter { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: stretch; }
+.mdm .litter-card { background: var(--paper); border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+.mdm .litter-card .pics { display: grid; grid-template-rows: 1fr 1fr; }
+.mdm .litter-card .pics img { width: 100%; height: 100%; object-fit: cover; }
+.mdm .litter-card .info { padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.mdm .litter-card .status { align-self: flex-start; }
+.mdm .litter-card dl { margin: 0; display: grid; gap: 10px; font-size: 15px; }
+.mdm .litter-card dt { font: 600 11.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.mdm .litter-card dd { margin: 3px 0 0; }
+.mdm .queue { background: var(--meadow-dark); color: var(--milk); border-radius: var(--radius); padding: 34px; display: flex; flex-direction: column; gap: 16px; }
+.mdm .queue p { color: rgba(246, 241, 231, .8); margin: 0; }
+.mdm .queue ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: q; }
+.mdm .queue li { counter-increment: q; display: flex; gap: 12px; align-items: baseline; }
+.mdm .queue li::before { content: counter(q); font: 600 13px/1 var(--sans); width: 26px; height: 26px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--sun); color: var(--ink); }
+.mdm .queue .btn { margin-top: auto; align-self: flex-start; }
+.mdm .registry { margin-top: 36px; }
+.mdm .registry summary { cursor: pointer; font-weight: 600; padding: 18px 0; border-top: 1px solid var(--line); list-style: none; display: flex; justify-content: space-between; }
+.mdm .registry summary::after { content: "+"; font-size: 22px; line-height: 1; color: var(--rust); }
+.mdm .registry[open] summary::after { content: "−"; }
+.mdm .registry table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.mdm .registry td { padding: 12px 12px 12px 0; border-top: 1px solid var(--line); vertical-align: top; }
+.mdm .registry td:first-child { white-space: nowrap; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.mdm .registry td:nth-child(2) { font-weight: 600; white-space: nowrap; }
+.mdm .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; counter-reset: s; }
+.mdm .step { position: relative; padding: 30px 26px 26px; background: var(--paper); border-radius: var(--radius); border: 1px solid var(--line); counter-increment: s; }
+.mdm .step::before { content: "0" counter(s); font: 500 44px/1 var(--serif); color: var(--wood); opacity: .55; display: block; margin-bottom: 14px; }
+.mdm .step h3 { margin-bottom: 10px; font-size: 20px; }
+.mdm .step p { font-size: 15px; color: var(--ink-soft); margin: 0; }
+.mdm .step.accent { background: var(--sand); border-color: transparent; }
+.mdm .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+.mdm .box { border-radius: var(--radius); padding: 32px; background: var(--paper); border: 1px solid var(--line); }
+.mdm .box h3 { margin-bottom: 8px; }
+.mdm .box > p { color: var(--ink-soft); font-size: 15px; }
+.mdm .box ul { margin: 14px 0 0; padding-left: 20px; display: grid; gap: 10px; font-size: 15.5px; }
+.mdm .box li::marker { color: var(--rust); }
+.mdm .after { background: var(--sky-pale); }
+.mdm .after-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(30px, 5vw, 70px); align-items: start; }
+.mdm .support { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.mdm .support div { background: var(--paper); border-radius: var(--radius); padding: 24px; }
+.mdm .support h3 { font-size: 19px; margin-bottom: 8px; }
+.mdm .support p { font-size: 15px; color: var(--ink-soft); margin: 0; }
+.mdm .faq { max-width: 860px; }
+.mdm .faq details { border-top: 1px solid var(--line); }
+.mdm .faq details:last-child { border-bottom: 1px solid var(--line); }
+.mdm .faq summary { cursor: pointer; padding: 22px 40px 22px 0; font: 500 20px/1.35 var(--serif); list-style: none; position: relative; }
+.mdm .faq summary::-webkit-details-marker, .mdm .registry summary::-webkit-details-marker { display: none; }
+.mdm .faq summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font: 400 28px/1 var(--sans); color: var(--rust); transition: transform .25s; }
+.mdm .faq details[open] summary::after { transform: rotate(45deg); }
+.mdm .faq details p { color: var(--ink-soft); padding-bottom: 8px; max-width: 720px; }
+.mdm .gallery { columns: 4 220px; column-gap: 14px; }
+.mdm .gallery img { width: 100%; margin-bottom: 14px; border-radius: 14px; break-inside: avoid; cursor: zoom-in; transition: opacity .2s; }
+.mdm .gallery img:hover { opacity: .88; }
+.mdm .lightbox { position: fixed; inset: 0; background: rgba(20, 16, 12, .9); display: none; place-items: center; z-index: 100; padding: 24px; cursor: zoom-out; }
+.mdm .lightbox.open { display: grid; }
+.mdm .lightbox img { max-height: 90vh; border-radius: 12px; }
+.mdm .contact { background: var(--meadow-dark); color: var(--milk); overflow: hidden; }
+.mdm .contact .eyebrow { color: var(--sun); }
+.mdm .contact .lead { color: rgba(246, 241, 231, .78); }
+.mdm .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 80px); }
+.mdm .people { display: grid; gap: 0; margin: 30px 0; }
+.mdm .people a, .mdm .people div { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid rgba(246, 241, 231, .16); text-decoration: none; }
+.mdm .people span { color: rgba(246, 241, 231, .6); font-size: 14px; }
+.mdm .people b { font-weight: 600; text-align: right; }
+.mdm .form { background: var(--paper); color: var(--ink); border-radius: 24px; padding: clamp(24px, 4vw, 40px); display: grid; gap: 16px; align-self: start; }
+.mdm .form h3 { font-size: 26px; }
+.mdm .form p.small { font-size: 14px; color: var(--ink-soft); margin: 0; }
+.mdm .field { display: grid; gap: 6px; }
+.mdm .field label { font-size: 13.5px; font-weight: 600; }
+.mdm .field input, .mdm .field select, .mdm .field textarea { font: inherit; font-size: 16px; padding: 13px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.mdm .field input:focus, .mdm .field select:focus, .mdm .field textarea:focus { outline: 2px solid var(--sky); border-color: transparent; }
+.mdm .radios { display: flex; flex-wrap: wrap; gap: 8px; }
+.mdm .radios label { cursor: pointer; }
+.mdm .radios input { position: absolute; opacity: 0; pointer-events: none; }
+.mdm .radios span { display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 14.5px; font-weight: 500; transition: .2s; }
+.mdm .radios input:checked + span { background: var(--ink); color: var(--milk); border-color: var(--ink); }
+.mdm .radios input:focus-visible + span { outline: 2px solid var(--sky); }
+.mdm .form .btn { width: 100%; }
+.mdm .form-ok { display: none; background: #e3e8d3; border-radius: 12px; padding: 14px; font-size: 15px; }
+.mdm .footer { background: var(--choc-deep); color: rgba(246, 241, 231, .6); padding: 34px 0; font-size: 14px; }
+.mdm .footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.mdm.mdm-js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.mdm.mdm-js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .mdm.mdm-js .reveal { opacity: 1; transform: none; }
+  .mdm { scroll-behavior: auto; }
+}
+@media (max-width: 1080px) {
+  .mdm .nav { display: none; }
+  .mdm .burger { display: block; }
+  .mdm .header .btn-sm { display: none; }
+  .mdm .nav.open { display: flex; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0;
+    background: var(--milk); padding: 20px 16px 28px; gap: 18px; box-shadow: 0 20px 30px -20px rgba(0,0,0,.3); }
+  .mdm .nav.open a { font-size: 19px; }
+}
+@media (max-width: 900px) {
+  .mdm .hero .wrap, .mdm .home-grid, .mdm .breed-top, .mdm .champ-grid, .mdm .litter, .mdm .after-grid, .mdm .contact-grid, .mdm .two-col, .mdm .fit { grid-template-columns: 1fr; }
+  .mdm .hero-copy { padding-bottom: 0; }
+  .mdm .hero-photo img { height: 460px; border-radius: 200px 200px 0 0; }
+  .mdm .hero-badge { left: 12px; bottom: 24px; }
+  .mdm .facts-grid { grid-template-columns: 1fr 1fr; }
+  .mdm .fact:nth-child(3) { padding-left: 0; border-left: 0; }
+  .mdm .paths, .mdm .trust-grid { grid-template-columns: 1fr; }
+  .mdm .home-photos { height: 440px; }
+}
+@media (max-width: 560px) {
+  .mdm { font-size: 16px; }
+  .mdm .litter-card { grid-template-columns: 1fr; }
+  .mdm .litter-card .pics { grid-template-rows: none; grid-template-columns: 1fr 1fr; height: 220px; }
+  .mdm .support { grid-template-columns: 1fr; }
+  .mdm .spec { grid-template-columns: 1fr; }
+  .mdm .hero-actions .btn { width: 100%; }
+  .mdm .registry td:nth-child(2) { white-space: normal; }
+  .mdm .home-photos { height: 360px; }
+}
+.mdm { overflow-x: hidden; }
+.mdm a:hover { color: inherit; }
+.mdm .nav a:hover, .mdm .path a:hover { color: var(--rust); }
+.mdm .path.featured a:hover { color: var(--sun); }
+.mdm .btn-primary:hover { color: #fff; }
+.mdm .btn-ghost:hover { color: var(--milk); }
+</style>
+
+<div class="mdm" id="mdm-root">
+<header class="header" id="mdm-header">
+  <div class="wrap">
+    <a class="logo" href="#mdm-top" aria-label="Из Дома МаДаМи — на главную">
+      <img class="logo-mark" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23b98a5e' stroke-width='3.2'%3E%3Cpath d='M50 6c25 1 44 19 44 44S75 95 50 94 5 76 6 50 26 5 50 6z'/%3E%3Cpath d='M51 17c18 0 32 15 32 33S68 83 50 83 18 68 18 50 33 17 51 17z' stroke-width='2.6'/%3E%3Cpath d='M49 28c13 0 23 9 23 22s-10 22-23 22-21-10-21-22 9-22 21-22z' stroke-width='2.2'/%3E%3Cpath d='M50 39c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11z' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='2.5' fill='%23b98a5e' stroke='none'/%3E%3C/svg%3E" alt="">
+      <span class="logo-text">Из Дома МаДаМи<small>FCI · РКФ № 9392 · с 2008</small></span>
+    </a>
+    <nav class="nav" id="mdm-nav">
+      <a href="#mdm-home">Питомник</a>
+      <a href="#mdm-breed">Порода</a>
+      <a href="#mdm-dogs">Наши собаки</a>
+      <a href="#mdm-puppies">Щенки</a>
+      <a href="#mdm-how">Как купить</a>
+      <a href="#mdm-faq">Вопросы</a>
+      <a href="#mdm-contact">Контакты</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#mdm-contact">Обсудить подбор щенка</a>
+    <button class="burger" id="mdm-burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="mdm-top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">Семейный племенной питомник · Воронеж</div>
+        <h1>Большой швейцарский зенненхунд — <em>под уклад вашей семьи</em></h1>
+        <p class="lead">Наши гроссы живут не в вольерах, а в доме, у реки Дон. Мы не продаём первого свободного щенка — мы подбираем того, кто подойдёт именно вам, и остаёмся на связи всю его жизнь.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#mdm-contact">Обсудить подбор щенка</a>
+          <a class="btn btn-ghost" href="#mdm-breed">Подходит ли нам порода?</a>
+        </div>
+        <p class="hero-note">Разговор ни к чему не обязывает — даже если вы пока только присматриваетесь.</p>
+      </div>
+      <div class="hero-photo">
+        <img data-img="hero.jpg" alt="Большой швейцарский зенненхунд сидит на зелёной поляне">
+        <div class="hero-badge">
+          <b>2023</b>
+          <span>Чемпион и вице-чемпион мира — в Женеве, на родине породы</span>
+        </div>
+      </div>
+    </div>
+    <svg class="hills" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 120 C 180 60, 320 70, 480 100 S 820 150, 1000 96 S 1300 40, 1440 80 V160 H0Z" fill="#9fb27f" opacity=".55"/>
+      <path d="M0 140 C 240 100, 420 110, 640 130 S 1060 150, 1240 118 S 1400 110, 1440 116 V160 H0Z" fill="#f6f1e7"/>
+    </svg>
+  </section>
+
+  <!-- ФАКТЫ -->
+  <section class="facts">
+    <div class="wrap facts-grid">
+      <div class="fact"><b>2008</b><span>Год регистрации в системе FCI–РКФ, свидетельство № 9392</span></div>
+      <div class="fact"><b>15+ лет</b><span>Разводим одну породу — большого швейцарского зенненхунда</span></div>
+      <div class="fact"><b>HD-A · ED-0</b><span>Производители обследованы и свободны от дисплазии суставов</span></div>
+      <div class="fact"><b>Всю жизнь</b><span>Консультации владельцам — и через месяц, и через десять лет</span></div>
+    </div>
+  </section>
+
+  <!-- ТРИ ПУТИ -->
+  <section class="section" style="padding-top: 70px">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">С чего начать</div>
+        <h2>Расскажите, какая собака вам нужна</h2>
+      </div>
+      <div class="paths">
+        <article class="path featured reveal">
+          <span class="tag">Компаньон · уже был опыт</span>
+          <h3>Ищу гросса в семью</h3>
+          <p>Покажем родителей, результаты обследований и помёты. Обсудим ваш быт и подберём щенка по характеру, а не по принципу «кто первый».</p>
+          <a href="#mdm-contact" data-goal="Компаньон в семью">Обсудить подбор щенка</a>
+        </article>
+        <article class="path reveal">
+          <span class="tag">Первая собака</span>
+          <h3>Хотим собаку, но боимся ошибиться</h3>
+          <p>Честно расскажем, кому подходит гросс и о чём стоит знать заранее. Поможем подготовиться к щенку и будем рядом в первые месяцы.</p>
+          <a href="#mdm-breed">Подходит ли нам порода</a>
+        </article>
+        <article class="path reveal">
+          <span class="tag">Выставки и разведение</span>
+          <h3>Нужен щенок под цель</h3>
+          <p>Происхождение, линии и результаты родителей. Индивидуально обсудим перспективы и поможем с подготовкой к рингу и хендлингом.</p>
+          <a href="#mdm-champ">Выставочный путь</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДОМ -->
+  <section class="section home" id="mdm-home">
+    <div class="wrap home-grid">
+      <div class="home-photos reveal">
+        <img class="p1" data-img="autumn.jpg" alt="Взрослый гросс на фоне осенней листвы">
+        <img class="p2" data-img="puppy-floor.jpg" alt="Щенок гросса лежит на деревянном полу в доме">
+        <img class="ring-deco" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23b98a5e' stroke-width='3.2'%3E%3Cpath d='M50 6c25 1 44 19 44 44S75 95 50 94 5 76 6 50 26 5 50 6z'/%3E%3Cpath d='M51 17c18 0 32 15 32 33S68 83 50 83 18 68 18 50 33 17 51 17z' stroke-width='2.6'/%3E%3Cpath d='M49 28c13 0 23 9 23 22s-10 22-23 22-21-10-21-22 9-22 21-22z' stroke-width='2.2'/%3E%3Cpath d='M50 39c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11z' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='2.5' fill='%23b98a5e' stroke='none'/%3E%3C/svg%3E" alt="">
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Питомник</div>
+        <h2>Собаки, которые живут дома</h2>
+        <p class="lead" style="margin-top:22px">«Из Дома МаДаМи» — семейный питомник. Название сложилось из первых букв наших имён.</p>
+        <p>Мы живём в десяти километрах от Воронежа, недалеко от Дона. Каждый день — долгие прогулки по лесу, с весны до осени — плавание. Собаки ездят с нами на отдых и рыбалку, а зимой катают детей на санках.</p>
+        <ul class="checks">
+          <li>Мы кинологи и врачи по образованию — сами проводим клеймение и вакцинацию.</li>
+          <li>Щенки растут среди людей, детей, других собак и обычных домашних звуков.</li>
+          <li>Никогда не держим несколько помётов одновременно и не разводим «под спрос».</li>
+        </ul>
+        <p class="quote">Наша цель не менялась пятнадцать лет: здоровые собаки с яркими породными качествами и устойчивой психикой.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДОВЕРИЕ -->
+  <section class="section" id="mdm-trust">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Не обещания, а подтверждения</div>
+        <h2>Что можно проверить ещё до решения</h2>
+        <p class="lead">Фраза «здоровые щенки» ничего не доказывает. Поэтому мы показываем документы и объясняем, что они значат.</p>
+      </div>
+      <div class="trust-grid">
+        <article class="trust reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Здоровье родителей</h3>
+          <p>Все производители обследованы на дисплазию тазобедренных и локтевых суставов. HD-A и ED-0 — лучшие возможные оценки. Результаты показываем по первой просьбе.</p>
+          <span class="proof">HD-A · ED-0 у производителей</span>
+        </article>
+        <article class="trust reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
+          <h3>Документы и происхождение</h3>
+          <p>Метрика РКФ (меняется на родословную FCI), клеймо, ветеринарный паспорт, копии родословных родителей. В 45 дней — обязательное актирование специалистом клуба.</p>
+          <span class="proof">Питомник FCI–РКФ № 9392</span>
+        </article>
+        <article class="trust reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+          <h3>Характер, а не только титулы</h3>
+          <p>К моменту выбора мы знаем характер каждого малыша — и подбираем щенка под вашу семью. Иногда честный ответ — «эта порода вам не подходит».</p>
+          <span class="proof">Подбор после актирования</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОРОДА -->
+  <section class="section breed" id="mdm-breed">
+    <div class="wrap">
+      <div class="breed-top">
+        <figure class="breed-photo reveal" style="margin:0">
+          <img data-img="meadow.jpg" alt="Большой швейцарский зенненхунд сидит на траве">
+          <figcaption>Grosser Schweizer Sennenhund</figcaption>
+        </figure>
+        <div class="reveal">
+          <div class="eyebrow">Порода</div>
+          <h2>Гросс — самый крупный из четырёх швейцарских зенненхундов</h2>
+          <p class="lead" style="margin-top:22px">Сторожевая и тягловая собака, ставшая одной из лучших семейных собак Европы.</p>
+          <p>Стандарт FCI описывает гросса так: бдительный, уверенный в себе, преданный семье и доброжелательный со знакомыми. На практике — большой, тяжёлый и очень спокойный пёс, который не бросается на гостей, но всегда знает, что происходит на его территории.</p>
+          <dl class="spec">
+            <div><dt>Страна</dt><dd>Швейцария</dd></div>
+            <div><dt>FCI</dt><dd>Группа 2, секция 3</dd></div>
+            <div><dt>Рост, кобели</dt><dd>65–72 см в холке</dd></div>
+            <div><dt>Рост, суки</dt><dd>60–68 см в холке</dd></div>
+            <div><dt>Шерсть</dt><dd>Двойная, с плотным подшёрстком</dd></div>
+            <div><dt>Окрас</dt><dd>Только трёхцветный</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="fit">
+        <div class="fit-card fit-yes reveal">
+          <h3>Кому подходит гросс</h3>
+          <ul>
+            <li>Семьям с детьми — порода спокойная и терпеливая.</li>
+            <li>Тем, кто готов гулять долго и в любую погоду.</li>
+            <li>Частному дому с участком или активной семье в квартире.</li>
+            <li>Тем, кому нужен уравновешенный охранник-компаньон, а не караульная собака.</li>
+            <li>Тем, кто хочет выставляться — поможем с подготовкой и хендлингом.</li>
+          </ul>
+        </div>
+        <div class="fit-card fit-no reveal">
+          <h3>О чём честно стоит знать</h3>
+          <ul>
+            <li>Это крупная и тяжёлая собака: кобель — до 72 см в холке.</li>
+            <li>До полутора лет щенка нельзя перегружать: никаких прыжков и долгих пробежек.</li>
+            <li>Двойная шерсть линяет дважды в год, и это заметно.</li>
+            <li>Гросс плохо переносит одиночество. Собака в вольере отдельно от семьи несчастна.</li>
+            <li>Крупная собака — это заметные расходы на корм и ветеринарию.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- АНАТОМИЯ -->
+  <section class="section anat" id="mdm-anatomy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Анатомия</div>
+        <h2>Из чего сделан гросс</h2>
+        <p class="lead">Наведите на точку — подсветим, что это, зачем оно гроссу и что о нём говорит стандарт породы.</p>
+      </div>
+      <div class="anat-grid">
+        <div class="anat-stage reveal" id="mdm-anatStage">
+          <img data-img="standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке, вид три четверти">
+          <div class="anat-dim" aria-hidden="true"></div>
+          <div class="anat-ring" aria-hidden="true"><span id="mdm-anatRingLabel"></span></div>
+          <div id="mdm-anatDots"></div>
+        </div>
+        <aside class="anat-panel reveal" aria-live="polite">
+          <div id="mdm-anatCard">
+            <span class="anat-num">Гросс в цифрах</span>
+            <h3>Наведите на любую точку на фото</h3>
+            <dl class="anat-stats">
+              <div><dt>Рост кобеля</dt><dd>65–72 см</dd></div>
+              <div><dt>Рост суки</dt><dd>60–68 см</dd></div>
+              <div><dt>Вес</dt><dd>50–70 кг</dd></div>
+              <div><dt>Окрас</dt><dd>Трёхцветный</dd></div>
+            </dl>
+          </div>
+          <div class="anat-chips" id="mdm-anatChips"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРОИЗВОДИТЕЛИ -->
+  <section class="section" id="mdm-dogs">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Наши собаки</div>
+        <h2>Родители будущих щенков</h2>
+        <p class="lead">Племенное ядро питомника. У каждой суки — подтверждённые титулы и обследование на дисплазию.</p>
+      </div>
+      <div class="dogs-grid" id="mdm-dogsGrid"></div>
+      <div class="males reveal" id="mdm-males"></div>
+      <p class="note">Копии родословных и заключения по дисплазии передаём вместе со щенком. До решения — показываем по запросу.</p>
+    </div>
+  </section>
+
+  <!-- ЧЕМПИОНАТ МИРА -->
+  <section class="section champ" id="mdm-champ">
+    <div class="wrap champ-grid">
+      <div class="reveal">
+        <div class="eyebrow">Ринг</div>
+        <h2>Чемпионат мира 2023, Женева</h2>
+        <p class="lead" style="margin-top:22px">26 августа 2023 года на Всемирной выставке собак в Швейцарии — на родине породы — собаки нашего разведения получили два высших титула.</p>
+        <div class="titles-list">
+          <div><b>RIGHT IZ DOMA MADAMY</b><span>Чемпион мира 2023</span></div>
+          <div><b>AMOR IZ DOMA MADAMY</b><span>Вице-чемпион мира 2023</span></div>
+          <div><b>ARCHI FOR SENNENHUND ROSSII</b><span>Чемпион мира 2016</span></div>
+        </div>
+        <p style="color:rgba(246,241,231,.75)">Если вам нужен щенок для выставок или разведения — обсудим линии, результаты родителей и реальные перспективы. Без обещаний будущих побед.</p>
+        <a class="btn btn-light" href="#mdm-contact" data-goal="Выставки и разведение">Обсудить выставочную цель</a>
+      </div>
+      <img class="reveal" data-img="wds-2023.jpg" alt="AMOR IZ DOMA MADAMY на World Dog Show 2023 в Женеве">
+    </div>
+  </section>
+
+  <!-- ЩЕНКИ -->
+  <section class="section" id="mdm-puppies">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Щенки</div>
+        <h2>Помёты и очередь</h2>
+        <p class="lead">Каждая вязка планируется заранее — под конкретное сочетание кровей. Поэтому щенков немного, и мы ведём предварительную запись.</p>
+      </div>
+      <div class="litter">
+        <article class="litter-card reveal">
+          <div class="pics">
+            <img data-img="litter-1.jpg" alt="Щенок гросса в саду">
+            <img data-img="litter-2.jpg" alt="Щенок гросса в саду">
+          </div>
+          <div class="info">
+            <span class="chip muted status">Последний помёт</span>
+            <h3>AMOR × CHILLI PEPPER</h3>
+            <dl>
+              <div><dt>Дата рождения</dt><dd>21 ноября 2025</dd></div>
+              <div><dt>Отец</dt><dd>AMOR IZ DOMA MADAMY — вице-чемпион мира 2023</dd></div>
+              <div><dt>Мать</dt><dd>CHILLI PEPPER IZ DOMA MADAMY</dd></div>
+              <div><dt>Переезд</dt><dd>С двух месяцев, после актирования</dd></div>
+            </dl>
+          </div>
+        </article>
+        <aside class="queue reveal">
+          <h3>Открыта запись на будущие помёты</h3>
+          <p>Очередь ведём честно — по дате обращения.</p>
+          <ol>
+            <li>Знакомимся и обсуждаем вашу семью</li>
+            <li>Вместе выбираем подходящий помёт</li>
+            <li>Вносим вас в очередь</li>
+            <li>Резерв конкретного щенка — после рождения</li>
+          </ol>
+          <a class="btn btn-light" href="#mdm-contact" data-goal="Компаньон в семью">Встать в очередь</a>
+        </aside>
+      </div>
+      <details class="registry reveal">
+        <summary>Реестр помётов с 2019 года</summary>
+        <table>
+          <tbody id="mdm-registry"></tbody>
+        </table>
+      </details>
+    </div>
+  </section>
+
+  <!-- КАК КУПИТЬ -->
+  <section class="section" id="mdm-how" style="background:var(--paper)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Порядок</div>
+        <h2>Как проходит покупка щенка</h2>
+        <p class="lead">Семь шагов от первого письма до дня, когда щенок уезжает домой. Мы проходим их с каждым владельцем — без исключений и без спешки.</p>
+      </div>
+      <div class="steps">
+        <article class="step reveal"><h3>Знакомство</h3><p>Вы звоните или пишете. Говорим о доме, детях, других животных, о том, сколько собака будет одна. Честно скажем, подходит ли вам порода.</p></article>
+        <article class="step reveal"><h3>Подбор помёта</h3><p>Показываем родителей, родословные, титулы и результаты обследований. Вместе выбираем помёт, который подходит именно вам.</p></article>
+        <article class="step reveal"><h3>Заявка и очередь</h3><p>Вносим вас в очередь по дате обращения. Резерв конкретного щенка возможен после рождения помёта.</p></article>
+        <article class="step reveal"><h3>Первые недели</h3><p>Присылаем фото и видео с первых дней. Малыши растут в доме, среди людей и бытовых звуков. Приехать можно по договорённости.</p></article>
+        <article class="step reveal"><h3>Актирование и выбор</h3><p>В 45 дней — племенной осмотр специалистом клуба. К этому моменту мы знаем характер каждого и подбираем щенка под вашу семью.</p></article>
+        <article class="step reveal"><h3>Отъезд домой</h3><p>С двух месяцев: здоровым, привитым по возрасту, с клеймом и полным пакетом документов. Доставку обсуждаем отдельно.</p></article>
+        <article class="step accent reveal"><h3>Дальше — всегда на связи</h3><p>Кормление, нагрузка по возрасту, смена зубов, поведение, первая выставка. Пишите в любое время — и через месяц, и через десять лет.</p></article>
+      </div>
+      <div class="two-col">
+        <div class="box reveal">
+          <h3>Что уезжает вместе со щенком</h3>
+          <ul>
+            <li>Метрика щенка РКФ — обменивается на родословную FCI</li>
+            <li>Клеймо — личный номер в ухе</li>
+            <li>Ветеринарный паспорт с отметками о прививках и обработках</li>
+            <li>Копии родословных родителей и результаты HD/ED</li>
+            <li>Привычный корм на первые дни и памятка по выращиванию</li>
+            <li>Чипирование и документы для вывоза за границу — по договорённости</li>
+          </ul>
+        </div>
+        <div class="box reveal">
+          <h3>О чём мы спросим вас</h3>
+          <p>Это не формальность: от ответов зависит, какого щенка мы предложим — и предложим ли.</p>
+          <ul>
+            <li>Где будет жить собака и сколько часов в день оставаться одна</li>
+            <li>Есть ли опыт содержания крупных пород</li>
+            <li>Кто в семье будет заниматься собакой каждый день</li>
+            <li>Планируете ли выставки и разведение</li>
+            <li>Как вы представляете прогулки зимой и в дождь</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОСЛЕ ПОКУПКИ -->
+  <section class="section after" id="mdm-after">
+    <div class="wrap after-grid">
+      <div class="reveal">
+        <div class="eyebrow">После</div>
+        <h2>Мы не прощаемся</h2>
+        <p class="lead" style="margin-top:22px">Наши щенки остаются для нас детьми — выращенными в волнениях и бессонных ночах. Продажей ничего не заканчивается.</p>
+        <p>В период активного роста ошибка стоит дорого: кормление, нагрузка, воспитание. Мы в постоянном контакте с владельцами и помогаем с содержанием, уходом и здоровьем.</p>
+      </div>
+      <div class="support">
+        <div class="reveal"><h3>Консультации без срока давности</h3><p>Кормление, нагрузка, воспитание, здоровье. Пишите и звоните, когда нужно.</p></div>
+        <div class="reveal"><h3>Выставки и хендлинг</h3><p>Подготовим к рингу и поможем выставить собаку. Ездим на крупные выставки в России и Европе.</p></div>
+        <div class="reveal"><h3>Передержка</h3><p>Оставить собаку на время отпуска можно у нас — только для собак нашего разведения.</p></div>
+        <div class="reveal"><h3>Если что-то изменилось</h3><p>Если в вашей жизни перемены и собаке нужен новый дом — сначала напишите нам. Мы поможем.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="mdm-faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Вопросы</div>
+        <h2>Что спрашивают чаще всего</h2>
+      </div>
+      <div class="faq reveal" id="mdm-faqList"></div>
+    </div>
+  </section>
+
+  <!-- ГАЛЕРЕЯ -->
+  <section class="section" id="mdm-gallery" style="background:var(--paper)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Галерея</div>
+        <h2>Наша обычная жизнь</h2>
+      </div>
+      <div class="gallery" id="mdm-gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="section contact" id="mdm-contact">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Контакты</div>
+        <h2>Приезжайте знакомиться</h2>
+        <p class="lead" style="margin-top:22px">Мы всегда рады рассказать о породе — даже если вы только присматриваетесь. Личная консультация ни к чему не обязывает.</p>
+        <div class="people">
+          <a href="tel:+79155851548"><span>Марина</span><b>8 (915) 585-15-48</b></a>
+          <a href="tel:+79102413201"><span>Василий</span><b>8 (910) 241-32-01</b></a>
+          <a href="tel:+79529563887"><span>Ещё телефон</span><b>8 (952) 956-38-87</b></a>
+          <a href="mailto:lovedog_marishka@mail.ru"><span>Почта</span><b>lovedog_marishka@mail.ru</b></a>
+          <div><span>Адрес</span><b>Воронежская обл., Рамонский р-н,<br>с. Ямное, ул. Советская, 84</b></div>
+          <div><span>Как добраться</span><b>10 км от Воронежа, трасса М-4 на Москву</b></div>
+          <div><span>Визит</span><b>По предварительной договорённости</b></div>
+        </div>
+      </div>
+      <form class="form reveal" id="mdm-leadForm" novalidate>
+        <h3>Обсудить подбор щенка</h3>
+        <p class="small">Достаточно пары ответов — подробности обсудим в разговоре. Заявка не обязывает к покупке.</p>
+        <div class="field">
+          <label for="mdm-f-name">Как к вам обращаться</label>
+          <input id="mdm-f-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="mdm-f-contact">Телефон или мессенджер</label>
+          <input id="mdm-f-contact" name="contact" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <span style="font-size:13.5px;font-weight:600">Цель</span>
+          <div class="radios" role="radiogroup">
+            <label><input type="radio" name="goal" value="Компаньон в семью" checked><span>Компаньон в семью</span></label>
+            <label><input type="radio" name="goal" value="Первая собака"><span>Первая собака</span></label>
+            <label><input type="radio" name="goal" value="Выставки и разведение"><span>Выставки / разведение</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="mdm-f-when">Когда хотели бы взять щенка</label>
+          <select id="mdm-f-when" name="when">
+            <option>Пока присматриваемся</option>
+            <option>В ближайшие 3 месяца</option>
+            <option>В течение полугода</option>
+            <option>Позже</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mdm-f-msg">Вопрос или пара слов о вас (необязательно)</label>
+          <textarea id="mdm-f-msg" name="msg" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Отправить</button>
+        <div class="form-ok" id="mdm-formOk" role="status">Откроется почтовый клиент с готовым письмом — останется нажать «Отправить». Или просто позвоните Марине.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© Из Дома МаДаМи — кинологический племенной питомник</span>
+    <span>FCI · РКФ № 9392 · Воронеж</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="mdm-lightbox"><img alt=""></div>
+</div>
+
+<script>
+(function () {
+// Папка с фотографиями (hero.jpg, autumn.jpg, g03.jpg … — файлы из папки img/ репозитория).
+// Замените на свой адрес, если фото лежат в другом месте. Слэш на конце обязателен.
+const IMG = "https://cdn.jsdelivr.net/gh/ohshitbutonyes/madami@main/img/";
+const root = document.getElementById("mdm-root");
+  // Данные — из материалов питомника (PDF «Из Дома МаДаМи»). Обновлять здесь.
+  const DOGS = [
+    { name: "SHULVI ROZAN ESTAMPA MADAMY", born: "22.10.2009", parents: "о. Zennenhund Rossii Magnat · м. Kim (imp. Slovenia)",
+      titles: "Юный чемпион России и Молдовы, чемпион России, Молдовы, Украины, РФЛС, 2 × чемпион РКФ, 3 × CACIB, BIG, BIS J.", hd: true },
+    { name: "ROYZ IZ DOMA MADAMY", born: "11.05.2011", parents: "о. Shulvi Rozan Zidan · м. Shulvi Rozan Estampa",
+      titles: "Юный чемпион России, чемпион России, чемпион РКФ, лучший представитель породы, BIG-1, BIG-2.", hd: true },
+    { name: "TUTTA IZ DOMA MADAMY", born: "26.11.2011", parents: "о. Axle from the Earth’s Axis · м. Shulvi Rozan Estampa",
+      titles: "Юный чемпион России, чемпион России, чемпион РКФ, CACIB, BIG, BIS.", hd: true },
+    { name: "TIFFANY IZ DOMA MADAMY", born: "26.11.2011", parents: "о. Axle from the Earth’s Axis · м. Shulvi Rozan Estampa",
+      titles: "Чемпион России, чемпион РКФ.", hd: true },
+    { name: "ESTEL IZ DOMA MADAMY", born: "05.02.2013", parents: "о. Sennenhund Rossii Equador · м. Shulvi Rozan Estampa",
+      titles: "Юный чемпион России, чемпион России, чемпион РКФ, кандидат в чемпионы клуба." },
+    { name: "SENNENHUND ROSSII TONIKA MADAMI", born: "", parents: "о. Sennenhund Rossii Magnat · м. Dana Smart",
+      titles: "Чемпион России, чемпион РКФ. Лучшая сука-юниор «Россия-2014», юный вице-чемпион Европы 2014." },
+    { name: "SR SORBONNA MADAMY", born: "08.09.2015", parents: "о. Giorgio Armani from Swiss Star · м. SR Shangri’La", titles: "" },
+    { name: "SR SANSHAIN MADAMY", born: "08.09.2015", parents: "о. Giorgio Armani from Swiss Star · м. SR Shangri’La", titles: "" },
+  ];
+
+  const MALES = [
+    ["AMOR IZ DOMA MADAMY", "Вице-чемпион мира 2023"],
+    ["ARCHI FOR SENNENHUND ROSSII", "Чемпион мира 2016 · интерчемпион"],
+    ["RINGO STAR IZ DOMA MADAMY", "Производитель"],
+    ["GENRIH IZ DOMA MADAMY", "Производитель"],
+    ["SENNENHUND ROSSII SPARTAK", "Производитель"],
+    ["BARD NERAWIN FOREVER", "Импорт, Латвия"],
+  ];
+
+  const LITTERS = [
+    ["21.11.2025", "AMOR × CHILLI PEPPER", "Viva Victoria, Vesna"],
+    ["31.08.2024", "GENRIH × CHILLI PEPPER", "Литера «Y»"],
+    ["21.11.2022", "AMOR × YURA DE FLER", "Литера «N» — Nicole de Loran, Neiv, Noy, Natella, Nina Ricci"],
+    ["25.09.2022", "RINGO STAR × BELANTA", "4 кобеля, 3 суки — Marshal, Maximus, Magnus, Mars, Kalvados"],
+    ["01.06.2022", "RINGO STAR × KSAV’IERA", "Щенки проданы"],
+    ["09.03.2022", "AMOR × HONDA", "Escobar, Ezhevika"],
+    ["27.11.2021", "RINGO STAR × ESHEROLE", "3 кобеля, 4 суки"],
+    ["07.03.2021", "SENNENHUND ROSSII SPARTAK × HONDA", "4 суки"],
+    ["07.02.2021", "RINGO STAR × KSAV’YERA", "5 кобелей, 8 сук — Yuniti Famaly, Yunika, Yunona, Chellenger, Chicago Bull"],
+    ["18.07.2019", "BARD NERAWIN FOREVER × SR SORBONNE", "Marko (Польша), Malifisenta, Lionel Messi"],
+  ];
+
+  const FAQ = [
+    ["Сколько стоит щенок?", "Стоимость зависит от помёта и перспектив конкретного щенка — выставочный класс и домашний компаньон стоят по-разному. Мы называем цену при разговоре, честно и сразу, вместе с тем, что в неё входит."],
+    ["Можно ли держать гросса в квартире?", "Да. Гросс спокоен в доме и не суетится — но ему нужны две полноценные прогулки в день в любую погоду. Если вы к этому готовы, квартира не помеха. Если собака будет одна по двенадцать часов, порода вам не подходит."],
+    ["Как гросс относится к детям и другим животным?", "Порода спокойная и терпеливая, внимательная к детям, уверенно ведёт себя с другими животными. Зенненхундов не зря называют швейцарскими семейными собаками. При этом это крупная собака — первое время с маленькими детьми нужен присмотр взрослых."],
+    ["Что такое дисплазия и проверяете ли вы производителей?", "Дисплазия — наследственное нарушение развития тазобедренных (HD) и локтевых (ED) суставов, к которому склонны крупные породы. Все наши производители обследованы; HD-A и ED-0 означают, что признаков дисплазии нет. Результаты передаём вместе со щенком."],
+    ["Когда щенок может уехать в новый дом?", "С двух месяцев — после обязательного актирования в 45 дней. Щенок уезжает привитым по возрасту, с клеймом и документами."],
+    ["Отправляете ли вы щенков в другие города и страны?", "Да. Наши собаки уезжали в разные регионы России и за границу — в частности, в Польшу. Чипирование и документы для вывоза оформляем по договорённости, условия доставки обсуждаем индивидуально."],
+    ["Сильно ли линяет гросс?", "Шерсть двойная, с плотным подшёрстком. Дважды в год идёт заметная линька — в это время собаку нужно чаще вычёсывать."],
+    ["Чем кормить щенка?", "С собой даём привычный корм на первые дни и памятку по выращиванию. Рацион и нагрузку по возрасту подробно обсуждаем — и дальше консультируем по мере роста."],
+    ["Можно ли приехать и познакомиться с собаками?", "Да, по предварительной договорённости. Питомник в 10 км от Воронежа, по трассе М-4 в сторону Москвы."],
+  ];
+
+  // Анатомия: x/y — положение точки на фото (в % от ширины/высоты), r — радиус подсветки
+  const ANATOMY = [
+    { id: "brows", x: 32.5, y: 11, r: 9, name: "Бровки",
+      what: "Над каждым глазом — по рыжему пятну подпала. Из-за них у гросса такое выразительное лицо: он «хмурится», «удивляется» и «просит» одними бровями.",
+      why: "Это обязательная часть трёхцветного окраса. Симметричные, чёткие бровки — первое, на что смотрит эксперт на выставке.",
+      std: "Стандарт FCI: подпал над глазами, на щеках, на груди и на всех четырёх лапах — строго между чёрным и белым." },
+    { id: "muzzle", x: 26, y: 17, r: 11, name: "Морда и проточина",
+      what: "Мощная тупая морда с белой проточиной — полосой, которая идёт от носа на лоб. Губы сухие и плотно прилегают.",
+      why: "Сильные челюсти — наследство охранной и пастушьей работы. Плотные губы — значит, слюней заметно меньше, чем у мастифов и сенбернаров.",
+      std: "Прикус — ножницеобразный, полный набор зубов. Нос всегда чёрный." },
+    { id: "ears", x: 45.7, y: 19.3, r: 10, name: "Уши",
+      what: "Треугольные, среднего размера, высоко посажены. В спокойствии висят и прилегают к голове, при интересе — поднимаются и разворачиваются вперёд.",
+      why: "Лучший индикатор настроения: по ушам видно, что гросс насторожился и что-то услышал раньше вас.",
+      std: "Уши с закруглёнными кончиками, покрыты густой шерстью с обеих сторон." },
+    { id: "chest", x: 37, y: 46, r: 17, name: "Грудь",
+      what: "Широкая и глубокая — опускается до локтей. Спереди белая «манишка», по бокам — рыжий подпал.",
+      why: "Это объём для сердца и лёгких. Гросс — тягловая собака: в Швейцарии такие возили тележки с молоком и сыром, и выносливость шла именно отсюда.",
+      std: "Грудь объёмная, с выраженным передним краем, рёбра округлые, но не бочкообразные." },
+    { id: "back", x: 62, y: 30, r: 16, name: "Спина",
+      what: "Прямая, крепкая, средней длины. Корпус чуть длиннее, чем рост в холке, — гросс выглядит мощным, но не громоздким.",
+      why: "Спина передаёт усилие от задних ног вперёд: на ней держится вся тяга. Поэтому до полутора лет щенку нельзя прыгать и бегать по лестницам — растущие суставы и спину берегут.",
+      std: "Соотношение роста в холке к длине корпуса — примерно 9 : 10." },
+    { id: "coat", x: 58.5, y: 43, r: 18, name: "Шерсть",
+      what: "Двойная: плотная блестящая ость 3–5 см и густой подшёрсток, обычно тёмно-серый или чёрный.",
+      why: "Создана для альпийской зимы: снег и мороз гроссу в радость, а вот жару он переносит хуже. Линяет дважды в год — в это время вычёсываем чаще.",
+      std: "Шерсть короткая и плотно прилегает. Длинная или волнистая — серьёзный недостаток." },
+    { id: "tail", x: 72.9, y: 28.6, r: 7, name: "Хвост",
+      what: "Толстый у основания, длинный — достаёт до скакательных суставов. В покое висит, в движении и в радости поднимается.",
+      why: "Хвост — руль и барометр. Высоко поднятый — гросс возбуждён или играет, опущенный и расслабленный — спокоен.",
+      std: "Хвост не закручивается кольцом и не ложится на спину." },
+    { id: "tan", x: 33, y: 76, r: 11, name: "Подпал на лапах",
+      what: "Ржаво-рыжий цвет, который всегда стоит между чёрным и белым — как здесь, на передних лапах.",
+      why: "Третий цвет делает окрас «трёхцветным». По чёткости и симметрии подпала на лапах видно качество окраса.",
+      std: "Чёрный — основной цвет, подпал — насыщенный, от рыжего до красно-коричневого." },
+    { id: "paws", x: 50.5, y: 92, r: 9, name: "Лапы",
+      what: "Крупные, округлые, с плотно сжатыми пальцами и белыми «носочками».",
+      why: "Собака весом 50–70 кг опирается на них целиком. Сводистые лапы держат вес и не скользят на горной тропе — и на зимнем асфальте тоже.",
+      std: "Лапы прямые, смотрят строго вперёд, когти крепкие." },
+    { id: "hind", x: 74.5, y: 55, r: 15, name: "Задние ноги",
+      what: "Широкие мускулистые бёдра и хорошо выраженные углы скакательных суставов.",
+      why: "Это мотор гросса. Толчок задних ног даёт размашистое, свободное движение и ту самую силу, с которой он тянул повозку.",
+      std: "В движении задние ноги работают параллельно, без сближения скакательных суставов." },
+  ];
+
+  const GALLERY = ["g03", "g12", "meadow", "g19", "g06", "newborns", "g11", "g20", "ring", "g13", "g25", "g05", "g21", "g24", "g14", "g10", "g04", "g22", "g26", "g27"];
+
+  const $ = (s) => root.querySelector(s);
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  root.classList.add("mdm-js");
+  root.querySelectorAll("[data-img]").forEach((im) => { im.src = IMG + im.dataset.img; });
+
+  $("#mdm-dogsGrid").innerHTML = DOGS.map((d) => `
+    <article class="dog reveal">
+      <h3>${esc(d.name)}</h3>
+      <div class="meta">${d.born ? esc(d.born) + " · " : ""}${esc(d.parents)}</div>
+      <div class="titles">${esc(d.titles || "Племенная сука питомника.")}</div>
+      <div class="chips">${d.hd ? '<span class="chip">HD-A · ED-0</span>' : '<span class="chip muted">Обследования — по запросу</span>'}</div>
+    </article>`).join("");
+
+  $("#mdm-males").innerHTML = `<h3 style="grid-column:1/-1;margin-bottom:6px">Кобели в нашем разведении</h3>` +
+    MALES.map(([n, t]) => `<div class="male">${esc(n)}<span>${esc(t)}</span></div>`).join("");
+
+  $("#mdm-registry").innerHTML = LITTERS.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("");
+
+  $("#mdm-faqList").innerHTML = FAQ.map(([q, a], i) => `<details${i === 0 ? " open" : ""}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
+
+  $("#mdm-gallery-grid").innerHTML = GALLERY.map((g) => `<img src="${IMG}${g}.jpg" alt="Гроссы питомника Из Дома МаДаМи" loading="lazy">`).join("");
+
+  // Анатомия
+  const stage = $("#mdm-anatStage"), card = $("#mdm-anatCard"), intro = card.innerHTML;
+  $("#mdm-anatDots").innerHTML = ANATOMY.map((a, i) =>
+    `<button class="anat-dot" data-part="${a.id}" style="left:${a.x}%;top:${a.y}%" aria-label="${esc(a.name)}">${i + 1}</button>`).join("");
+  $("#mdm-anatChips").innerHTML = ANATOMY.map((a, i) => `<button type="button" data-part="${a.id}">${i + 1}. ${esc(a.name)}</button>`).join("");
+  let active = null;
+  const showPart = (id) => {
+    if (id === active) return;
+    active = id;
+    const a = ANATOMY.find((p) => p.id === id);
+    root.querySelectorAll("[data-part]").forEach((b) => b.classList.toggle("active", b.dataset.part === id));
+    if (!a) { stage.classList.remove("on"); card.innerHTML = intro; return; }
+    stage.style.setProperty("--ax", a.x + "%");
+    stage.style.setProperty("--ay", a.y + "%");
+    stage.style.setProperty("--ar", a.r + "%");
+    stage.classList.add("on");
+    $("#mdm-anatRingLabel").textContent = a.name;
+    card.innerHTML = `<span class="anat-num">${ANATOMY.indexOf(a) + 1} из ${ANATOMY.length}</span>
+      <h3>${esc(a.name)}</h3><p>${esc(a.what)}</p>
+      <p class="why"><b>Зачем это гроссу</b>${esc(a.why)}</p><p class="std">${esc(a.std)}</p>`;
+    card.classList.remove("swap"); void card.offsetWidth; card.classList.add("swap");
+  };
+  root.querySelectorAll("[data-part]").forEach((b) => {
+    b.addEventListener("mouseenter", () => showPart(b.dataset.part));
+    b.addEventListener("focus", () => showPart(b.dataset.part));
+    b.addEventListener("click", () => showPart(b.dataset.part));
+  });
+
+  // Шапка
+  const header = $("#mdm-header");
+  const onScroll = () => header.classList.toggle("scrolled", scrollY > 30);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Мобильное меню
+  const nav = $("#mdm-nav"), burger = $("#mdm-burger");
+  burger.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open);
+  });
+  nav.addEventListener("click", (e) => { if (e.target.tagName === "A") { nav.classList.remove("open"); burger.setAttribute("aria-expanded", false); } });
+
+  // Кнопки с целью — предвыбирают цель в форме
+  root.querySelectorAll("[data-goal]").forEach((a) => a.addEventListener("click", () => {
+    const r = root.querySelector(`input[name="goal"][value="${a.dataset.goal}"]`);
+    if (r) r.checked = true;
+  }));
+
+  // Появление при скролле
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  }), { threshold: 0.12 });
+  root.querySelectorAll(".reveal").forEach((el) => {
+    // Всё, что уже на экране при загрузке, показываем сразу
+    if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in");
+    else io.observe(el);
+  });
+
+  // Лайтбокс
+  const lb = $("#mdm-lightbox");
+  $("#mdm-gallery-grid").addEventListener("click", (e) => {
+    if (e.target.tagName !== "IMG") return;
+    lb.querySelector("img").src = e.target.src;
+    lb.classList.add("open");
+  });
+  lb.addEventListener("click", () => lb.classList.remove("open"));
+  addEventListener("keydown", (e) => { if (e.key === "Escape") lb.classList.remove("open"); });
+
+  // Форма: бэкенда пока нет — собираем письмо в почтовый клиент
+  $("#mdm-leadForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = e.target.elements;
+    const name = f.name.value.trim(), contact = f.contact.value.trim();
+    if (!name || !contact) {
+      (!name ? f.name : f.contact).focus();
+      e.target.reportValidity();
+      return;
+    }
+    const body = [
+      `Имя: ${name}`,
+      `Контакт: ${contact}`,
+      `Цель: ${f.goal.value}`,
+      `Сроки: ${f.when.value}`,
+      f.msg.value.trim() && `Сообщение: ${f.msg.value.trim()}`,
+    ].filter(Boolean).join("\n");
+    $("#mdm-formOk").style.display = "block";
+    location.href = `mailto:lovedog_marishka@mail.ru?subject=${encodeURIComponent("Подбор щенка — заявка с сайта")}&body=${encodeURIComponent(body)}`;
+  });
+})();
+</script>

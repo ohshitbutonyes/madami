@@ -15,6 +15,10 @@
   --sun: #f2b84b;
   --ink: #1f1b17;         /* чёрный гросса */
   --ink-soft: #4a433c;
+  --choc: #5b3a2b;        /* шоколад — акцент, дозированно */
+  --choc-deep: #3b261c;
+  --cocoa: #a57b63;
+  --latte: #f2e8de;
   --line: rgba(31, 27, 23, .14);
   --radius: 18px;
   --shadow: 0 18px 40px -24px rgba(60, 40, 20, .45);
@@ -34,7 +38,7 @@ body {
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.12; margin: 0; letter-spacing: -.01em; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.12; margin: 0; letter-spacing: -.01em; color: #2f2119; }
 h1 { font-size: clamp(40px, 6vw, 76px); }
 h2 { font-size: clamp(32px, 4.2vw, 52px); }
 h3 { font-size: 22px; }
@@ -184,6 +188,78 @@ em { font-style: italic; color: var(--rust); }
 .fit-no { background: #f3dfd0; }
 .fit-no li::before { content: "!"; position: absolute; left: 4px; color: var(--rust); font-weight: 800; }
 
+/* Анатомия */
+@property --ax { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+@property --ay { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+@property --ar { syntax: "<percentage>"; inherits: true; initial-value: 20%; }
+.anat { background: var(--latte); }
+.anat .eyebrow { color: var(--choc); }
+.anat-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.anat-stage {
+  position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 24px 50px -30px rgba(59, 38, 28, .55);
+  --ax: 50%; --ay: 50%; --ar: 20%;
+  transition: --ax .45s ease, --ay .45s ease, --ar .45s ease;
+}
+.anat-stage img { width: 100%; height: 100%; object-fit: cover; }
+.anat-dim {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .35s;
+  background: radial-gradient(var(--ar) var(--ar) at var(--ax) var(--ay), rgba(59, 38, 28, 0) 62%, rgba(59, 38, 28, .62) 100%);
+}
+.anat-ring {
+  position: absolute; left: var(--ax); top: var(--ay); width: calc(var(--ar) * 1.25); aspect-ratio: 1;
+  transform: translate(-50%, -50%) scale(.85); border-radius: 50%; pointer-events: none;
+  border: 2px dashed rgba(255, 248, 238, .9); box-shadow: 0 0 0 6px rgba(165, 123, 99, .25);
+  opacity: 0; transition: opacity .3s, transform .45s ease;
+}
+.anat-ring span {
+  position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%); white-space: nowrap;
+  background: var(--paper); color: var(--choc); font: 600 13px/1 var(--sans); padding: 8px 12px; border-radius: 999px;
+  box-shadow: 0 8px 20px -10px rgba(59, 38, 28, .6);
+}
+.anat-stage.on .anat-dim { opacity: 1; }
+.anat-stage.on .anat-ring { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.anat-dot {
+  position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+  background: var(--paper); color: var(--choc); font: 700 13px/30px var(--sans); text-align: center;
+  box-shadow: 0 0 0 4px rgba(255, 248, 238, .35), 0 6px 14px -6px rgba(0, 0, 0, .5);
+  transition: transform .2s, background .2s, color .2s; z-index: 2;
+}
+.anat-dot::before { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(255, 248, 238, .8); animation: anat-pulse 2.4s ease-out infinite; }
+.anat-dot:hover, .anat-dot:focus-visible, .anat-dot.active { transform: scale(1.18); background: var(--choc); color: var(--paper); outline: none; }
+.anat-stage.on .anat-dot:not(.active) { opacity: .55; }
+.anat-stage.on .anat-dot::before { animation: none; opacity: 0; }
+@keyframes anat-pulse { 0% { transform: scale(.8); opacity: 1; } 100% { transform: scale(1.7); opacity: 0; } }
+.anat-panel { background: var(--paper); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); border: 1px solid rgba(91, 58, 43, .12); position: sticky; top: 96px; }
+#anatCard { min-height: 320px; }
+#anatCard.swap { animation: anat-in .35s ease; }
+@keyframes anat-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.anat-num { display: inline-block; font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--cocoa); margin-bottom: 14px; }
+.anat-panel h3 { font-size: clamp(24px, 2.4vw, 30px); color: var(--choc); margin-bottom: 14px; }
+.anat-panel p { color: var(--ink-soft); font-size: 15.5px; }
+.anat-panel .why { border-left: 3px solid var(--cocoa); padding-left: 14px; color: var(--ink); }
+.anat-panel .why b { display: block; font: 600 12px/1.4 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--choc); margin-bottom: 4px; }
+.anat-panel .std { font-size: 14px; background: var(--latte); border-radius: 12px; padding: 12px 14px; margin: 0; color: var(--choc-deep); }
+.anat-stats { display: grid; grid-template-columns: 1fr 1fr; margin: 6px 0 0; }
+.anat-stats div { padding: 14px 0; border-bottom: 1px solid rgba(91, 58, 43, .14); }
+.anat-stats dt { font: 600 11.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--cocoa); margin-bottom: 6px; }
+.anat-stats dd { margin: 0; font: 500 22px/1.2 var(--serif); color: var(--choc); }
+.anat-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(91, 58, 43, .14); }
+.anat-chips button {
+  font: 500 13.5px/1 var(--sans); padding: 9px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(91, 58, 43, .22); background: transparent; color: var(--choc); transition: .2s;
+}
+.anat-chips button:hover, .anat-chips button.active { background: var(--choc); color: var(--paper); border-color: var(--choc); }
+@media (max-width: 900px) {
+  .anat-grid { grid-template-columns: 1fr; }
+  .anat-panel { position: static; }
+  #anatCard { min-height: 0; }
+}
+@media (max-width: 560px) {
+  .anat-dot { width: 26px; height: 26px; margin: -13px 0 0 -13px; line-height: 26px; font-size: 12px; }
+  .anat-ring span { font-size: 12px; padding: 6px 10px; }
+}
+
 /* Производители */
 .dogs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; }
 .dog {
@@ -203,7 +279,7 @@ em { font-style: italic; color: var(--rust); }
 .note { font-size: 14.5px; color: var(--ink-soft); margin-top: 22px; }
 
 /* Чемпионат мира */
-.champ { background: var(--ink); color: var(--milk); overflow: hidden; }
+.champ { background: var(--choc-deep); color: var(--milk); overflow: hidden; }
 .champ .eyebrow { color: var(--sun); }
 .champ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 80px); align-items: center; }
 .champ img { border-radius: var(--radius); width: 100%; aspect-ratio: 4/3; object-fit: cover; }
@@ -305,7 +381,7 @@ em { font-style: italic; color: var(--rust); }
 .form .btn { width: 100%; }
 .form-ok { display: none; background: #e3e8d3; border-radius: 12px; padding: 14px; font-size: 15px; }
 
-.footer { background: var(--ink); color: rgba(246, 241, 231, .6); padding: 34px 0; font-size: 14px; }
+.footer { background: var(--choc-deep); color: rgba(246, 241, 231, .6); padding: 34px 0; font-size: 14px; }
 .footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
 /* Появление при скролле */
