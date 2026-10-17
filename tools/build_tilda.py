@@ -76,21 +76,21 @@ css = "\n".join(out)
 css = css.replace(".mdm .reveal {", ".mdm.mdm-js .reveal {").replace(".mdm .reveal.in {", ".mdm.mdm-js .reveal.in {")
 css = css.replace("html { scroll-behavior: auto; }", ".mdm { scroll-behavior: auto; }")
 css += """
-.mdm { overflow-x: hidden; }
+.mdm { overflow-x: clip; }
+.mdm table { border: 0; }
 .mdm a:hover { color: inherit; }
-.mdm .nav a:hover, .mdm .path a:hover { color: var(--rust); }
-.mdm .path.featured a:hover { color: var(--sun); }
-.mdm .btn-primary:hover { color: #fff; }
-.mdm .btn-ghost:hover { color: var(--milk); }"""
+.mdm .nav a:hover { color: var(--rust); }
+.mdm .contacts a:hover { color: var(--sun); }
+.mdm .btn-primary:hover { color: #fff; }"""
 
 # JS: корень — блок, фото — из IMG
 assert "const root = document;\n" in js
 js = js.replace("const root = document;\n", "")
 js = js.replace('src="img/${g}.jpg"', 'src="${IMG}${g}.jpg"')
-js = js.replace('$("#mdm-dogsGrid")',
+esc_line = next(l for l in js.splitlines() if l.startswith("const esc = "))
+js = js.replace(esc_line, esc_line + "\n\n"
                 'root.classList.add("mdm-js");\n'
-                'root.querySelectorAll("[data-img]").forEach((im) => { im.src = IMG + im.dataset.img; });\n\n'
-                '$("#mdm-dogsGrid")', 1)
+                'root.querySelectorAll("[data-img]").forEach((im) => { im.src = IMG + im.dataset.img; });', 1)
 if "${IMG}" not in js or "mdm-js" not in js:
     sys.exit("main.js изменился — обновите замены в build_tilda.py")
 js = f"""(function () {{
@@ -100,8 +100,8 @@ const IMG = "{IMG_URL}";
 const root = document.getElementById("mdm-root");
 {js}}})();"""
 
-fonts = ('<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500'
-         '&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">')
+# Шрифты берём из index.html, чтобы блок не расходился с сайтом
+fonts = re.search(r'<link href="https://fonts\.googleapis\.com[^>]+>', html).group(0)
 OUT.write_text(f"""<!-- Из Дома МаДаМи — сайт v1. Вставлять целиком в блок T123 «HTML-код». -->
 {fonts}
 <style>

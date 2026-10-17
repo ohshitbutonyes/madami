@@ -4,376 +4,296 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Из Дома МаДаМи — питомник больших швейцарских зенненхундов</title>
-  <meta name="description" content="Семейный племенной питомник большого швейцарского зенненхунда под Воронежем. FCI–РКФ № 9392, с 2008 года. Подбираем щенка под уклад семьи и остаёмся на связи всю его жизнь.">
+  <meta name="description" content="Семейный племенной питомник большого швейцарского зенненхунда под Воронежем. FCI–РКФ № 9392, с 2008 года.">
   <link rel="icon" href="img/ring.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="header" id="header">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Из Дома МаДаМи — на главную">
-      <img class="logo-mark" src="img/ring.svg" alt="">
-      <span class="logo-text">Из Дома МаДаМи<small>FCI · РКФ № 9392 · с 2008</small></span>
-    </a>
+    <a class="logo" href="#top">Из Дома МаДаМи</a>
     <nav class="nav" id="nav">
       <a href="#home">Питомник</a>
       <a href="#breed">Порода</a>
-      <a href="#dogs">Наши собаки</a>
+      <a href="#dogs">Собаки</a>
       <a href="#puppies">Щенки</a>
-      <a href="#how">Как купить</a>
+      <a href="#how">Покупка</a>
       <a href="#faq">Вопросы</a>
       <a href="#contact">Контакты</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="#contact">Обсудить подбор щенка</a>
-    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a class="header-phone mono" href="tel:+79155851548">8 915 585-15-48</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- HERO -->
+  <!-- ОБЛОЖКА -->
   <section class="hero">
-    <div class="sun" aria-hidden="true"></div>
+    <div class="hero-text">
+      <p class="mono hero-meta">FCI · РКФ № 9392 · с 2008 · Воронеж</p>
+      <h1>Из Дома<br>МаДаМи</h1>
+      <p class="hero-sub">Питомник больших швейцарских зенненхундов. Собаки живут с нами в доме, щенков подбираем под семью.</p>
+      <dl class="hero-phones">
+        <div><dt>Марина</dt><dd><a href="tel:+79155851548">8 (915) 585-15-48</a></dd></div>
+        <div><dt>Василий</dt><dd><a href="tel:+79102413201">8 (910) 241-32-01</a></dd></div>
+      </dl>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+79155851548">Позвонить Марине</a>
+        <a class="link-arrow" href="#contact">Написать</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/hero.jpg" alt="Большой швейцарский зенненхунд сидит на поляне">
+    </figure>
+  </section>
+
+  <!-- ЛЕНТА ФОТО -->
+  <div class="band" aria-label="Наши собаки">
+    <img src="img/g21.jpg" alt="Новорождённые щенки" loading="lazy">
+    <img src="img/g19.jpg" alt="Щенок зевает" loading="lazy">
+    <img src="img/g12.jpg" alt="Щенок стоит" loading="lazy">
+    <img src="img/g06.jpg" alt="Взрослый гросс сидит на ступенях" loading="lazy">
+    <img src="img/g10.jpg" alt="Взрослый гросс у каменной стены" loading="lazy">
+  </div>
+
+  <!-- КАКУЮ СОБАКУ -->
+  <section class="section">
     <div class="wrap">
-      <div class="hero-copy">
-        <div class="eyebrow">Семейный племенной питомник · Воронеж</div>
-        <h1>Большой швейцарский зенненхунд — <em>под уклад вашей семьи</em></h1>
-        <p class="lead">Гроссы живут с нами в доме под Воронежем. Щенка подбираем под вашу семью.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Обсудить подбор щенка</a>
-          <a class="btn btn-ghost" href="#breed">Подходит ли нам порода?</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img src="img/hero.jpg" alt="Большой швейцарский зенненхунд сидит на зелёной поляне">
-        <div class="hero-badge">
-          <b>2023</b>
-          <span>Чемпион и вице-чемпион мира в Женеве, на родине породы</span>
-        </div>
-      </div>
-    </div>
-    <svg class="hills" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 120 C 180 60, 320 70, 480 100 S 820 150, 1000 96 S 1300 40, 1440 80 V160 H0Z" fill="#9fb27f" opacity=".55"/>
-      <path d="M0 140 C 240 100, 420 110, 640 130 S 1060 150, 1240 118 S 1400 110, 1440 116 V160 H0Z" fill="#f6f1e7"/>
-    </svg>
-  </section>
-
-  <!-- ФАКТЫ -->
-  <section class="facts">
-    <div class="wrap facts-grid">
-      <div class="fact"><b>2008</b><span>Год регистрации в системе FCI–РКФ, свидетельство № 9392</span></div>
-      <div class="fact"><b>15+ лет</b><span>Разводим только больших швейцарских зенненхундов</span></div>
-      <div class="fact"><b>HD-A · ED-0</b><span>Производители обследованы и свободны от дисплазии суставов</span></div>
-      <div class="fact"><b>Всю жизнь</b><span>Владельцы звонят нам и через месяц, и через десять лет</span></div>
+      <h2>Какую собаку вы ищете?</h2>
+      <ul class="toc">
+        <li><a href="#contact" data-goal="Компаньон в семью"><span class="toc-n mono">01</span><span class="toc-t">Собаку в семью</span><span class="toc-d">Покажем родителей и подберём щенка по характеру.</span></a></li>
+        <li><a href="#breed"><span class="toc-n mono">02</span><span class="toc-t">Первую собаку в жизни</span><span class="toc-d">Расскажем про породу и поможем с первыми месяцами.</span></a></li>
+        <li><a href="#champ"><span class="toc-n mono">03</span><span class="toc-t">Щенка для выставок</span><span class="toc-d">Обсудим линии родителей и перспективы щенка.</span></a></li>
+      </ul>
     </div>
   </section>
 
-  <!-- ТРИ ПУТИ -->
-  <section class="section" style="padding-top: 70px">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">С чего начать</div>
-        <h2>Расскажите, какая собака вам нужна</h2>
-      </div>
-      <div class="paths">
-        <article class="path featured reveal">
-          <span class="tag">Компаньон · уже был опыт</span>
-          <h3>Ищу гросса в семью</h3>
-          <p>Покажем родителей и подберём щенка по характеру.</p>
-          <a href="#contact" data-goal="Компаньон в семью">Обсудить подбор щенка</a>
-        </article>
-        <article class="path reveal">
-          <span class="tag">Первая собака</span>
-          <h3>Хотим собаку, но боимся ошибиться</h3>
-          <p>Расскажем про породу и поможем с первыми месяцами.</p>
-          <a href="#breed">Подходит ли нам порода</a>
-        </article>
-        <article class="path reveal">
-          <span class="tag">Выставки и разведение</span>
-          <h3>Нужен щенок под цель</h3>
-          <p>Обсудим линии родителей и перспективы щенка.</p>
-          <a href="#champ">Выставочный путь</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ДОМ -->
-  <section class="section home" id="home">
-    <div class="wrap home-grid">
-      <div class="home-photos reveal">
-        <img class="p1" src="img/autumn.jpg" alt="Взрослый гросс на фоне осенней листвы">
-        <img class="p2" src="img/puppy-floor.jpg" alt="Щенок гросса лежит на деревянном полу в доме">
-        <img class="ring-deco" src="img/ring.svg" alt="">
-      </div>
-      <div class="reveal">
-        <div class="eyebrow">Питомник</div>
-        <h2>Собаки, которые живут дома</h2>
-        <p class="lead" style="margin-top:22px">Семейный питомник в 10 км от Воронежа, рядом Дон.</p>
-        <ul class="checks">
+  <!-- ПИТОМНИК -->
+  <section class="section" id="home">
+    <div class="wrap home">
+      <figure class="home-big">
+        <img src="img/autumn.jpg" alt="Взрослый гросс на фоне осенней листвы" loading="lazy">
+      </figure>
+      <div class="home-text">
+        <h2>Собаки живут дома</h2>
+        <p>Семейный питомник в 10 км от Воронежа, рядом Дон. Название сложилось из первых букв наших имён.</p>
+        <ul class="plain">
           <li>Мы кинологи и врачи по образованию.</li>
           <li>Щенки растут в доме, среди людей.</li>
           <li>Не больше одного помёта за раз.</li>
         </ul>
+        <figure class="home-small">
+          <img src="img/puppy-floor.jpg" alt="Щенок гросса на деревянном полу" loading="lazy">
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ДОВЕРИЕ -->
+  <!-- ПРОВЕРКИ -->
   <section class="section" id="trust">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Документы и проверки</div>
-        <h2>Что можно проверить ещё до решения</h2>
-      </div>
-      <div class="trust-grid">
-        <article class="trust reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h2>Что можно проверить до решения</h2>
+      <div class="cols3">
+        <div>
           <h3>Здоровье родителей</h3>
-          <p>Производители проверены на дисплазию: HD-A и ED-0, лучшие оценки.</p>
-          <span class="proof">HD-A · ED-0 у производителей</span>
-        </article>
-        <article class="trust reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
-          <h3>Документы и происхождение</h3>
-          <p>Метрика РКФ, клеймо, ветпаспорт и родословные родителей.</p>
-          <span class="proof">Питомник FCI–РКФ № 9392</span>
-        </article>
-        <article class="trust reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+          <p>Производители проверены на дисплазию суставов.</p>
+          <p class="mono">HD-A · ED-0</p>
+        </div>
+        <div>
+          <h3>Документы</h3>
+          <p>Метрика РКФ, клеймо, ветпаспорт, родословные родителей.</p>
+          <p class="mono">FCI–РКФ № 9392</p>
+        </div>
+        <div>
           <h3>Характер щенка</h3>
           <p>Знаем каждого щенка и советуем, кто подойдёт вашей семье.</p>
-          <span class="proof">Подбор после актирования</span>
-        </article>
+          <p class="mono">Подбор после актирования</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ПОРОДА -->
-  <section class="section breed" id="breed">
-    <div class="wrap">
-      <div class="breed-top">
-        <figure class="breed-photo reveal" style="margin:0">
-          <img src="img/meadow.jpg" alt="Большой швейцарский зенненхунд сидит на траве">
-          <figcaption>Grosser Schweizer Sennenhund</figcaption>
-        </figure>
-        <div class="reveal">
-          <div class="eyebrow">Порода</div>
-          <h2>Гросс — самый крупный из четырёх швейцарских зенненхундов</h2>
-          <p class="lead" style="margin-top:22px">Бывший фермерский сторож, теперь семейная собака.</p>
-          <dl class="spec">
-            <div><dt>Страна</dt><dd>Швейцария</dd></div>
-            <div><dt>FCI</dt><dd>Группа 2, секция 3</dd></div>
-            <div><dt>Рост, кобели</dt><dd>65–72 см в холке</dd></div>
-            <div><dt>Рост, суки</dt><dd>60–68 см в холке</dd></div>
-            <div><dt>Шерсть</dt><dd>Двойная, с плотным подшёрстком</dd></div>
-            <div><dt>Окрас</dt><dd>Только трёхцветный</dd></div>
-          </dl>
+  <section class="section" id="breed">
+    <div class="wrap breed">
+      <div class="breed-text">
+        <h2>Гросс — самый крупный из четырёх швейцарских зенненхундов</h2>
+        <p>Бывший фермерский сторож, теперь семейная собака.</p>
+        <table class="spec">
+          <tr><th>Страна</th><td>Швейцария</td></tr>
+          <tr><th>FCI</th><td>Группа 2, секция 3</td></tr>
+          <tr><th>Рост, кобели</th><td>65–72 см</td></tr>
+          <tr><th>Рост, суки</th><td>60–68 см</td></tr>
+          <tr><th>Вес</th><td>50–70 кг</td></tr>
+          <tr><th>Окрас</th><td>Трёхцветный</td></tr>
+        </table>
+        <div class="fit">
+          <div>
+            <h3>Подходит</h3>
+            <ul class="plus">
+              <li>Семьям с детьми</li>
+              <li>Тем, кто много гуляет в любую погоду</li>
+              <li>Дому с участком или активной семье в квартире</li>
+              <li>Тем, кому нужен спокойный компаньон и сторож</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Стоит знать</h3>
+            <ul class="minus">
+              <li>Кобель вырастает до 72 см в холке</li>
+              <li>До полутора лет нельзя прыжки и долгий бег</li>
+              <li>Дважды в год сильно линяет</li>
+              <li>Плохо переносит одиночество</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="fit">
-        <div class="fit-card fit-yes reveal">
-          <h3>Кому подходит гросс</h3>
-          <ul>
-            <li>Семьям с детьми</li>
-            <li>Тем, кто много гуляет в любую погоду</li>
-            <li>Дому с участком или активной семье в квартире</li>
-            <li>Тем, кому нужен спокойный компаньон и сторож</li>
-          </ul>
-        </div>
-        <div class="fit-card fit-no reveal">
-          <h3>О чём лучше знать заранее</h3>
-          <ul>
-            <li>Кобель вырастает до 72 см в холке</li>
-            <li>До полутора лет нельзя прыжки и долгий бег</li>
-            <li>Дважды в год сильно линяет</li>
-            <li>Плохо переносит одиночество</li>
-          </ul>
-        </div>
-      </div>
+      <figure class="breed-photo">
+        <img src="img/meadow.jpg" alt="Большой швейцарский зенненхунд сидит на траве" loading="lazy">
+        <figcaption class="mono">Grosser Schweizer Sennenhund</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- АНАТОМИЯ -->
-  <section class="section anat" id="anatomy">
+  <section class="section plate" id="anatomy">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Анатомия</div>
-        <h2>Из чего сделан гросс</h2>
-        <p class="lead">Наведите на точку на фото.</p>
-      </div>
-      <div class="anat-grid">
-        <div class="anat-stage reveal" id="anatStage">
-          <img src="img/standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке, вид три четверти">
-          <div class="anat-dim" aria-hidden="true"></div>
-          <div class="anat-ring" aria-hidden="true"><span id="anatRingLabel"></span></div>
+      <h2>Из чего сделан гросс</h2>
+      <div class="plate-grid">
+        <div class="plate-stage" id="anatStage">
+          <img src="img/standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке">
+          <svg class="plate-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line id="anatLine" x1="0" y1="0" x2="0" y2="0"/>
+          </svg>
           <div id="anatDots"></div>
+          <span class="plate-label mono" id="anatLabel"></span>
         </div>
-        <aside class="anat-panel reveal" aria-live="polite">
-          <div id="anatCard">
-            <span class="anat-num">Гросс в цифрах</span>
-            <h3>Выберите точку на фото</h3>
-            <dl class="anat-stats">
-              <div><dt>Рост кобеля</dt><dd>65–72 см</dd></div>
-              <div><dt>Рост суки</dt><dd>60–68 см</dd></div>
-              <div><dt>Вес</dt><dd>50–70 кг</dd></div>
-              <div><dt>Окрас</dt><dd>Трёхцветный</dd></div>
-            </dl>
-          </div>
-          <div class="anat-chips" id="anatChips"></div>
-        </aside>
+        <div class="plate-side">
+          <ol class="plate-legend" id="anatLegend"></ol>
+          <div class="plate-note" id="anatCard" aria-live="polite"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ПРОИЗВОДИТЕЛИ -->
+  <!-- СОБАКИ -->
   <section class="section" id="dogs">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Наши собаки</div>
-        <h2>Родители будущих щенков</h2>
-        <p class="lead">Наши племенные суки и кобели.</p>
-      </div>
-      <div class="dogs-grid" id="dogsGrid"></div>
-      <div class="males reveal" id="males"></div>
+      <h2>Наши собаки</h2>
+      <h3 class="table-title">Суки</h3>
+      <table class="catalog">
+        <thead><tr><th>Кличка</th><th>Родилась</th><th>Родители</th><th>Титулы</th><th>HD / ED</th></tr></thead>
+        <tbody id="dogsTable"></tbody>
+      </table>
+      <h3 class="table-title">Кобели в нашем разведении</h3>
+      <table class="catalog">
+        <tbody id="malesTable"></tbody>
+      </table>
     </div>
   </section>
 
-  <!-- ЧЕМПИОНАТ МИРА -->
+  <!-- ЧЕМПИОНАТ -->
   <section class="section champ" id="champ">
     <div class="wrap champ-grid">
-      <div class="reveal">
-        <div class="eyebrow">Ринг</div>
+      <figure>
+        <img src="img/wds-2023.jpg" alt="AMOR IZ DOMA MADAMY на World Dog Show 2023 в Женеве" loading="lazy">
+        <figcaption class="mono">World Dog Show · Женева · 26.08.2023</figcaption>
+      </figure>
+      <div>
         <h2>Чемпионат мира 2023, Женева</h2>
-        <p class="lead" style="margin-top:22px">World Dog Show, 26 августа 2023, на родине породы.</p>
-        <div class="titles-list">
-          <div><b>RIGHT IZ DOMA MADAMY</b><span>Чемпион мира 2023</span></div>
-          <div><b>AMOR IZ DOMA MADAMY</b><span>Вице-чемпион мира 2023</span></div>
-          <div><b>ARCHI FOR SENNENHUND ROSSII</b><span>Чемпион мира 2016</span></div>
-        </div>
+        <table class="titles">
+          <tr><td>RIGHT IZ DOMA MADAMY</td><td class="mono">Чемпион мира 2023</td></tr>
+          <tr><td>AMOR IZ DOMA MADAMY</td><td class="mono">Вице-чемпион мира 2023</td></tr>
+          <tr><td>ARCHI FOR SENNENHUND ROSSII</td><td class="mono">Чемпион мира 2016</td></tr>
+        </table>
         <a class="btn btn-light" href="#contact" data-goal="Выставки и разведение">Обсудить выставочную цель</a>
       </div>
-      <img class="reveal" src="img/wds-2023.jpg" alt="AMOR IZ DOMA MADAMY на World Dog Show 2023 в Женеве">
     </div>
   </section>
 
   <!-- ЩЕНКИ -->
   <section class="section" id="puppies">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Щенки</div>
-        <h2>Помёты и очередь</h2>
-        <p class="lead">Щенков немного, поэтому ведём запись заранее.</p>
-      </div>
+      <h2>Щенки</h2>
       <div class="litter">
-        <article class="litter-card reveal">
-          <div class="pics">
-            <img src="img/litter-1.jpg" alt="Щенок гросса в саду">
-            <img src="img/litter-2.jpg" alt="Щенок гросса в саду">
-          </div>
-          <div class="info">
-            <span class="chip muted status">Последний помёт</span>
-            <h3>AMOR × CHILLI PEPPER</h3>
-            <dl>
-              <div><dt>Дата рождения</dt><dd>21 ноября 2025</dd></div>
-              <div><dt>Отец</dt><dd>AMOR IZ DOMA MADAMY — вице-чемпион мира 2023</dd></div>
-              <div><dt>Мать</dt><dd>CHILLI PEPPER IZ DOMA MADAMY</dd></div>
-              <div><dt>Переезд</dt><dd>С двух месяцев, после актирования</dd></div>
-            </dl>
-          </div>
-        </article>
-        <aside class="queue reveal">
-          <h3>Открыта запись на будущие помёты</h3>
-          <p>Очередь идёт по дате обращения.</p>
-          <ol>
+        <figure class="litter-pics">
+          <img src="img/litter-1.jpg" alt="Щенок гросса в саду" loading="lazy">
+          <img src="img/litter-2.jpg" alt="Щенок гросса в саду" loading="lazy">
+        </figure>
+        <div class="litter-info">
+          <p class="mono">Последний помёт · 21.11.2025</p>
+          <h3>AMOR × CHILLI PEPPER</h3>
+          <table class="spec">
+            <tr><th>Отец</th><td>AMOR IZ DOMA MADAMY, вице-чемпион мира 2023</td></tr>
+            <tr><th>Мать</th><td>CHILLI PEPPER IZ DOMA MADAMY</td></tr>
+            <tr><th>Переезд</th><td>С двух месяцев</td></tr>
+          </table>
+          <h3 class="queue-title">Запись на следующие помёты</h3>
+          <ol class="queue">
             <li>Знакомимся</li>
             <li>Выбираем помёт</li>
-            <li>Встаёте в очередь</li>
+            <li>Встаёте в очередь по дате обращения</li>
             <li>Бронь после рождения</li>
           </ol>
-          <a class="btn btn-light" href="#contact" data-goal="Компаньон в семью">Встать в очередь</a>
-        </aside>
+          <a class="btn btn-primary" href="#contact" data-goal="Компаньон в семью">Встать в очередь</a>
+        </div>
       </div>
-      <details class="registry reveal">
-        <summary>Реестр помётов с 2019 года</summary>
-        <table>
+      <details class="registry">
+        <summary>Все помёты с 2019 года</summary>
+        <table class="catalog">
           <tbody id="registry"></tbody>
         </table>
       </details>
     </div>
   </section>
 
-  <!-- КАК КУПИТЬ -->
-  <section class="section" id="how" style="background:var(--paper)">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Порядок</div>
-        <h2>Как проходит покупка щенка</h2>
-      </div>
-      <div class="steps">
-        <article class="step reveal"><h3>Знакомство</h3><p>Звоните или пишите, расскажите о себе.</p></article>
-        <article class="step reveal"><h3>Подбор помёта</h3><p>Показываем родителей и документы.</p></article>
-        <article class="step reveal"><h3>Заявка и очередь</h3><p>Очередь по дате обращения.</p></article>
-        <article class="step reveal"><h3>Первые недели</h3><p>Присылаем фото и видео, можно приехать.</p></article>
-        <article class="step reveal"><h3>Актирование и выбор</h3><p>В 45 дней осмотр клуба, советуем щенка.</p></article>
-        <article class="step reveal"><h3>Отъезд домой</h3><p>В два месяца, с прививками и документами.</p></article>
-        <article class="step accent reveal"><h3>И дальше на связи</h3><p>Отвечаем на вопросы хоть через десять лет.</p></article>
-      </div>
-      <div class="two-col one">
-        <div class="box reveal">
-          <h3>Что уезжает вместе со щенком</h3>
-          <ul>
-            <li>Метрика РКФ</li>
-            <li>Клеймо</li>
-            <li>Ветпаспорт</li>
-            <li>Родословные родителей и HD/ED</li>
-            <li>Корм на первые дни и памятка</li>
-            <li>Чип и выездные документы по запросу</li>
-          </ul>
-        </div>
-      </div>
+  <!-- ПОКУПКА -->
+  <section class="section" id="how">
+    <div class="wrap how">
+      <h2>Как проходит покупка</h2>
+      <ol class="steps">
+        <li><span><b>Знакомство.</b> Звоните или пишите, расскажите о себе.</span></li>
+        <li><span><b>Подбор помёта.</b> Показываем родителей и документы.</span></li>
+        <li><span><b>Очередь.</b> По дате обращения.</span></li>
+        <li><span><b>Первые недели.</b> Присылаем фото и видео, можно приехать.</span></li>
+        <li><span><b>Выбор.</b> В 45 дней осмотр клуба, советуем щенка.</span></li>
+        <li><span><b>Домой.</b> В два месяца, с прививками и документами.</span></li>
+        <li><span><b>Дальше.</b> Отвечаем на вопросы хоть через десять лет.</span></li>
+      </ol>
+      <p class="with-puppy"><span class="mono">Со щенком:</span> метрика РКФ, клеймо, ветпаспорт, родословные родителей и HD/ED, корм на первые дни, памятка. Чип и выездные документы по запросу.</p>
     </div>
   </section>
 
   <!-- ПОСЛЕ ПОКУПКИ -->
-  <section class="section after" id="after">
-    <div class="wrap after-grid">
-      <div class="reveal">
-        <div class="eyebrow">После</div>
-        <h2>Мы не прощаемся</h2>
-        <p class="lead" style="margin-top:22px">Остаёмся на связи после покупки.</p>
-      </div>
-      <div class="support">
-        <div class="reveal"><h3>Консультации в любое время</h3><p>Кормление, воспитание, здоровье.</p></div>
-        <div class="reveal"><h3>Выставки и хендлинг</h3><p>Готовим к рингу и выставляем.</p></div>
-        <div class="reveal"><h3>Передержка</h3><p>Для собак нашего разведения.</p></div>
-        <div class="reveal"><h3>Если что-то изменилось</h3><p>Поможем найти собаке новый дом.</p></div>
+  <section class="section" id="after">
+    <div class="wrap">
+      <h2>После покупки</h2>
+      <div class="cols4">
+        <div><h3>Консультации</h3><p>Кормление, воспитание, здоровье.</p></div>
+        <div><h3>Выставки</h3><p>Готовим к рингу и выставляем.</p></div>
+        <div><h3>Передержка</h3><p>Для собак нашего разведения.</p></div>
+        <div><h3>Новый дом</h3><p>Если жизнь поменялась, поможем пристроить.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ВОПРОСЫ -->
   <section class="section" id="faq">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Вопросы</div>
-        <h2>Что спрашивают чаще всего</h2>
-      </div>
-      <div class="faq reveal" id="faqList"></div>
+    <div class="wrap faq-wrap">
+      <h2>Вопросы</h2>
+      <div class="faq" id="faqList"></div>
     </div>
   </section>
 
-  <!-- ГАЛЕРЕЯ -->
-  <section class="section" id="gallery" style="background:var(--paper)">
+  <!-- АЛЬБОМ -->
+  <section class="section" id="gallery">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Галерея</div>
-        <h2>Наша обычная жизнь</h2>
-      </div>
+      <h2>Альбом</h2>
       <div class="gallery" id="gallery-grid"></div>
     </div>
   </section>
@@ -381,39 +301,33 @@
   <!-- КОНТАКТЫ -->
   <section class="section contact" id="contact">
     <div class="wrap contact-grid">
-      <div class="reveal">
-        <div class="eyebrow">Контакты</div>
+      <div>
         <h2>Приезжайте знакомиться</h2>
-        <p class="lead" style="margin-top:22px">Звоните, даже если пока просто присматриваетесь.</p>
-        <div class="people">
-          <a href="tel:+79155851548"><span>Марина</span><b>8 (915) 585-15-48</b></a>
-          <a href="tel:+79102413201"><span>Василий</span><b>8 (910) 241-32-01</b></a>
-          <a href="tel:+79529563887"><span>Ещё телефон</span><b>8 (952) 956-38-87</b></a>
-          <a href="mailto:lovedog_marishka@mail.ru"><span>Почта</span><b>lovedog_marishka@mail.ru</b></a>
-          <div><span>Адрес</span><b>Воронежская обл., Рамонский р-н,<br>с. Ямное, ул. Советская, 84</b></div>
-          <div><span>Как добраться</span><b>10 км от Воронежа, трасса М-4 на Москву</b></div>
-          <div><span>Визит</span><b>По предварительной договорённости</b></div>
-        </div>
+        <p>Звоните, даже если пока просто присматриваетесь.</p>
+        <dl class="contacts">
+          <div><dt>Марина</dt><dd><a href="tel:+79155851548">8 (915) 585-15-48</a></dd></div>
+          <div><dt>Василий</dt><dd><a href="tel:+79102413201">8 (910) 241-32-01</a></dd></div>
+          <div><dt>Ещё</dt><dd><a href="tel:+79529563887">8 (952) 956-38-87</a></dd></div>
+          <div><dt>Почта</dt><dd><a href="mailto:lovedog_marishka@mail.ru">lovedog_marishka@mail.ru</a></dd></div>
+          <div><dt>Адрес</dt><dd>Воронежская обл., Рамонский р-н, с. Ямное, ул. Советская, 84. 10 км от Воронежа по М-4. Визит по договорённости.</dd></div>
+        </dl>
       </div>
-      <form class="form reveal" id="leadForm" novalidate>
-        <h3>Обсудить подбор щенка</h3>
-        <p class="small">Ни к чему не обязывает.</p>
+      <form class="form" id="leadForm" novalidate>
+        <h3>Написать нам</h3>
         <div class="field">
-          <label for="f-name">Как к вам обращаться</label>
+          <label for="f-name">Имя</label>
           <input id="f-name" name="name" autocomplete="name" required>
         </div>
         <div class="field">
           <label for="f-contact">Телефон или мессенджер</label>
           <input id="f-contact" name="contact" autocomplete="tel" required>
         </div>
-        <div class="field">
-          <span style="font-size:13.5px;font-weight:600">Цель</span>
-          <div class="radios" role="radiogroup">
-            <label><input type="radio" name="goal" value="Компаньон в семью" checked><span>Компаньон в семью</span></label>
-            <label><input type="radio" name="goal" value="Первая собака"><span>Первая собака</span></label>
-            <label><input type="radio" name="goal" value="Выставки и разведение"><span>Выставки / разведение</span></label>
-          </div>
-        </div>
+        <fieldset class="field">
+          <legend>Цель</legend>
+          <label class="radio"><input type="radio" name="goal" value="Компаньон в семью" checked> Компаньон в семью</label>
+          <label class="radio"><input type="radio" name="goal" value="Первая собака"> Первая собака</label>
+          <label class="radio"><input type="radio" name="goal" value="Выставки и разведение"> Выставки / разведение</label>
+        </fieldset>
         <div class="field">
           <label for="f-when">Когда хотели бы взять щенка</label>
           <select id="f-when" name="when">
@@ -424,11 +338,11 @@
           </select>
         </div>
         <div class="field">
-          <label for="f-msg">Вопрос или пара слов о вас (необязательно)</label>
+          <label for="f-msg">Вопрос (необязательно)</label>
           <textarea id="f-msg" name="msg" rows="3"></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Отправить</button>
-        <div class="form-ok" id="formOk" role="status">Откроется почта с готовым письмом, останется нажать «Отправить». Можно и просто позвонить Марине.</div>
+        <p class="form-ok" id="formOk" role="status">Откроется почта с готовым письмом, останется нажать «Отправить».</p>
       </form>
     </div>
   </section>
@@ -436,8 +350,8 @@
 
 <footer class="footer">
   <div class="wrap">
-    <span>© Из Дома МаДаМи — кинологический племенной питомник</span>
-    <span>FCI · РКФ № 9392 · Воронеж</span>
+    <span>Из Дома МаДаМи, кинологический племенной питомник</span>
+    <span class="mono">FCI · РКФ № 9392</span>
   </div>
 </footer>
 

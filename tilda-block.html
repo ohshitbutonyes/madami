@@ -1,722 +1,532 @@
 <!-- Из Дома МаДаМи — сайт v1. Вставлять целиком в блок T123 «HTML-код». -->
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 .mdm { --milk: #f6f1e7;
   --paper: #fbf8f2;
   --sand: #ead9bd;
-  --wood: #b98a5e;
-  --wood-dark: #6b4a2f;
-  --rust: #b0532b;        
+  --rust: #b0532b;
   --rust-dark: #8f3f1d;
   --meadow: #5e6b34;
   --meadow-dark: #3f4a22;
-  --jade: #7c9a63;
-  --sky: #a9c8e3;
-  --sky-pale: #dfeaf3;
   --sun: #f2b84b;
-  --ink: #1f1b17;         
-  --ink-soft: #4a433c;
-  --choc: #5b3a2b;        
+  --ink: #1f1b17;
+  --ink-soft: #5a5149;
+  --choc: #5b3a2b;
   --choc-deep: #3b261c;
   --cocoa: #a57b63;
   --latte: #f2e8de;
-  --line: rgba(31, 27, 23, .14);
-  --radius: 18px;
-  --shadow: 0 18px 40px -24px rgba(60, 40, 20, .45);
-  --serif: "Lora", Georgia, serif;
-  --sans: "Manrope", system-ui, -apple-system, sans-serif;
-  --wrap: 1200px; }
+  --head: #2f2119;
+  --line: rgba(31, 27, 23, .18);
+  --serif: "Alegreya", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --wrap: 1240px; }
 .mdm, .mdm * { box-sizing: border-box; }
-.mdm { scroll-padding-top: 84px; }
+.mdm { scroll-padding-top: 64px; }
 .mdm { margin: 0;
-  font: 400 17px/1.6 var(--sans);
+  font: 400 19px/1.5 var(--serif);
   color: var(--ink);
   background: var(--milk);
   -webkit-font-smoothing: antialiased; }
 .mdm img { max-width: 100%; display: block; }
 .mdm a { color: inherit; }
-.mdm h1, .mdm h2, .mdm h3 { font-family: var(--serif); font-weight: 500; line-height: 1.12; margin: 0; letter-spacing: -.01em; color: #2f2119; }
-.mdm h1 { font-size: clamp(40px, 6vw, 76px); }
-.mdm h2 { font-size: clamp(32px, 4.2vw, 52px); }
-.mdm h3 { font-size: 22px; }
-.mdm p { margin: 0 0 1em; }
-.mdm em { font-style: italic; color: var(--rust); }
-.mdm .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
-.mdm .section { padding: clamp(72px, 10vw, 130px) 0; position: relative; }
-.mdm .eyebrow { display: inline-flex; align-items: center; gap: 10px;
-  font: 600 13px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
-  color: var(--meadow); margin-bottom: 18px; }
-.mdm .eyebrow::before { content: ""; width: 22px; height: 22px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23b98a5e' stroke-width='3.2'%3E%3Cpath d='M50 6c25 1 44 19 44 44S75 95 50 94 5 76 6 50 26 5 50 6z'/%3E%3Cpath d='M51 17c18 0 32 15 32 33S68 83 50 83 18 68 18 50 33 17 51 17z' stroke-width='2.6'/%3E%3Cpath d='M49 28c13 0 23 9 23 22s-10 22-23 22-21-10-21-22 9-22 21-22z' stroke-width='2.2'/%3E%3Cpath d='M50 39c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11z' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='2.5' fill='%23b98a5e' stroke='none'/%3E%3C/svg%3E") center/contain no-repeat; }
-.mdm .lead { font-size: clamp(18px, 1.6vw, 21px); color: var(--ink-soft); max-width: 640px; }
-.mdm .section-head { display: grid; gap: 8px; margin-bottom: clamp(36px, 5vw, 60px); max-width: 760px; }
-.mdm .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  padding: 16px 26px; border-radius: 999px; border: 1.5px solid transparent;
-  font: 600 16px/1 var(--sans); text-decoration: none; cursor: pointer;
-  transition: transform .2s, background .2s, color .2s, border-color .2s; }
-.mdm .btn:hover { transform: translateY(-2px); }
+.mdm figure { margin: 0; }
+.mdm h1, .mdm h2, .mdm h3 { font-family: var(--serif); font-weight: 500; line-height: 1.05; margin: 0; color: var(--head); }
+.mdm h1 { font-size: clamp(64px, 10vw, 148px); letter-spacing: -.03em; line-height: .9; }
+.mdm h2 { font-size: clamp(34px, 4.6vw, 60px); letter-spacing: -.02em; margin-bottom: clamp(28px, 4vw, 48px); max-width: 16em; }
+.mdm h3 { font-size: 23px; font-weight: 700; }
+.mdm p { margin: 0 0 .8em; }
+.mdm .mono { font-family: var(--mono); font-size: 13px; letter-spacing: .02em; line-height: 1.5; color: var(--ink-soft); }
+.mdm .wrap { width: min(var(--wrap), 100% - 40px); margin-inline: auto; }
+.mdm .section { padding: clamp(64px, 8vw, 112px) 0; border-top: 1px solid var(--line); }
+.mdm .btn { display: inline-block; padding: 14px 22px; border: 1px solid transparent; border-radius: 2px;
+  font: 500 17px/1 var(--serif); text-decoration: none; cursor: pointer; transition: background .15s, color .15s; }
 .mdm .btn-primary { background: var(--rust); color: #fff; }
 .mdm .btn-primary:hover { background: var(--rust-dark); }
-.mdm .btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
-.mdm .btn-ghost:hover { background: var(--ink); color: var(--milk); }
-.mdm .btn-light { background: var(--paper); color: var(--ink); }
-.mdm .btn-sm { padding: 11px 18px; font-size: 14px; }
-.mdm .header { position: fixed; inset: 0 0 auto; z-index: 50;
-  transition: background .3s, box-shadow .3s; }
-.mdm .header.scrolled { background: rgba(246, 241, 231, .92); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--line); }
-.mdm .header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
-.mdm .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.mdm .logo-mark { width: 40px; height: 40px; }
-.mdm .logo-text { font: 500 21px/1 var(--serif); }
-.mdm .logo-text small { display: block; font: 600 10.5px/1.4 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; }
-.mdm .nav { display: flex; gap: 26px; }
-.mdm .nav a { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--ink-soft); }
+.mdm .btn-light { background: var(--milk); color: var(--ink); }
+.mdm .btn-light:hover { background: #fff; }
+.mdm .link-arrow { font-size: 18px; text-decoration: none; border-bottom: 1px solid currentColor; }
+.mdm .link-arrow::after { content: " →"; }
+.mdm .header { position: sticky; top: 0; z-index: 50; background: var(--milk); border-bottom: 1px solid var(--line); }
+.mdm .header .wrap { display: flex; align-items: center; gap: 32px; height: 60px; }
+.mdm .logo { font: 700 21px/1 var(--serif); text-decoration: none; color: var(--head); margin-right: auto; }
+.mdm .nav { display: flex; gap: 22px; }
+.mdm .nav a { text-decoration: none; font-size: 17px; color: var(--ink-soft); }
 .mdm .nav a:hover { color: var(--rust); }
-.mdm .burger { display: none; background: none; border: 0; width: 44px; height: 44px; cursor: pointer; }
-.mdm .burger span { display: block; height: 2px; background: var(--ink); margin: 6px 8px; transition: .3s; }
-.mdm .hero { position: relative; overflow: hidden;
-  padding: 130px 0 0;
-  background: linear-gradient(180deg, var(--sky) 0%, var(--sky-pale) 46%, var(--milk) 88%); }
-.mdm .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: end; position: relative; z-index: 2; }
-.mdm .hero-copy { padding-bottom: 120px; }
-.mdm .hero h1 em { color: var(--rust); }
-.mdm .hero .lead { margin: 26px 0 34px; }
-.mdm .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
-.mdm .hero-note { margin-top: 18px; font-size: 14px; color: var(--ink-soft); }
-.mdm .hero-photo { position: relative; align-self: stretch; display: flex; align-items: flex-end; }
-.mdm .hero-photo img { width: 100%; height: min(78vh, 720px); object-fit: cover; object-position: 50% 30%;
-  border-radius: 260px 260px 0 0; box-shadow: var(--shadow); }
-.mdm .hero-badge { position: absolute; left: -36px; bottom: 90px; z-index: 3;
-  background: var(--paper); border-radius: 16px; padding: 16px 18px; box-shadow: var(--shadow);
-  display: flex; align-items: center; gap: 14px; width: 300px; }
-.mdm .hero-badge b { font: 600 30px/1 var(--serif); color: var(--rust); }
-.mdm .hero-badge span { font-size: 13.5px; line-height: 1.35; color: var(--ink-soft); }
-.mdm .hills { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 160px; z-index: 1; }
-.mdm .sun { position: absolute; width: 340px; height: 340px; border-radius: 50%; right: 8%; top: 60px;
-  background: radial-gradient(circle, rgba(255, 226, 150, .9) 0%, rgba(255, 226, 150, 0) 70%); z-index: 0; }
-.mdm .facts { background: var(--milk); padding: 0 0 40px; position: relative; z-index: 3; }
-.mdm .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-.mdm .fact { padding: 28px 24px 8px 0; }
-.mdm .fact + .fact { padding-left: 24px; border-left: 1px solid var(--line); }
-.mdm .fact b { display: block; font: 500 clamp(30px, 3.4vw, 42px)/1 var(--serif); margin-bottom: 10px; }
-.mdm .fact span { font-size: 14.5px; color: var(--ink-soft); line-height: 1.45; display: block; }
-.mdm .paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.mdm .path { background: var(--paper); border-radius: var(--radius); padding: 32px 28px; border: 1px solid var(--line);
-  display: flex; flex-direction: column; gap: 14px; transition: transform .25s, box-shadow .25s; }
-.mdm .path:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.mdm .path .tag { font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--meadow); }
-.mdm .path p { color: var(--ink-soft); font-size: 15.5px; flex: 1; margin: 0; }
-.mdm .path a { font-weight: 600; color: var(--rust); text-decoration: none; }
-.mdm .path a::after { content: " →"; }
-.mdm .path.featured { background: var(--meadow-dark); color: var(--milk); border-color: transparent; }
-.mdm .path.featured p { color: rgba(246, 241, 231, .78); }
-.mdm .path.featured .tag { color: var(--sun); }
-.mdm .path.featured a { color: var(--sun); }
-.mdm .home { background: var(--paper); }
-.mdm .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
-.mdm .home-photos { position: relative; height: 620px; }
-.mdm .home-photos img { position: absolute; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
-.mdm .home-photos .p1 { width: 66%; height: 78%; left: 0; top: 0; }
-.mdm .home-photos .p2 { width: 52%; height: 48%; right: 0; bottom: 0; border: 8px solid var(--paper); }
-.mdm .home-photos .ring-deco { position: absolute; right: 6%; top: 4%; width: 120px; opacity: .9; }
-.mdm .checks { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
-.mdm .checks li { padding-left: 36px; position: relative; }
-.mdm .checks li::before { content: ""; position: absolute; left: 0; top: 3px; width: 22px; height: 22px; border-radius: 50%;
-  background: var(--jade) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/14px no-repeat; }
-.mdm .quote { font: italic 400 24px/1.4 var(--serif); color: var(--wood-dark); border-left: 3px solid var(--sun); padding-left: 20px; margin: 30px 0 0; }
-.mdm .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.mdm .trust { border-radius: var(--radius); padding: 30px 28px; background: var(--paper); border: 1px solid var(--line); }
-.mdm .trust .ic { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--sand); margin-bottom: 22px; }
-.mdm .trust .ic svg { width: 26px; height: 26px; stroke: var(--wood-dark); }
-.mdm .trust h3 { margin-bottom: 10px; }
-.mdm .trust p { font-size: 15.5px; color: var(--ink-soft); margin: 0; }
-.mdm .trust .proof { display: inline-block; margin-top: 14px; font: 600 13px/1 var(--sans); background: var(--sky-pale); color: #2e5373; padding: 8px 12px; border-radius: 999px; }
-.mdm .breed { background: linear-gradient(180deg, var(--milk), #efe6d4); }
-.mdm .breed-top { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(30px, 5vw, 70px); align-items: start; }
-.mdm .breed-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); position: relative; }
-.mdm .breed-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
-.mdm .breed-photo figcaption { position: absolute; left: 14px; bottom: 14px; background: rgba(251, 248, 242, .92); padding: 8px 12px; border-radius: 10px; font-size: 13px; }
-.mdm .spec { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 28px 0 0; border-top: 1px solid var(--line); }
-.mdm .spec div { padding: 16px 0; border-bottom: 1px solid var(--line); }
-.mdm .spec div:nth-child(odd) { padding-right: 16px; }
-.mdm .spec dt { font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
-.mdm .spec dd { margin: 0; font-weight: 500; }
-.mdm .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
-.mdm .fit-card { border-radius: var(--radius); padding: 32px; }
-.mdm .fit-card h3 { margin-bottom: 18px; }
-.mdm .fit-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-.mdm .fit-card li { padding-left: 28px; position: relative; font-size: 16px; }
-.mdm .fit-yes { background: #e3e8d3; }
-.mdm .fit-yes li::before { content: "✓"; position: absolute; left: 0; color: var(--meadow); font-weight: 700; }
-.mdm .fit-no { background: #f3dfd0; }
-.mdm .fit-no li::before { content: "!"; position: absolute; left: 4px; color: var(--rust); font-weight: 800; }
-@property --ax { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
-@property --ay { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
-@property --ar { syntax: "<percentage>"; inherits: true; initial-value: 20%; }
-.mdm .anat { background: var(--latte); }
-.mdm .anat .eyebrow { color: var(--choc); }
-.mdm .anat-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
-.mdm .anat-stage { position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden;
-  box-shadow: 0 24px 50px -30px rgba(59, 38, 28, .55);
-  --ax: 50%; --ay: 50%; --ar: 20%;
-  transition: --ax .45s ease, --ay .45s ease, --ar .45s ease; }
-.mdm .anat-stage img { width: 100%; height: 100%; object-fit: cover; }
-.mdm .anat-dim { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .35s;
-  background: radial-gradient(var(--ar) var(--ar) at var(--ax) var(--ay), rgba(59, 38, 28, 0) 62%, rgba(59, 38, 28, .62) 100%); }
-.mdm .anat-ring { position: absolute; left: var(--ax); top: var(--ay); width: calc(var(--ar) * 1.25); aspect-ratio: 1;
-  transform: translate(-50%, -50%) scale(.85); border-radius: 50%; pointer-events: none;
-  border: 2px dashed rgba(255, 248, 238, .9); box-shadow: 0 0 0 6px rgba(165, 123, 99, .25);
-  opacity: 0; transition: opacity .3s, transform .45s ease; }
-.mdm .anat-ring span { position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%); white-space: nowrap;
-  background: var(--paper); color: var(--choc); font: 600 13px/1 var(--sans); padding: 8px 12px; border-radius: 999px;
-  box-shadow: 0 8px 20px -10px rgba(59, 38, 28, .6); }
-.mdm .anat-stage.on .anat-dim { opacity: 1; }
-.mdm .anat-stage.on .anat-ring { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-.mdm .anat-dot { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
-  background: var(--paper); color: var(--choc); font: 700 13px/30px var(--sans); text-align: center;
-  box-shadow: 0 0 0 4px rgba(255, 248, 238, .35), 0 6px 14px -6px rgba(0, 0, 0, .5);
-  transition: transform .2s, background .2s, color .2s; z-index: 2; }
-.mdm .anat-dot::before { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(255, 248, 238, .8); animation: anat-pulse 2.4s ease-out infinite; }
-.mdm .anat-dot:hover, .mdm .anat-dot:focus-visible, .mdm .anat-dot.active { transform: scale(1.18); background: var(--choc); color: var(--paper); outline: none; }
-.mdm .anat-stage.on .anat-dot:not(.active) { opacity: .55; }
-.mdm .anat-stage.on .anat-dot::before { animation: none; opacity: 0; }
-@keyframes anat-pulse { 0% { transform: scale(.8); opacity: 1; } 100% { transform: scale(1.7); opacity: 0; } }
-.mdm .anat-panel { background: var(--paper); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); border: 1px solid rgba(91, 58, 43, .12); position: sticky; top: 96px; }
-.mdm #mdm-anatCard { min-height: 220px; }
-.mdm #mdm-anatCard.swap { animation: anat-in .35s ease; }
-@keyframes anat-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-.mdm .anat-num { display: inline-block; font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--cocoa); margin-bottom: 14px; }
-.mdm .anat-panel h3 { font-size: clamp(24px, 2.4vw, 30px); color: var(--choc); margin-bottom: 14px; }
-.mdm .anat-panel p { color: var(--ink-soft); font-size: 15.5px; }
-.mdm .anat-panel .why { border-left: 3px solid var(--cocoa); padding-left: 14px; color: var(--ink); }
-.mdm .anat-panel .why b { display: block; font: 600 12px/1.4 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--choc); margin-bottom: 4px; }
-.mdm .anat-panel .std { font-size: 14px; background: var(--latte); border-radius: 12px; padding: 12px 14px; margin: 0; color: var(--choc-deep); }
-.mdm .anat-stats { display: grid; grid-template-columns: 1fr 1fr; margin: 6px 0 0; }
-.mdm .anat-stats div { padding: 14px 0; border-bottom: 1px solid rgba(91, 58, 43, .14); }
-.mdm .anat-stats dt { font: 600 11.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--cocoa); margin-bottom: 6px; }
-.mdm .anat-stats dd { margin: 0; font: 500 22px/1.2 var(--serif); color: var(--choc); }
-.mdm .anat-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(91, 58, 43, .14); }
-.mdm .anat-chips button { font: 500 13.5px/1 var(--sans); padding: 9px 12px; border-radius: 999px; cursor: pointer;
-  border: 1px solid rgba(91, 58, 43, .22); background: transparent; color: var(--choc); transition: .2s; }
-.mdm .anat-chips button:hover, .mdm .anat-chips button.active { background: var(--choc); color: var(--paper); border-color: var(--choc); }
-@media (max-width: 900px) {
-  .mdm .anat-grid { grid-template-columns: 1fr; }
-  .mdm .anat-panel { position: static; }
-  .mdm #mdm-anatCard { min-height: 0; }
-}
-@media (max-width: 560px) {
-  .mdm .anat-dot { width: 26px; height: 26px; margin: -13px 0 0 -13px; line-height: 26px; font-size: 12px; }
-  .mdm .anat-ring span { font-size: 12px; padding: 6px 10px; }
-}
-.mdm .dogs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; }
-.mdm .dog { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;
-  display: flex; flex-direction: column; gap: 10px; }
-.mdm .dog h3 { font-size: 19px; line-height: 1.25; }
-.mdm .dog .meta { font-size: 13.5px; color: var(--ink-soft); }
-.mdm .dog .titles { font-size: 14.5px; flex: 1; }
-.mdm .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.mdm .chip { font: 600 12px/1 var(--sans); padding: 7px 10px; border-radius: 999px; background: #e3e8d3; color: var(--meadow-dark); }
-.mdm .chip.gold { background: #fbe8bf; color: #7a5410; }
-.mdm .chip.muted { background: #ece6db; color: var(--ink-soft); }
-.mdm .males { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0 32px; }
-.mdm .male { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); font-weight: 500; }
-.mdm .male span { font-size: 13px; color: var(--ink-soft); text-align: right; font-weight: 400; }
-.mdm .note { font-size: 14.5px; color: var(--ink-soft); margin-top: 22px; }
-.mdm .champ { background: var(--choc-deep); color: var(--milk); overflow: hidden; }
-.mdm .champ .eyebrow { color: var(--sun); }
-.mdm .champ h2, .mdm .contact h2, .mdm .queue h3, .mdm .path.featured h3 { color: var(--milk); }
-.mdm .champ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 80px); align-items: center; }
-.mdm .champ img { border-radius: var(--radius); width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.mdm .champ .lead { color: rgba(246, 241, 231, .75); }
-.mdm .titles-list { margin: 28px 0 32px; display: grid; gap: 0; }
-.mdm .titles-list div { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid rgba(246, 241, 231, .16); }
-.mdm .titles-list b { font-family: var(--serif); font-weight: 500; font-size: 18px; }
-.mdm .titles-list span { color: var(--sun); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; text-align: right; }
-.mdm .litter { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: stretch; }
-.mdm .litter-card { background: var(--paper); border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
-.mdm .litter-card .pics { display: grid; grid-template-rows: 1fr 1fr; }
-.mdm .litter-card .pics img { width: 100%; height: 100%; object-fit: cover; }
-.mdm .litter-card .info { padding: 28px; display: flex; flex-direction: column; gap: 14px; }
-.mdm .litter-card .status { align-self: flex-start; }
-.mdm .litter-card dl { margin: 0; display: grid; gap: 10px; font-size: 15px; }
-.mdm .litter-card dt { font: 600 11.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
-.mdm .litter-card dd { margin: 3px 0 0; }
-.mdm .queue { background: var(--meadow-dark); color: var(--milk); border-radius: var(--radius); padding: 34px; display: flex; flex-direction: column; gap: 16px; }
-.mdm .queue p { color: rgba(246, 241, 231, .8); margin: 0; }
-.mdm .queue ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: q; }
-.mdm .queue li { counter-increment: q; display: flex; gap: 12px; align-items: baseline; }
-.mdm .queue li::before { content: counter(q); font: 600 13px/1 var(--sans); width: 26px; height: 26px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--sun); color: var(--ink); }
-.mdm .queue .btn { margin-top: auto; align-self: flex-start; }
-.mdm .registry { margin-top: 36px; }
-.mdm .registry summary { cursor: pointer; font-weight: 600; padding: 18px 0; border-top: 1px solid var(--line); list-style: none; display: flex; justify-content: space-between; }
-.mdm .registry summary::after { content: "+"; font-size: 22px; line-height: 1; color: var(--rust); }
-.mdm .registry[open] summary::after { content: "−"; }
-.mdm .registry table { width: 100%; border-collapse: collapse; font-size: 15px; }
-.mdm .registry td { padding: 12px 12px 12px 0; border-top: 1px solid var(--line); vertical-align: top; }
-.mdm .registry td:first-child { white-space: nowrap; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-.mdm .registry td:nth-child(2) { font-weight: 600; white-space: nowrap; }
-.mdm .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; counter-reset: s; }
-.mdm .step { position: relative; padding: 30px 26px 26px; background: var(--paper); border-radius: var(--radius); border: 1px solid var(--line); counter-increment: s; }
-.mdm .step::before { content: "0" counter(s); font: 500 44px/1 var(--serif); color: var(--wood); opacity: .55; display: block; margin-bottom: 14px; }
-.mdm .step h3 { margin-bottom: 10px; font-size: 20px; }
-.mdm .step p { font-size: 15px; color: var(--ink-soft); margin: 0; }
-.mdm .step.accent { background: var(--sand); border-color: transparent; }
-.mdm .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-.mdm .box { border-radius: var(--radius); padding: 32px; background: var(--paper); border: 1px solid var(--line); }
-.mdm .box h3 { margin-bottom: 8px; }
-.mdm .box > p { color: var(--ink-soft); font-size: 15px; }
-.mdm .box ul { margin: 14px 0 0; padding-left: 20px; display: grid; gap: 10px; font-size: 15.5px; }
-.mdm .box li::marker { color: var(--rust); }
-.mdm .after { background: var(--sky-pale); }
-.mdm .after-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(30px, 5vw, 70px); align-items: start; }
-.mdm .support { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.mdm .support div { background: var(--paper); border-radius: var(--radius); padding: 24px; }
-.mdm .support h3 { font-size: 19px; margin-bottom: 8px; }
-.mdm .support p { font-size: 15px; color: var(--ink-soft); margin: 0; }
-.mdm .faq { max-width: 860px; }
-.mdm .faq details { border-top: 1px solid var(--line); }
-.mdm .faq details:last-child { border-bottom: 1px solid var(--line); }
-.mdm .faq summary { cursor: pointer; padding: 22px 40px 22px 0; font: 500 20px/1.35 var(--serif); list-style: none; position: relative; }
-.mdm .faq summary::-webkit-details-marker, .mdm .registry summary::-webkit-details-marker { display: none; }
-.mdm .faq summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font: 400 28px/1 var(--sans); color: var(--rust); transition: transform .25s; }
-.mdm .faq details[open] summary::after { transform: rotate(45deg); }
-.mdm .faq details p { color: var(--ink-soft); padding-bottom: 8px; max-width: 720px; }
-.mdm .gallery { columns: 4 220px; column-gap: 14px; }
-.mdm .gallery img { width: 100%; margin-bottom: 14px; border-radius: 14px; break-inside: avoid; cursor: zoom-in; transition: opacity .2s; }
-.mdm .gallery img:hover { opacity: .88; }
-.mdm .lightbox { position: fixed; inset: 0; background: rgba(20, 16, 12, .9); display: none; place-items: center; z-index: 100; padding: 24px; cursor: zoom-out; }
+.mdm .header-phone { text-decoration: none; color: var(--ink); font-size: 14px; }
+.mdm .burger { display: none; background: none; border: 0; width: 40px; height: 40px; cursor: pointer; padding: 8px; }
+.mdm .burger span { display: block; height: 1.5px; background: var(--ink); margin: 7px 0; }
+.mdm .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 60px); }
+.mdm .hero-text { padding: clamp(40px, 6vw, 88px) clamp(20px, 5vw, 72px) 48px max(20px, calc((100vw - var(--wrap)) / 2));
+  display: flex; flex-direction: column; justify-content: flex-end; }
+.mdm .hero-meta { margin-bottom: auto; }
+.mdm .hero h1 { margin: 40px 0 28px; }
+.mdm .hero-sub { font-size: clamp(20px, 1.8vw, 24px); max-width: 26em; color: var(--ink-soft); }
+.mdm .hero-phones { margin: 28px 0 32px; border-top: 1px solid var(--line); }
+.mdm .hero-phones div { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.mdm .hero-phones dt { color: var(--ink-soft); }
+.mdm .hero-phones dd { margin: 0; font-size: clamp(22px, 2.2vw, 30px); }
+.mdm .hero-phones a { text-decoration: none; }
+.mdm .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.mdm .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.mdm .band { display: grid; grid-template-columns: repeat(5, 1fr); }
+.mdm .band img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.mdm .toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.mdm .toc a { display: grid; grid-template-columns: 64px 1fr 1fr; gap: 20px; align-items: baseline;
+  padding: 24px 0; border-bottom: 1px solid var(--line); text-decoration: none; transition: color .15s; }
+.mdm .toc-t { font-size: clamp(26px, 3vw, 40px); line-height: 1.1; }
+.mdm .toc-d { color: var(--ink-soft); }
+.mdm .toc a:hover .toc-t { color: var(--rust); }
+.mdm .toc a:hover .toc-t::after { content: " →"; }
+.mdm .home { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+.mdm .home-big img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.mdm .home-text { padding-top: 8px; }
+.mdm .home-text h2 { margin-bottom: 24px; }
+.mdm .home-small { margin-top: 40px; width: 70%; }
+.mdm .home-small img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.mdm .plain { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.mdm .plain li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.mdm .cols3, .mdm .cols4 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+.mdm .cols4 { grid-template-columns: repeat(4, 1fr); }
+.mdm .cols3 > div, .mdm .cols4 > div { padding: 20px 24px 0 0; }
+.mdm .cols3 > div + div, .mdm .cols4 > div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+.mdm .cols3 h3, .mdm .cols4 h3 { margin-bottom: 10px; }
+.mdm .cols3 p, .mdm .cols4 p { color: var(--ink-soft); }
+.mdm .breed { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+.mdm .breed-photo img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.mdm figcaption.mono { margin-top: 8px; }
+.mdm .spec { border-collapse: collapse; width: 100%; margin: 24px 0 0; }
+.mdm .spec th, .mdm .spec td { text-align: left; padding: 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.mdm .spec th { font: 400 13px/1.9 var(--mono); color: var(--ink-soft); width: 34%; padding-right: 16px; }
+.mdm .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+.mdm .fit h3 { margin-bottom: 8px; }
+.mdm .plus, .mdm .minus { margin: 0; padding: 0; list-style: none; }
+.mdm .plus li, .mdm .minus li { padding: 7px 0 7px 22px; border-bottom: 1px solid var(--line); position: relative; }
+.mdm .plus li::before, .mdm .minus li::before { position: absolute; left: 0; font-family: var(--mono); }
+.mdm .plus li::before { content: "+"; color: var(--meadow); }
+.mdm .minus li::before { content: "−"; color: var(--rust); }
+.mdm .plate { background: var(--latte); }
+.mdm .plate-grid { display: grid; grid-template-columns: 7fr 4fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.mdm .plate-stage { position: relative; aspect-ratio: 1; }
+.mdm .plate-stage img { width: 100%; height: 100%; object-fit: cover; }
+.mdm .plate-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.mdm .plate-lines line { stroke: var(--paper); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.mdm .anat-dot { position: absolute; width: 24px; height: 24px; margin: -12px 0 0 -12px; padding: 0; cursor: pointer;
+  border: 1px solid var(--choc); border-radius: 50%; background: var(--paper); color: var(--choc);
+  font: 500 11px/22px var(--mono); text-align: center; }
+.mdm .anat-dot:hover, .mdm .anat-dot:focus-visible, .mdm .anat-dot.active { background: var(--choc); color: var(--paper); outline: none; }
+.mdm .plate-label { position: absolute; padding: 4px 8px; background: var(--paper); color: var(--choc); border-radius: 2px;
+  white-space: nowrap; pointer-events: none; transform: translateY(-50%); }
+.mdm .plate-label.right { transform: translate(-100%, -50%); }
+.mdm .plate-legend { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--choc); }
+.mdm .plate-legend button { display: grid; grid-template-columns: 36px 1fr; width: 100%; padding: 8px 0; text-align: left; cursor: pointer;
+  background: none; border: 0; border-bottom: 1px solid rgba(91, 58, 43, .2); font: inherit; color: var(--ink); }
+.mdm .plate-legend .mono { font-size: 12px; line-height: 28px; }
+.mdm .plate-legend button:hover, .mdm .plate-legend button.active { color: var(--rust); }
+.mdm .plate-note { margin-top: 24px; min-height: 130px; }
+.mdm .plate-note h3 { color: var(--choc); margin-bottom: 8px; }
+.mdm .plate-note p { margin: 0 0 6px; }
+.mdm .plate-note .why { color: var(--ink-soft); }
+.mdm .table-title { margin: 8px 0 12px; font-size: 19px; }
+.mdm .table-title ~ .table-title { margin-top: 48px; }
+.mdm .catalog { width: 100%; border-collapse: collapse; font-size: 17px; }
+.mdm .catalog th { text-align: left; font: 400 12px/1.4 var(--mono); color: var(--ink-soft); padding: 8px 16px 8px 0; border-bottom: 1px solid var(--ink); }
+.mdm .catalog td { padding: 12px 16px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.mdm .catalog .name { font-weight: 700; white-space: nowrap; }
+.mdm .catalog .mono { font-size: 13px; white-space: nowrap; }
+.mdm .catalog .muted { color: var(--ink-soft); }
+.mdm .champ { background: var(--choc-deep); color: var(--milk); border-top: 0; }
+.mdm .champ h2 { color: var(--milk); }
+.mdm .champ .mono { color: rgba(246, 241, 231, .65); }
+.mdm .champ-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.mdm .champ img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.mdm .titles { width: 100%; border-collapse: collapse; margin-bottom: 32px; border-top: 1px solid rgba(246, 241, 231, .4); }
+.mdm .titles td { padding: 14px 16px 14px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); font-size: 19px; }
+.mdm .titles td.mono { color: var(--sun); font-size: 12.5px; text-align: right; padding-right: 0; }
+.mdm .litter { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+.mdm .litter-pics { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.mdm .litter-pics img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.mdm .litter-info h3 { font-size: 28px; margin: 4px 0 0; }
+.mdm .litter-info .queue-title { margin-top: 40px; font-size: 21px; }
+.mdm .queue { margin: 12px 0 28px; padding: 0; list-style: none; counter-reset: q; border-top: 1px solid var(--line); }
+.mdm .queue li { counter-increment: q; padding: 8px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 36px 1fr; }
+.mdm .queue li::before { content: "0" counter(q); font: 400 12px/28px var(--mono); color: var(--ink-soft); }
+.mdm .registry { margin-top: 56px; }
+.mdm .registry summary { cursor: pointer; font-size: 19px; padding: 12px 0; border-top: 1px solid var(--ink); list-style: none; }
+.mdm .registry summary::after { content: " +"; color: var(--rust); }
+.mdm .registry[open] summary::after { content: " −"; }
+.mdm .registry summary::-webkit-details-marker, .mdm .faq summary::-webkit-details-marker { display: none; }
+.mdm .how { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 72px); }
+.mdm .how h2 { margin: 0; }
+.mdm .steps { margin: 0; padding: 0; list-style: none; counter-reset: s; border-top: 1px solid var(--ink); }
+.mdm .steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.mdm .steps li::before { content: "0" counter(s); font: 400 12px/28px var(--mono); color: var(--ink-soft); }
+.mdm .with-puppy { grid-column: 2; margin-top: 20px; color: var(--ink-soft); }
+.mdm .faq-wrap { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 72px); }
+.mdm .faq-wrap h2 { margin: 0; }
+.mdm .faq { border-top: 1px solid var(--ink); }
+.mdm .faq details { border-bottom: 1px solid var(--line); }
+.mdm .faq summary { cursor: pointer; padding: 14px 32px 14px 0; font-size: 20px; list-style: none; position: relative; }
+.mdm .faq summary::after { content: "+"; position: absolute; right: 0; top: 12px; font-family: var(--mono); color: var(--rust); }
+.mdm .faq details[open] summary::after { content: "−"; }
+.mdm .faq details p { color: var(--ink-soft); }
+.mdm .gallery { columns: 4 220px; column-gap: 6px; }
+.mdm .gallery img { width: 100%; margin-bottom: 6px; break-inside: avoid; cursor: zoom-in; }
+.mdm .lightbox { position: fixed; inset: 0; background: rgba(20, 16, 12, .92); display: none; place-items: center; z-index: 100; padding: 24px; cursor: zoom-out; }
 .mdm .lightbox.open { display: grid; }
-.mdm .lightbox img { max-height: 90vh; border-radius: 12px; }
-.mdm .contact { background: var(--meadow-dark); color: var(--milk); overflow: hidden; }
-.mdm .contact .eyebrow { color: var(--sun); }
-.mdm .contact .lead { color: rgba(246, 241, 231, .78); }
-.mdm .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 80px); }
-.mdm .people { display: grid; gap: 0; margin: 30px 0; }
-.mdm .people a, .mdm .people div { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid rgba(246, 241, 231, .16); text-decoration: none; }
-.mdm .people span { color: rgba(246, 241, 231, .6); font-size: 14px; }
-.mdm .people b { font-weight: 600; text-align: right; }
-.mdm .form { background: var(--paper); color: var(--ink); border-radius: 24px; padding: clamp(24px, 4vw, 40px); display: grid; gap: 16px; align-self: start; }
-.mdm .form h3 { font-size: 26px; }
-.mdm .form p.small { font-size: 14px; color: var(--ink-soft); margin: 0; }
-.mdm .field { display: grid; gap: 6px; }
-.mdm .field label { font-size: 13.5px; font-weight: 600; }
-.mdm .field input, .mdm .field select, .mdm .field textarea { font: inherit; font-size: 16px; padding: 13px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
-.mdm .field input:focus, .mdm .field select:focus, .mdm .field textarea:focus { outline: 2px solid var(--sky); border-color: transparent; }
-.mdm .radios { display: flex; flex-wrap: wrap; gap: 8px; }
-.mdm .radios label { cursor: pointer; }
-.mdm .radios input { position: absolute; opacity: 0; pointer-events: none; }
-.mdm .radios span { display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 14.5px; font-weight: 500; transition: .2s; }
-.mdm .radios input:checked + span { background: var(--ink); color: var(--milk); border-color: var(--ink); }
-.mdm .radios input:focus-visible + span { outline: 2px solid var(--sky); }
-.mdm .form .btn { width: 100%; }
-.mdm .form-ok { display: none; background: #e3e8d3; border-radius: 12px; padding: 14px; font-size: 15px; }
-.mdm .footer { background: var(--choc-deep); color: rgba(246, 241, 231, .6); padding: 34px 0; font-size: 14px; }
+.mdm .lightbox img { max-height: 92vh; }
+.mdm .contact { background: var(--meadow-dark); color: var(--milk); border-top: 0; }
+.mdm .contact h2 { color: var(--milk); }
+.mdm .contact-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); }
+.mdm .contacts { margin: 28px 0 0; border-top: 1px solid rgba(246, 241, 231, .4); }
+.mdm .contacts div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); }
+.mdm .contacts dt { font: 400 13px/1.9 var(--mono); color: rgba(246, 241, 231, .6); }
+.mdm .contacts dd { margin: 0; font-size: 21px; }
+.mdm .contacts a { text-decoration: none; }
+.mdm .contacts a:hover { color: var(--sun); }
+.mdm .form { background: var(--milk); color: var(--ink); padding: clamp(22px, 3vw, 36px); display: grid; gap: 16px; align-self: start; }
+.mdm .form h3 { color: var(--head); font-size: 26px; }
+.mdm .field { display: grid; gap: 4px; border: 0; padding: 0; margin: 0; }
+.mdm .field label, .mdm .field legend { font: 400 12.5px/1.6 var(--mono); color: var(--ink-soft); padding: 0; }
+.mdm .field input, .mdm .field select, .mdm .field textarea { font: inherit; font-size: 18px; padding: 8px 0; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); }
+.mdm .field input:focus, .mdm .field select:focus, .mdm .field textarea:focus { outline: none; border-bottom-color: var(--rust); }
+.mdm .field label.radio { font: 400 18px/1.6 var(--serif); color: var(--ink); display: flex; gap: 10px; align-items: center; cursor: pointer; }
+.mdm .radio input { accent-color: var(--rust); margin: 0; }
+.mdm .form .btn { justify-self: start; }
+.mdm .form-ok { display: none; font-size: 16px; color: var(--meadow-dark); margin: 0; }
+.mdm .footer { background: var(--choc-deep); color: rgba(246, 241, 231, .6); padding: 24px 0; font-size: 16px; }
 .mdm .footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-.mdm.mdm-js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-.mdm.mdm-js .reveal.in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  .mdm.mdm-js .reveal { opacity: 1; transform: none; }
-  .mdm { scroll-behavior: auto; }
-}
+.mdm .footer .mono { color: inherit; }
 @media (max-width: 1080px) {
   .mdm .nav { display: none; }
   .mdm .burger { display: block; }
-  .mdm .header .btn-sm { display: none; }
-  .mdm .nav.open { display: flex; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0;
-    background: var(--milk); padding: 20px 16px 28px; gap: 18px; box-shadow: 0 20px 30px -20px rgba(0,0,0,.3); }
-  .mdm .nav.open a { font-size: 19px; }
+  .mdm .nav.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0;
+    background: var(--milk); padding: 16px 20px 24px; gap: 14px; border-bottom: 1px solid var(--line); }
+  .mdm .nav.open a { font-size: 22px; color: var(--ink); }
 }
 @media (max-width: 900px) {
-  .mdm .hero .wrap, .mdm .home-grid, .mdm .breed-top, .mdm .champ-grid, .mdm .litter, .mdm .after-grid, .mdm .contact-grid, .mdm .two-col, .mdm .fit { grid-template-columns: 1fr; }
-  .mdm .hero-copy { padding-bottom: 0; }
-  .mdm .hero-photo img { height: 460px; border-radius: 200px 200px 0 0; }
-  .mdm .hero-badge { left: 12px; bottom: 24px; }
-  .mdm .facts-grid { grid-template-columns: 1fr 1fr; }
-  .mdm .fact:nth-child(3) { padding-left: 0; border-left: 0; }
-  .mdm .paths, .mdm .trust-grid { grid-template-columns: 1fr; }
-  .mdm .home-photos { height: 440px; }
+  .mdm .hero, .mdm .home, .mdm .breed, .mdm .plate-grid, .mdm .champ-grid, .mdm .litter, .mdm .how, .mdm .faq-wrap, .mdm .contact-grid { grid-template-columns: 1fr; }
+  .mdm .hero { min-height: 0; }
+  .mdm .hero-photo { order: -1; }
+  .mdm .hero-photo img { height: 62vh; }
+  .mdm .hero h1 { margin-top: 24px; }
+  .mdm .band { grid-template-columns: repeat(3, 1fr); }
+  .mdm .band img:nth-child(n+4) { display: none; }
+  .mdm .cols4 { grid-template-columns: 1fr 1fr; }
+  .mdm .cols4 > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .mdm .with-puppy { grid-column: auto; }
+  .mdm .breed-photo { order: -1; }
+  .mdm .breed-photo img { aspect-ratio: 4 / 3; }
+  .mdm .toc a { grid-template-columns: 44px 1fr; }
+  .mdm .toc-d { grid-column: 2; }
+  .mdm .plate-side { display: flex; flex-direction: column; }
+  .mdm .plate-note { order: -1; margin: 0 0 20px; min-height: 0; }
 }
-@media (max-width: 560px) {
-  .mdm { font-size: 16px; }
-  .mdm .litter-card { grid-template-columns: 1fr; }
-  .mdm .litter-card .pics { grid-template-rows: none; grid-template-columns: 1fr 1fr; height: 220px; }
-  .mdm .support { grid-template-columns: 1fr; }
-  .mdm .spec { grid-template-columns: 1fr; }
-  .mdm .hero-actions .btn { width: 100%; }
-  .mdm .registry td:nth-child(2) { white-space: normal; }
-  .mdm .home-photos { height: 360px; }
+@media (max-width: 640px) {
+  .mdm { font-size: 18px; }
+  .mdm .header-phone { display: none; }
+  .mdm .cols3, .mdm .cols4 { grid-template-columns: 1fr; }
+  .mdm .cols3 > div, .mdm .cols4 > div { padding: 16px 0; }
+  .mdm .cols3 > div + div, .mdm .cols4 > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .mdm .fit { grid-template-columns: 1fr; }
+  .mdm .home-small { width: 100%; }
+  .mdm .catalog thead { display: none; }
+  .mdm .catalog tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .mdm .catalog td { display: block; padding: 2px 0; border: 0; }
+  .mdm .catalog td[data-label]::before { content: attr(data-label) " "; font: 400 12px var(--mono); color: var(--ink-soft); }
+  .mdm .catalog .name, .mdm .catalog .mono { white-space: normal; }
+  .mdm .plate-label { font-size: 11px; }
+  .mdm .contacts div { grid-template-columns: 1fr; gap: 0; }
 }
-.mdm .two-col.one { grid-template-columns: 1fr; }
-.mdm .two-col.one ul { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-.mdm { overflow-x: hidden; }
+.mdm { overflow-x: clip; }
+.mdm table { border: 0; }
 .mdm a:hover { color: inherit; }
-.mdm .nav a:hover, .mdm .path a:hover { color: var(--rust); }
-.mdm .path.featured a:hover { color: var(--sun); }
+.mdm .nav a:hover { color: var(--rust); }
+.mdm .contacts a:hover { color: var(--sun); }
 .mdm .btn-primary:hover { color: #fff; }
-.mdm .btn-ghost:hover { color: var(--milk); }
 </style>
 
 <div class="mdm" id="mdm-root">
 <header class="header" id="mdm-header">
   <div class="wrap">
-    <a class="logo" href="#mdm-top" aria-label="Из Дома МаДаМи — на главную">
-      <img class="logo-mark" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23b98a5e' stroke-width='3.2'%3E%3Cpath d='M50 6c25 1 44 19 44 44S75 95 50 94 5 76 6 50 26 5 50 6z'/%3E%3Cpath d='M51 17c18 0 32 15 32 33S68 83 50 83 18 68 18 50 33 17 51 17z' stroke-width='2.6'/%3E%3Cpath d='M49 28c13 0 23 9 23 22s-10 22-23 22-21-10-21-22 9-22 21-22z' stroke-width='2.2'/%3E%3Cpath d='M50 39c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11z' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='2.5' fill='%23b98a5e' stroke='none'/%3E%3C/svg%3E" alt="">
-      <span class="logo-text">Из Дома МаДаМи<small>FCI · РКФ № 9392 · с 2008</small></span>
-    </a>
+    <a class="logo" href="#mdm-top">Из Дома МаДаМи</a>
     <nav class="nav" id="mdm-nav">
       <a href="#mdm-home">Питомник</a>
       <a href="#mdm-breed">Порода</a>
-      <a href="#mdm-dogs">Наши собаки</a>
+      <a href="#mdm-dogs">Собаки</a>
       <a href="#mdm-puppies">Щенки</a>
-      <a href="#mdm-how">Как купить</a>
+      <a href="#mdm-how">Покупка</a>
       <a href="#mdm-faq">Вопросы</a>
       <a href="#mdm-contact">Контакты</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="#mdm-contact">Обсудить подбор щенка</a>
-    <button class="burger" id="mdm-burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a class="header-phone mono" href="tel:+79155851548">8 915 585-15-48</a>
+    <button class="burger" id="mdm-burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="mdm-top">
 
-  <!-- HERO -->
+  <!-- ОБЛОЖКА -->
   <section class="hero">
-    <div class="sun" aria-hidden="true"></div>
+    <div class="hero-text">
+      <p class="mono hero-meta">FCI · РКФ № 9392 · с 2008 · Воронеж</p>
+      <h1>Из Дома<br>МаДаМи</h1>
+      <p class="hero-sub">Питомник больших швейцарских зенненхундов. Собаки живут с нами в доме, щенков подбираем под семью.</p>
+      <dl class="hero-phones">
+        <div><dt>Марина</dt><dd><a href="tel:+79155851548">8 (915) 585-15-48</a></dd></div>
+        <div><dt>Василий</dt><dd><a href="tel:+79102413201">8 (910) 241-32-01</a></dd></div>
+      </dl>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+79155851548">Позвонить Марине</a>
+        <a class="link-arrow" href="#mdm-contact">Написать</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img data-img="hero.jpg" alt="Большой швейцарский зенненхунд сидит на поляне">
+    </figure>
+  </section>
+
+  <!-- ЛЕНТА ФОТО -->
+  <div class="band" aria-label="Наши собаки">
+    <img data-img="g21.jpg" alt="Новорождённые щенки" loading="lazy">
+    <img data-img="g19.jpg" alt="Щенок зевает" loading="lazy">
+    <img data-img="g12.jpg" alt="Щенок стоит" loading="lazy">
+    <img data-img="g06.jpg" alt="Взрослый гросс сидит на ступенях" loading="lazy">
+    <img data-img="g10.jpg" alt="Взрослый гросс у каменной стены" loading="lazy">
+  </div>
+
+  <!-- КАКУЮ СОБАКУ -->
+  <section class="section">
     <div class="wrap">
-      <div class="hero-copy">
-        <div class="eyebrow">Семейный племенной питомник · Воронеж</div>
-        <h1>Большой швейцарский зенненхунд — <em>под уклад вашей семьи</em></h1>
-        <p class="lead">Гроссы живут с нами в доме под Воронежем. Щенка подбираем под вашу семью.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#mdm-contact">Обсудить подбор щенка</a>
-          <a class="btn btn-ghost" href="#mdm-breed">Подходит ли нам порода?</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img data-img="hero.jpg" alt="Большой швейцарский зенненхунд сидит на зелёной поляне">
-        <div class="hero-badge">
-          <b>2023</b>
-          <span>Чемпион и вице-чемпион мира в Женеве, на родине породы</span>
-        </div>
-      </div>
-    </div>
-    <svg class="hills" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 120 C 180 60, 320 70, 480 100 S 820 150, 1000 96 S 1300 40, 1440 80 V160 H0Z" fill="#9fb27f" opacity=".55"/>
-      <path d="M0 140 C 240 100, 420 110, 640 130 S 1060 150, 1240 118 S 1400 110, 1440 116 V160 H0Z" fill="#f6f1e7"/>
-    </svg>
-  </section>
-
-  <!-- ФАКТЫ -->
-  <section class="facts">
-    <div class="wrap facts-grid">
-      <div class="fact"><b>2008</b><span>Год регистрации в системе FCI–РКФ, свидетельство № 9392</span></div>
-      <div class="fact"><b>15+ лет</b><span>Разводим только больших швейцарских зенненхундов</span></div>
-      <div class="fact"><b>HD-A · ED-0</b><span>Производители обследованы и свободны от дисплазии суставов</span></div>
-      <div class="fact"><b>Всю жизнь</b><span>Владельцы звонят нам и через месяц, и через десять лет</span></div>
+      <h2>Какую собаку вы ищете?</h2>
+      <ul class="toc">
+        <li><a href="#mdm-contact" data-goal="Компаньон в семью"><span class="toc-n mono">01</span><span class="toc-t">Собаку в семью</span><span class="toc-d">Покажем родителей и подберём щенка по характеру.</span></a></li>
+        <li><a href="#mdm-breed"><span class="toc-n mono">02</span><span class="toc-t">Первую собаку в жизни</span><span class="toc-d">Расскажем про породу и поможем с первыми месяцами.</span></a></li>
+        <li><a href="#mdm-champ"><span class="toc-n mono">03</span><span class="toc-t">Щенка для выставок</span><span class="toc-d">Обсудим линии родителей и перспективы щенка.</span></a></li>
+      </ul>
     </div>
   </section>
 
-  <!-- ТРИ ПУТИ -->
-  <section class="section" style="padding-top: 70px">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">С чего начать</div>
-        <h2>Расскажите, какая собака вам нужна</h2>
-      </div>
-      <div class="paths">
-        <article class="path featured reveal">
-          <span class="tag">Компаньон · уже был опыт</span>
-          <h3>Ищу гросса в семью</h3>
-          <p>Покажем родителей и подберём щенка по характеру.</p>
-          <a href="#mdm-contact" data-goal="Компаньон в семью">Обсудить подбор щенка</a>
-        </article>
-        <article class="path reveal">
-          <span class="tag">Первая собака</span>
-          <h3>Хотим собаку, но боимся ошибиться</h3>
-          <p>Расскажем про породу и поможем с первыми месяцами.</p>
-          <a href="#mdm-breed">Подходит ли нам порода</a>
-        </article>
-        <article class="path reveal">
-          <span class="tag">Выставки и разведение</span>
-          <h3>Нужен щенок под цель</h3>
-          <p>Обсудим линии родителей и перспективы щенка.</p>
-          <a href="#mdm-champ">Выставочный путь</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ДОМ -->
-  <section class="section home" id="mdm-home">
-    <div class="wrap home-grid">
-      <div class="home-photos reveal">
-        <img class="p1" data-img="autumn.jpg" alt="Взрослый гросс на фоне осенней листвы">
-        <img class="p2" data-img="puppy-floor.jpg" alt="Щенок гросса лежит на деревянном полу в доме">
-        <img class="ring-deco" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23b98a5e' stroke-width='3.2'%3E%3Cpath d='M50 6c25 1 44 19 44 44S75 95 50 94 5 76 6 50 26 5 50 6z'/%3E%3Cpath d='M51 17c18 0 32 15 32 33S68 83 50 83 18 68 18 50 33 17 51 17z' stroke-width='2.6'/%3E%3Cpath d='M49 28c13 0 23 9 23 22s-10 22-23 22-21-10-21-22 9-22 21-22z' stroke-width='2.2'/%3E%3Cpath d='M50 39c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11z' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='2.5' fill='%23b98a5e' stroke='none'/%3E%3C/svg%3E" alt="">
-      </div>
-      <div class="reveal">
-        <div class="eyebrow">Питомник</div>
-        <h2>Собаки, которые живут дома</h2>
-        <p class="lead" style="margin-top:22px">Семейный питомник в 10 км от Воронежа, рядом Дон.</p>
-        <ul class="checks">
+  <!-- ПИТОМНИК -->
+  <section class="section" id="mdm-home">
+    <div class="wrap home">
+      <figure class="home-big">
+        <img data-img="autumn.jpg" alt="Взрослый гросс на фоне осенней листвы" loading="lazy">
+      </figure>
+      <div class="home-text">
+        <h2>Собаки живут дома</h2>
+        <p>Семейный питомник в 10 км от Воронежа, рядом Дон. Название сложилось из первых букв наших имён.</p>
+        <ul class="plain">
           <li>Мы кинологи и врачи по образованию.</li>
           <li>Щенки растут в доме, среди людей.</li>
           <li>Не больше одного помёта за раз.</li>
         </ul>
+        <figure class="home-small">
+          <img data-img="puppy-floor.jpg" alt="Щенок гросса на деревянном полу" loading="lazy">
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ДОВЕРИЕ -->
+  <!-- ПРОВЕРКИ -->
   <section class="section" id="mdm-trust">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Документы и проверки</div>
-        <h2>Что можно проверить ещё до решения</h2>
-      </div>
-      <div class="trust-grid">
-        <article class="trust reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h2>Что можно проверить до решения</h2>
+      <div class="cols3">
+        <div>
           <h3>Здоровье родителей</h3>
-          <p>Производители проверены на дисплазию: HD-A и ED-0, лучшие оценки.</p>
-          <span class="proof">HD-A · ED-0 у производителей</span>
-        </article>
-        <article class="trust reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
-          <h3>Документы и происхождение</h3>
-          <p>Метрика РКФ, клеймо, ветпаспорт и родословные родителей.</p>
-          <span class="proof">Питомник FCI–РКФ № 9392</span>
-        </article>
-        <article class="trust reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+          <p>Производители проверены на дисплазию суставов.</p>
+          <p class="mono">HD-A · ED-0</p>
+        </div>
+        <div>
+          <h3>Документы</h3>
+          <p>Метрика РКФ, клеймо, ветпаспорт, родословные родителей.</p>
+          <p class="mono">FCI–РКФ № 9392</p>
+        </div>
+        <div>
           <h3>Характер щенка</h3>
           <p>Знаем каждого щенка и советуем, кто подойдёт вашей семье.</p>
-          <span class="proof">Подбор после актирования</span>
-        </article>
+          <p class="mono">Подбор после актирования</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ПОРОДА -->
-  <section class="section breed" id="mdm-breed">
-    <div class="wrap">
-      <div class="breed-top">
-        <figure class="breed-photo reveal" style="margin:0">
-          <img data-img="meadow.jpg" alt="Большой швейцарский зенненхунд сидит на траве">
-          <figcaption>Grosser Schweizer Sennenhund</figcaption>
-        </figure>
-        <div class="reveal">
-          <div class="eyebrow">Порода</div>
-          <h2>Гросс — самый крупный из четырёх швейцарских зенненхундов</h2>
-          <p class="lead" style="margin-top:22px">Бывший фермерский сторож, теперь семейная собака.</p>
-          <dl class="spec">
-            <div><dt>Страна</dt><dd>Швейцария</dd></div>
-            <div><dt>FCI</dt><dd>Группа 2, секция 3</dd></div>
-            <div><dt>Рост, кобели</dt><dd>65–72 см в холке</dd></div>
-            <div><dt>Рост, суки</dt><dd>60–68 см в холке</dd></div>
-            <div><dt>Шерсть</dt><dd>Двойная, с плотным подшёрстком</dd></div>
-            <div><dt>Окрас</dt><dd>Только трёхцветный</dd></div>
-          </dl>
+  <section class="section" id="mdm-breed">
+    <div class="wrap breed">
+      <div class="breed-text">
+        <h2>Гросс — самый крупный из четырёх швейцарских зенненхундов</h2>
+        <p>Бывший фермерский сторож, теперь семейная собака.</p>
+        <table class="spec">
+          <tr><th>Страна</th><td>Швейцария</td></tr>
+          <tr><th>FCI</th><td>Группа 2, секция 3</td></tr>
+          <tr><th>Рост, кобели</th><td>65–72 см</td></tr>
+          <tr><th>Рост, суки</th><td>60–68 см</td></tr>
+          <tr><th>Вес</th><td>50–70 кг</td></tr>
+          <tr><th>Окрас</th><td>Трёхцветный</td></tr>
+        </table>
+        <div class="fit">
+          <div>
+            <h3>Подходит</h3>
+            <ul class="plus">
+              <li>Семьям с детьми</li>
+              <li>Тем, кто много гуляет в любую погоду</li>
+              <li>Дому с участком или активной семье в квартире</li>
+              <li>Тем, кому нужен спокойный компаньон и сторож</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Стоит знать</h3>
+            <ul class="minus">
+              <li>Кобель вырастает до 72 см в холке</li>
+              <li>До полутора лет нельзя прыжки и долгий бег</li>
+              <li>Дважды в год сильно линяет</li>
+              <li>Плохо переносит одиночество</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="fit">
-        <div class="fit-card fit-yes reveal">
-          <h3>Кому подходит гросс</h3>
-          <ul>
-            <li>Семьям с детьми</li>
-            <li>Тем, кто много гуляет в любую погоду</li>
-            <li>Дому с участком или активной семье в квартире</li>
-            <li>Тем, кому нужен спокойный компаньон и сторож</li>
-          </ul>
-        </div>
-        <div class="fit-card fit-no reveal">
-          <h3>О чём лучше знать заранее</h3>
-          <ul>
-            <li>Кобель вырастает до 72 см в холке</li>
-            <li>До полутора лет нельзя прыжки и долгий бег</li>
-            <li>Дважды в год сильно линяет</li>
-            <li>Плохо переносит одиночество</li>
-          </ul>
-        </div>
-      </div>
+      <figure class="breed-photo">
+        <img data-img="meadow.jpg" alt="Большой швейцарский зенненхунд сидит на траве" loading="lazy">
+        <figcaption class="mono">Grosser Schweizer Sennenhund</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- АНАТОМИЯ -->
-  <section class="section anat" id="mdm-anatomy">
+  <section class="section plate" id="mdm-anatomy">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Анатомия</div>
-        <h2>Из чего сделан гросс</h2>
-        <p class="lead">Наведите на точку на фото.</p>
-      </div>
-      <div class="anat-grid">
-        <div class="anat-stage reveal" id="mdm-anatStage">
-          <img data-img="standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке, вид три четверти">
-          <div class="anat-dim" aria-hidden="true"></div>
-          <div class="anat-ring" aria-hidden="true"><span id="mdm-anatRingLabel"></span></div>
+      <h2>Из чего сделан гросс</h2>
+      <div class="plate-grid">
+        <div class="plate-stage" id="mdm-anatStage">
+          <img data-img="standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке">
+          <svg class="plate-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line id="mdm-anatLine" x1="0" y1="0" x2="0" y2="0"/>
+          </svg>
           <div id="mdm-anatDots"></div>
+          <span class="plate-label mono" id="mdm-anatLabel"></span>
         </div>
-        <aside class="anat-panel reveal" aria-live="polite">
-          <div id="mdm-anatCard">
-            <span class="anat-num">Гросс в цифрах</span>
-            <h3>Выберите точку на фото</h3>
-            <dl class="anat-stats">
-              <div><dt>Рост кобеля</dt><dd>65–72 см</dd></div>
-              <div><dt>Рост суки</dt><dd>60–68 см</dd></div>
-              <div><dt>Вес</dt><dd>50–70 кг</dd></div>
-              <div><dt>Окрас</dt><dd>Трёхцветный</dd></div>
-            </dl>
-          </div>
-          <div class="anat-chips" id="mdm-anatChips"></div>
-        </aside>
+        <div class="plate-side">
+          <ol class="plate-legend" id="mdm-anatLegend"></ol>
+          <div class="plate-note" id="mdm-anatCard" aria-live="polite"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ПРОИЗВОДИТЕЛИ -->
+  <!-- СОБАКИ -->
   <section class="section" id="mdm-dogs">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Наши собаки</div>
-        <h2>Родители будущих щенков</h2>
-        <p class="lead">Наши племенные суки и кобели.</p>
-      </div>
-      <div class="dogs-grid" id="mdm-dogsGrid"></div>
-      <div class="males reveal" id="mdm-males"></div>
+      <h2>Наши собаки</h2>
+      <h3 class="table-title">Суки</h3>
+      <table class="catalog">
+        <thead><tr><th>Кличка</th><th>Родилась</th><th>Родители</th><th>Титулы</th><th>HD / ED</th></tr></thead>
+        <tbody id="mdm-dogsTable"></tbody>
+      </table>
+      <h3 class="table-title">Кобели в нашем разведении</h3>
+      <table class="catalog">
+        <tbody id="mdm-malesTable"></tbody>
+      </table>
     </div>
   </section>
 
-  <!-- ЧЕМПИОНАТ МИРА -->
+  <!-- ЧЕМПИОНАТ -->
   <section class="section champ" id="mdm-champ">
     <div class="wrap champ-grid">
-      <div class="reveal">
-        <div class="eyebrow">Ринг</div>
+      <figure>
+        <img data-img="wds-2023.jpg" alt="AMOR IZ DOMA MADAMY на World Dog Show 2023 в Женеве" loading="lazy">
+        <figcaption class="mono">World Dog Show · Женева · 26.08.2023</figcaption>
+      </figure>
+      <div>
         <h2>Чемпионат мира 2023, Женева</h2>
-        <p class="lead" style="margin-top:22px">World Dog Show, 26 августа 2023, на родине породы.</p>
-        <div class="titles-list">
-          <div><b>RIGHT IZ DOMA MADAMY</b><span>Чемпион мира 2023</span></div>
-          <div><b>AMOR IZ DOMA MADAMY</b><span>Вице-чемпион мира 2023</span></div>
-          <div><b>ARCHI FOR SENNENHUND ROSSII</b><span>Чемпион мира 2016</span></div>
-        </div>
+        <table class="titles">
+          <tr><td>RIGHT IZ DOMA MADAMY</td><td class="mono">Чемпион мира 2023</td></tr>
+          <tr><td>AMOR IZ DOMA MADAMY</td><td class="mono">Вице-чемпион мира 2023</td></tr>
+          <tr><td>ARCHI FOR SENNENHUND ROSSII</td><td class="mono">Чемпион мира 2016</td></tr>
+        </table>
         <a class="btn btn-light" href="#mdm-contact" data-goal="Выставки и разведение">Обсудить выставочную цель</a>
       </div>
-      <img class="reveal" data-img="wds-2023.jpg" alt="AMOR IZ DOMA MADAMY на World Dog Show 2023 в Женеве">
     </div>
   </section>
 
   <!-- ЩЕНКИ -->
   <section class="section" id="mdm-puppies">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Щенки</div>
-        <h2>Помёты и очередь</h2>
-        <p class="lead">Щенков немного, поэтому ведём запись заранее.</p>
-      </div>
+      <h2>Щенки</h2>
       <div class="litter">
-        <article class="litter-card reveal">
-          <div class="pics">
-            <img data-img="litter-1.jpg" alt="Щенок гросса в саду">
-            <img data-img="litter-2.jpg" alt="Щенок гросса в саду">
-          </div>
-          <div class="info">
-            <span class="chip muted status">Последний помёт</span>
-            <h3>AMOR × CHILLI PEPPER</h3>
-            <dl>
-              <div><dt>Дата рождения</dt><dd>21 ноября 2025</dd></div>
-              <div><dt>Отец</dt><dd>AMOR IZ DOMA MADAMY — вице-чемпион мира 2023</dd></div>
-              <div><dt>Мать</dt><dd>CHILLI PEPPER IZ DOMA MADAMY</dd></div>
-              <div><dt>Переезд</dt><dd>С двух месяцев, после актирования</dd></div>
-            </dl>
-          </div>
-        </article>
-        <aside class="queue reveal">
-          <h3>Открыта запись на будущие помёты</h3>
-          <p>Очередь идёт по дате обращения.</p>
-          <ol>
+        <figure class="litter-pics">
+          <img data-img="litter-1.jpg" alt="Щенок гросса в саду" loading="lazy">
+          <img data-img="litter-2.jpg" alt="Щенок гросса в саду" loading="lazy">
+        </figure>
+        <div class="litter-info">
+          <p class="mono">Последний помёт · 21.11.2025</p>
+          <h3>AMOR × CHILLI PEPPER</h3>
+          <table class="spec">
+            <tr><th>Отец</th><td>AMOR IZ DOMA MADAMY, вице-чемпион мира 2023</td></tr>
+            <tr><th>Мать</th><td>CHILLI PEPPER IZ DOMA MADAMY</td></tr>
+            <tr><th>Переезд</th><td>С двух месяцев</td></tr>
+          </table>
+          <h3 class="queue-title">Запись на следующие помёты</h3>
+          <ol class="queue">
             <li>Знакомимся</li>
             <li>Выбираем помёт</li>
-            <li>Встаёте в очередь</li>
+            <li>Встаёте в очередь по дате обращения</li>
             <li>Бронь после рождения</li>
           </ol>
-          <a class="btn btn-light" href="#mdm-contact" data-goal="Компаньон в семью">Встать в очередь</a>
-        </aside>
+          <a class="btn btn-primary" href="#mdm-contact" data-goal="Компаньон в семью">Встать в очередь</a>
+        </div>
       </div>
-      <details class="registry reveal">
-        <summary>Реестр помётов с 2019 года</summary>
-        <table>
+      <details class="registry">
+        <summary>Все помёты с 2019 года</summary>
+        <table class="catalog">
           <tbody id="mdm-registry"></tbody>
         </table>
       </details>
     </div>
   </section>
 
-  <!-- КАК КУПИТЬ -->
-  <section class="section" id="mdm-how" style="background:var(--paper)">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Порядок</div>
-        <h2>Как проходит покупка щенка</h2>
-      </div>
-      <div class="steps">
-        <article class="step reveal"><h3>Знакомство</h3><p>Звоните или пишите, расскажите о себе.</p></article>
-        <article class="step reveal"><h3>Подбор помёта</h3><p>Показываем родителей и документы.</p></article>
-        <article class="step reveal"><h3>Заявка и очередь</h3><p>Очередь по дате обращения.</p></article>
-        <article class="step reveal"><h3>Первые недели</h3><p>Присылаем фото и видео, можно приехать.</p></article>
-        <article class="step reveal"><h3>Актирование и выбор</h3><p>В 45 дней осмотр клуба, советуем щенка.</p></article>
-        <article class="step reveal"><h3>Отъезд домой</h3><p>В два месяца, с прививками и документами.</p></article>
-        <article class="step accent reveal"><h3>И дальше на связи</h3><p>Отвечаем на вопросы хоть через десять лет.</p></article>
-      </div>
-      <div class="two-col one">
-        <div class="box reveal">
-          <h3>Что уезжает вместе со щенком</h3>
-          <ul>
-            <li>Метрика РКФ</li>
-            <li>Клеймо</li>
-            <li>Ветпаспорт</li>
-            <li>Родословные родителей и HD/ED</li>
-            <li>Корм на первые дни и памятка</li>
-            <li>Чип и выездные документы по запросу</li>
-          </ul>
-        </div>
-      </div>
+  <!-- ПОКУПКА -->
+  <section class="section" id="mdm-how">
+    <div class="wrap how">
+      <h2>Как проходит покупка</h2>
+      <ol class="steps">
+        <li><span><b>Знакомство.</b> Звоните или пишите, расскажите о себе.</span></li>
+        <li><span><b>Подбор помёта.</b> Показываем родителей и документы.</span></li>
+        <li><span><b>Очередь.</b> По дате обращения.</span></li>
+        <li><span><b>Первые недели.</b> Присылаем фото и видео, можно приехать.</span></li>
+        <li><span><b>Выбор.</b> В 45 дней осмотр клуба, советуем щенка.</span></li>
+        <li><span><b>Домой.</b> В два месяца, с прививками и документами.</span></li>
+        <li><span><b>Дальше.</b> Отвечаем на вопросы хоть через десять лет.</span></li>
+      </ol>
+      <p class="with-puppy"><span class="mono">Со щенком:</span> метрика РКФ, клеймо, ветпаспорт, родословные родителей и HD/ED, корм на первые дни, памятка. Чип и выездные документы по запросу.</p>
     </div>
   </section>
 
   <!-- ПОСЛЕ ПОКУПКИ -->
-  <section class="section after" id="mdm-after">
-    <div class="wrap after-grid">
-      <div class="reveal">
-        <div class="eyebrow">После</div>
-        <h2>Мы не прощаемся</h2>
-        <p class="lead" style="margin-top:22px">Остаёмся на связи после покупки.</p>
-      </div>
-      <div class="support">
-        <div class="reveal"><h3>Консультации в любое время</h3><p>Кормление, воспитание, здоровье.</p></div>
-        <div class="reveal"><h3>Выставки и хендлинг</h3><p>Готовим к рингу и выставляем.</p></div>
-        <div class="reveal"><h3>Передержка</h3><p>Для собак нашего разведения.</p></div>
-        <div class="reveal"><h3>Если что-то изменилось</h3><p>Поможем найти собаке новый дом.</p></div>
+  <section class="section" id="mdm-after">
+    <div class="wrap">
+      <h2>После покупки</h2>
+      <div class="cols4">
+        <div><h3>Консультации</h3><p>Кормление, воспитание, здоровье.</p></div>
+        <div><h3>Выставки</h3><p>Готовим к рингу и выставляем.</p></div>
+        <div><h3>Передержка</h3><p>Для собак нашего разведения.</p></div>
+        <div><h3>Новый дом</h3><p>Если жизнь поменялась, поможем пристроить.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ВОПРОСЫ -->
   <section class="section" id="mdm-faq">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Вопросы</div>
-        <h2>Что спрашивают чаще всего</h2>
-      </div>
-      <div class="faq reveal" id="mdm-faqList"></div>
+    <div class="wrap faq-wrap">
+      <h2>Вопросы</h2>
+      <div class="faq" id="mdm-faqList"></div>
     </div>
   </section>
 
-  <!-- ГАЛЕРЕЯ -->
-  <section class="section" id="mdm-gallery" style="background:var(--paper)">
+  <!-- АЛЬБОМ -->
+  <section class="section" id="mdm-gallery">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Галерея</div>
-        <h2>Наша обычная жизнь</h2>
-      </div>
+      <h2>Альбом</h2>
       <div class="gallery" id="mdm-gallery-grid"></div>
     </div>
   </section>
@@ -724,39 +534,33 @@
   <!-- КОНТАКТЫ -->
   <section class="section contact" id="mdm-contact">
     <div class="wrap contact-grid">
-      <div class="reveal">
-        <div class="eyebrow">Контакты</div>
+      <div>
         <h2>Приезжайте знакомиться</h2>
-        <p class="lead" style="margin-top:22px">Звоните, даже если пока просто присматриваетесь.</p>
-        <div class="people">
-          <a href="tel:+79155851548"><span>Марина</span><b>8 (915) 585-15-48</b></a>
-          <a href="tel:+79102413201"><span>Василий</span><b>8 (910) 241-32-01</b></a>
-          <a href="tel:+79529563887"><span>Ещё телефон</span><b>8 (952) 956-38-87</b></a>
-          <a href="mailto:lovedog_marishka@mail.ru"><span>Почта</span><b>lovedog_marishka@mail.ru</b></a>
-          <div><span>Адрес</span><b>Воронежская обл., Рамонский р-н,<br>с. Ямное, ул. Советская, 84</b></div>
-          <div><span>Как добраться</span><b>10 км от Воронежа, трасса М-4 на Москву</b></div>
-          <div><span>Визит</span><b>По предварительной договорённости</b></div>
-        </div>
+        <p>Звоните, даже если пока просто присматриваетесь.</p>
+        <dl class="contacts">
+          <div><dt>Марина</dt><dd><a href="tel:+79155851548">8 (915) 585-15-48</a></dd></div>
+          <div><dt>Василий</dt><dd><a href="tel:+79102413201">8 (910) 241-32-01</a></dd></div>
+          <div><dt>Ещё</dt><dd><a href="tel:+79529563887">8 (952) 956-38-87</a></dd></div>
+          <div><dt>Почта</dt><dd><a href="mailto:lovedog_marishka@mail.ru">lovedog_marishka@mail.ru</a></dd></div>
+          <div><dt>Адрес</dt><dd>Воронежская обл., Рамонский р-н, с. Ямное, ул. Советская, 84. 10 км от Воронежа по М-4. Визит по договорённости.</dd></div>
+        </dl>
       </div>
-      <form class="form reveal" id="mdm-leadForm" novalidate>
-        <h3>Обсудить подбор щенка</h3>
-        <p class="small">Ни к чему не обязывает.</p>
+      <form class="form" id="mdm-leadForm" novalidate>
+        <h3>Написать нам</h3>
         <div class="field">
-          <label for="mdm-f-name">Как к вам обращаться</label>
+          <label for="mdm-f-name">Имя</label>
           <input id="mdm-f-name" name="name" autocomplete="name" required>
         </div>
         <div class="field">
           <label for="mdm-f-contact">Телефон или мессенджер</label>
           <input id="mdm-f-contact" name="contact" autocomplete="tel" required>
         </div>
-        <div class="field">
-          <span style="font-size:13.5px;font-weight:600">Цель</span>
-          <div class="radios" role="radiogroup">
-            <label><input type="radio" name="goal" value="Компаньон в семью" checked><span>Компаньон в семью</span></label>
-            <label><input type="radio" name="goal" value="Первая собака"><span>Первая собака</span></label>
-            <label><input type="radio" name="goal" value="Выставки и разведение"><span>Выставки / разведение</span></label>
-          </div>
-        </div>
+        <fieldset class="field">
+          <legend>Цель</legend>
+          <label class="radio"><input type="radio" name="goal" value="Компаньон в семью" checked> Компаньон в семью</label>
+          <label class="radio"><input type="radio" name="goal" value="Первая собака"> Первая собака</label>
+          <label class="radio"><input type="radio" name="goal" value="Выставки и разведение"> Выставки / разведение</label>
+        </fieldset>
         <div class="field">
           <label for="mdm-f-when">Когда хотели бы взять щенка</label>
           <select id="mdm-f-when" name="when">
@@ -767,11 +571,11 @@
           </select>
         </div>
         <div class="field">
-          <label for="mdm-f-msg">Вопрос или пара слов о вас (необязательно)</label>
+          <label for="mdm-f-msg">Вопрос (необязательно)</label>
           <textarea id="mdm-f-msg" name="msg" rows="3"></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Отправить</button>
-        <div class="form-ok" id="mdm-formOk" role="status">Откроется почта с готовым письмом, останется нажать «Отправить». Можно и просто позвонить Марине.</div>
+        <p class="form-ok" id="mdm-formOk" role="status">Откроется почта с готовым письмом, останется нажать «Отправить».</p>
       </form>
     </div>
   </section>
@@ -779,8 +583,8 @@
 
 <footer class="footer">
   <div class="wrap">
-    <span>© Из Дома МаДаМи — кинологический племенной питомник</span>
-    <span>FCI · РКФ № 9392 · Воронеж</span>
+    <span>Из Дома МаДаМи, кинологический племенной питомник</span>
+    <span class="mono">FCI · РКФ № 9392</span>
   </div>
 </footer>
 
@@ -844,27 +648,27 @@ const FAQ = [
   ["Можно приехать?", "Да, по договорённости. 10 км от Воронежа по М-4."],
 ];
 
-// Анатомия: x/y — положение точки на фото (в % от ширины/высоты), r — радиус подсветки
+// Анатомия: x/y — точка на фото, lx/ly — куда ведёт выноска (в % от ширины/высоты), side — сторона подписи
 const ANATOMY = [
-  { id: "brows", x: 32.5, y: 11, r: 9, name: "Бровки",
+  { id: "brows", x: 32.5, y: 11, lx: 4, ly: 5, side: "left", name: "Бровки",
     what: "Рыжие пятна над глазами.", why: "Делают морду выразительной, обязательны для трёхцветного окраса." },
-  { id: "muzzle", x: 26, y: 17, r: 11, name: "Морда и проточина",
+  { id: "muzzle", x: 26, y: 17, lx: 4, ly: 26, side: "left", name: "Морда и проточина",
     what: "Мощная морда с белой полосой на лоб.", why: "Сильные челюсти, плотные губы — слюней немного." },
-  { id: "ears", x: 45.7, y: 19.3, r: 10, name: "Уши",
+  { id: "ears", x: 45.7, y: 19.3, lx: 96, ly: 8, side: "right", name: "Уши",
     what: "Треугольные, высоко посажены.", why: "Поднимаются, когда гросс насторожился." },
-  { id: "chest", x: 37, y: 46, r: 17, name: "Грудь",
+  { id: "chest", x: 37, y: 46, lx: 4, ly: 48, side: "left", name: "Грудь",
     what: "Широкая, глубокая, с белой манишкой.", why: "Сердце и лёгкие тягловой собаки." },
-  { id: "back", x: 62, y: 30, r: 16, name: "Спина",
+  { id: "back", x: 62, y: 30, lx: 96, ly: 18, side: "right", name: "Спина",
     what: "Прямая и крепкая.", why: "Держит всю тягу. Щенку до 1,5 лет нельзя прыгать." },
-  { id: "coat", x: 58.5, y: 43, r: 18, name: "Шерсть",
+  { id: "coat", x: 58.5, y: 43, lx: 96, ly: 44, side: "right", name: "Шерсть",
     what: "Короткая, с густым подшёрстком.", why: "Для мороза. Жару гросс переносит хуже." },
-  { id: "tail", x: 72.9, y: 28.6, r: 7, name: "Хвост",
+  { id: "tail", x: 72.9, y: 28.6, lx: 96, ly: 31, side: "right", name: "Хвост",
     what: "Толстый, до скакательных суставов.", why: "Показывает настроение." },
-  { id: "tan", x: 33, y: 76, r: 11, name: "Подпал",
+  { id: "tan", x: 33, y: 76, lx: 4, ly: 70, side: "left", name: "Подпал",
     what: "Рыжий цвет между чёрным и белым.", why: "Третий цвет трёхцветного окраса." },
-  { id: "paws", x: 50.5, y: 92, r: 9, name: "Лапы",
+  { id: "paws", x: 50.5, y: 92, lx: 96, ly: 96, side: "right", name: "Лапы",
     what: "Круглые, с белыми «носочками».", why: "Держат 50–70 кг и не скользят." },
-  { id: "hind", x: 74.5, y: 55, r: 15, name: "Задние ноги",
+  { id: "hind", x: 74.5, y: 55, lx: 96, ly: 62, side: "right", name: "Задние ноги",
     what: "Мощные бёдра.", why: "Толчок и сила, которой гросс тянул повозку." },
 ];
 
@@ -876,56 +680,47 @@ const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">"
 root.classList.add("mdm-js");
 root.querySelectorAll("[data-img]").forEach((im) => { im.src = IMG + im.dataset.img; });
 
-$("#mdm-dogsGrid").innerHTML = DOGS.map((d) => `
-  <article class="dog reveal">
-    <h3>${esc(d.name)}</h3>
-    <div class="meta">${d.born ? esc(d.born) + " · " : ""}${esc(d.parents)}</div>
-    <div class="titles">${esc(d.titles || "Племенная сука питомника.")}</div>
-    <div class="chips">${d.hd ? '<span class="chip">HD-A · ED-0</span>' : '<span class="chip muted">Обследования по запросу</span>'}</div>
-  </article>`).join("");
+// Каталог собак
+$("#mdm-dogsTable").innerHTML = DOGS.map((d) => `<tr>
+  <td class="name">${esc(d.name)}</td>
+  <td class="mono" data-label="Род.">${esc(d.born || "—")}</td>
+  <td class="muted">${esc(d.parents)}</td>
+  <td>${esc(d.titles || "Племенная сука питомника")}</td>
+  <td class="mono" data-label="HD/ED">${d.hd ? "A / 0" : "по запросу"}</td>
+</tr>`).join("");
 
-$("#mdm-males").innerHTML = `<h3 style="grid-column:1/-1;margin-bottom:6px">Кобели в нашем разведении</h3>` +
-  MALES.map(([n, t]) => `<div class="male">${esc(n)}<span>${esc(t)}</span></div>`).join("");
+$("#mdm-malesTable").innerHTML = MALES.map(([n, t]) => `<tr><td class="name">${esc(n)}</td><td class="muted">${esc(t)}</td></tr>`).join("");
 
-$("#mdm-registry").innerHTML = LITTERS.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("");
+$("#mdm-registry").innerHTML = LITTERS.map(([date, pair, pups]) =>
+  `<tr><td class="mono">${esc(date)}</td><td class="name">${esc(pair)}</td><td class="muted">${esc(pups)}</td></tr>`).join("");
 
-$("#mdm-faqList").innerHTML = FAQ.map(([q, a], i) => `<details${i === 0 ? " open" : ""}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
+$("#mdm-faqList").innerHTML = FAQ.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
 
 $("#mdm-gallery-grid").innerHTML = GALLERY.map((g) => `<img src="${IMG}${g}.jpg" alt="Гроссы питомника Из Дома МаДаМи" loading="lazy">`).join("");
 
-// Анатомия
-const stage = $("#mdm-anatStage"), card = $("#mdm-anatCard"), intro = card.innerHTML;
+// Анатомия: номера на фото, легенда сбоку, выноска к активной части
+const line = $("#mdm-anatLine"), label = $("#mdm-anatLabel"), card = $("#mdm-anatCard");
 $("#mdm-anatDots").innerHTML = ANATOMY.map((a, i) =>
   `<button class="anat-dot" data-part="${a.id}" style="left:${a.x}%;top:${a.y}%" aria-label="${esc(a.name)}">${i + 1}</button>`).join("");
-$("#mdm-anatChips").innerHTML = ANATOMY.map((a, i) => `<button type="button" data-part="${a.id}">${i + 1}. ${esc(a.name)}</button>`).join("");
-let active = null;
+$("#mdm-anatLegend").innerHTML = ANATOMY.map((a, i) =>
+  `<li><button type="button" data-part="${a.id}"><span class="mono">${String(i + 1).padStart(2, "0")}</span>${esc(a.name)}</button></li>`).join("");
 const showPart = (id) => {
-  if (id === active) return;
-  active = id;
   const a = ANATOMY.find((p) => p.id === id);
+  if (!a) return;
   root.querySelectorAll("[data-part]").forEach((b) => b.classList.toggle("active", b.dataset.part === id));
-  if (!a) { stage.classList.remove("on"); card.innerHTML = intro; return; }
-  stage.style.setProperty("--ax", a.x + "%");
-  stage.style.setProperty("--ay", a.y + "%");
-  stage.style.setProperty("--ar", a.r + "%");
-  stage.classList.add("on");
-  $("#mdm-anatRingLabel").textContent = a.name;
-  card.innerHTML = `<span class="anat-num">${ANATOMY.indexOf(a) + 1} из ${ANATOMY.length}</span>
-    <h3>${esc(a.name)}</h3><p>${esc(a.what)}</p>
-    <p class="why"><b>Зачем</b>${esc(a.why)}</p>`;
-  card.classList.remove("swap"); void card.offsetWidth; card.classList.add("swap");
+  line.setAttribute("x1", a.x); line.setAttribute("y1", a.y);
+  line.setAttribute("x2", a.lx); line.setAttribute("y2", a.ly);
+  label.textContent = a.name;
+  label.className = `plate-label mono ${a.side}`;
+  label.style.left = a.lx + "%"; label.style.top = a.ly + "%";
+  card.innerHTML = `<h3>${esc(a.name)}</h3><p>${esc(a.what)}</p><p class="why">${esc(a.why)}</p>`;
 };
 root.querySelectorAll("[data-part]").forEach((b) => {
   b.addEventListener("mouseenter", () => showPart(b.dataset.part));
   b.addEventListener("focus", () => showPart(b.dataset.part));
   b.addEventListener("click", () => showPart(b.dataset.part));
 });
-
-// Шапка
-const header = $("#mdm-header");
-const onScroll = () => header.classList.toggle("scrolled", scrollY > 30);
-addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+showPart(ANATOMY[0].id);
 
 // Мобильное меню
 const nav = $("#mdm-nav"), burger = $("#mdm-burger");
@@ -940,16 +735,6 @@ root.querySelectorAll("[data-goal]").forEach((a) => a.addEventListener("click", 
   const r = root.querySelector(`input[name="goal"][value="${a.dataset.goal}"]`);
   if (r) r.checked = true;
 }));
-
-// Появление при скролле
-const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-}), { threshold: 0.12 });
-root.querySelectorAll(".reveal").forEach((el) => {
-  // Всё, что уже на экране при загрузке, показываем сразу
-  if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in");
-  else io.observe(el);
-});
 
 // Лайтбокс
 const lb = $("#mdm-lightbox");

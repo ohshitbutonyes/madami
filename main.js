@@ -49,27 +49,27 @@ const FAQ = [
   ["Можно приехать?", "Да, по договорённости. 10 км от Воронежа по М-4."],
 ];
 
-// Анатомия: x/y — положение точки на фото (в % от ширины/высоты), r — радиус подсветки
+// Анатомия: x/y — точка на фото, lx/ly — куда ведёт выноска (в % от ширины/высоты), side — сторона подписи
 const ANATOMY = [
-  { id: "brows", x: 32.5, y: 11, r: 9, name: "Бровки",
+  { id: "brows", x: 32.5, y: 11, lx: 4, ly: 5, side: "left", name: "Бровки",
     what: "Рыжие пятна над глазами.", why: "Делают морду выразительной, обязательны для трёхцветного окраса." },
-  { id: "muzzle", x: 26, y: 17, r: 11, name: "Морда и проточина",
+  { id: "muzzle", x: 26, y: 17, lx: 4, ly: 26, side: "left", name: "Морда и проточина",
     what: "Мощная морда с белой полосой на лоб.", why: "Сильные челюсти, плотные губы — слюней немного." },
-  { id: "ears", x: 45.7, y: 19.3, r: 10, name: "Уши",
+  { id: "ears", x: 45.7, y: 19.3, lx: 96, ly: 8, side: "right", name: "Уши",
     what: "Треугольные, высоко посажены.", why: "Поднимаются, когда гросс насторожился." },
-  { id: "chest", x: 37, y: 46, r: 17, name: "Грудь",
+  { id: "chest", x: 37, y: 46, lx: 4, ly: 48, side: "left", name: "Грудь",
     what: "Широкая, глубокая, с белой манишкой.", why: "Сердце и лёгкие тягловой собаки." },
-  { id: "back", x: 62, y: 30, r: 16, name: "Спина",
+  { id: "back", x: 62, y: 30, lx: 96, ly: 18, side: "right", name: "Спина",
     what: "Прямая и крепкая.", why: "Держит всю тягу. Щенку до 1,5 лет нельзя прыгать." },
-  { id: "coat", x: 58.5, y: 43, r: 18, name: "Шерсть",
+  { id: "coat", x: 58.5, y: 43, lx: 96, ly: 44, side: "right", name: "Шерсть",
     what: "Короткая, с густым подшёрстком.", why: "Для мороза. Жару гросс переносит хуже." },
-  { id: "tail", x: 72.9, y: 28.6, r: 7, name: "Хвост",
+  { id: "tail", x: 72.9, y: 28.6, lx: 96, ly: 31, side: "right", name: "Хвост",
     what: "Толстый, до скакательных суставов.", why: "Показывает настроение." },
-  { id: "tan", x: 33, y: 76, r: 11, name: "Подпал",
+  { id: "tan", x: 33, y: 76, lx: 4, ly: 70, side: "left", name: "Подпал",
     what: "Рыжий цвет между чёрным и белым.", why: "Третий цвет трёхцветного окраса." },
-  { id: "paws", x: 50.5, y: 92, r: 9, name: "Лапы",
+  { id: "paws", x: 50.5, y: 92, lx: 96, ly: 96, side: "right", name: "Лапы",
     what: "Круглые, с белыми «носочками».", why: "Держат 50–70 кг и не скользят." },
-  { id: "hind", x: 74.5, y: 55, r: 15, name: "Задние ноги",
+  { id: "hind", x: 74.5, y: 55, lx: 96, ly: 62, side: "right", name: "Задние ноги",
     what: "Мощные бёдра.", why: "Толчок и сила, которой гросс тянул повозку." },
 ];
 
@@ -79,56 +79,47 @@ const root = document;
 const $ = (s) => root.querySelector(s);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-$("#dogsGrid").innerHTML = DOGS.map((d) => `
-  <article class="dog reveal">
-    <h3>${esc(d.name)}</h3>
-    <div class="meta">${d.born ? esc(d.born) + " · " : ""}${esc(d.parents)}</div>
-    <div class="titles">${esc(d.titles || "Племенная сука питомника.")}</div>
-    <div class="chips">${d.hd ? '<span class="chip">HD-A · ED-0</span>' : '<span class="chip muted">Обследования по запросу</span>'}</div>
-  </article>`).join("");
+// Каталог собак
+$("#dogsTable").innerHTML = DOGS.map((d) => `<tr>
+  <td class="name">${esc(d.name)}</td>
+  <td class="mono" data-label="Род.">${esc(d.born || "—")}</td>
+  <td class="muted">${esc(d.parents)}</td>
+  <td>${esc(d.titles || "Племенная сука питомника")}</td>
+  <td class="mono" data-label="HD/ED">${d.hd ? "A / 0" : "по запросу"}</td>
+</tr>`).join("");
 
-$("#males").innerHTML = `<h3 style="grid-column:1/-1;margin-bottom:6px">Кобели в нашем разведении</h3>` +
-  MALES.map(([n, t]) => `<div class="male">${esc(n)}<span>${esc(t)}</span></div>`).join("");
+$("#malesTable").innerHTML = MALES.map(([n, t]) => `<tr><td class="name">${esc(n)}</td><td class="muted">${esc(t)}</td></tr>`).join("");
 
-$("#registry").innerHTML = LITTERS.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("");
+$("#registry").innerHTML = LITTERS.map(([date, pair, pups]) =>
+  `<tr><td class="mono">${esc(date)}</td><td class="name">${esc(pair)}</td><td class="muted">${esc(pups)}</td></tr>`).join("");
 
-$("#faqList").innerHTML = FAQ.map(([q, a], i) => `<details${i === 0 ? " open" : ""}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
+$("#faqList").innerHTML = FAQ.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
 
 $("#gallery-grid").innerHTML = GALLERY.map((g) => `<img src="img/${g}.jpg" alt="Гроссы питомника Из Дома МаДаМи" loading="lazy">`).join("");
 
-// Анатомия
-const stage = $("#anatStage"), card = $("#anatCard"), intro = card.innerHTML;
+// Анатомия: номера на фото, легенда сбоку, выноска к активной части
+const line = $("#anatLine"), label = $("#anatLabel"), card = $("#anatCard");
 $("#anatDots").innerHTML = ANATOMY.map((a, i) =>
   `<button class="anat-dot" data-part="${a.id}" style="left:${a.x}%;top:${a.y}%" aria-label="${esc(a.name)}">${i + 1}</button>`).join("");
-$("#anatChips").innerHTML = ANATOMY.map((a, i) => `<button type="button" data-part="${a.id}">${i + 1}. ${esc(a.name)}</button>`).join("");
-let active = null;
+$("#anatLegend").innerHTML = ANATOMY.map((a, i) =>
+  `<li><button type="button" data-part="${a.id}"><span class="mono">${String(i + 1).padStart(2, "0")}</span>${esc(a.name)}</button></li>`).join("");
 const showPart = (id) => {
-  if (id === active) return;
-  active = id;
   const a = ANATOMY.find((p) => p.id === id);
+  if (!a) return;
   root.querySelectorAll("[data-part]").forEach((b) => b.classList.toggle("active", b.dataset.part === id));
-  if (!a) { stage.classList.remove("on"); card.innerHTML = intro; return; }
-  stage.style.setProperty("--ax", a.x + "%");
-  stage.style.setProperty("--ay", a.y + "%");
-  stage.style.setProperty("--ar", a.r + "%");
-  stage.classList.add("on");
-  $("#anatRingLabel").textContent = a.name;
-  card.innerHTML = `<span class="anat-num">${ANATOMY.indexOf(a) + 1} из ${ANATOMY.length}</span>
-    <h3>${esc(a.name)}</h3><p>${esc(a.what)}</p>
-    <p class="why"><b>Зачем</b>${esc(a.why)}</p>`;
-  card.classList.remove("swap"); void card.offsetWidth; card.classList.add("swap");
+  line.setAttribute("x1", a.x); line.setAttribute("y1", a.y);
+  line.setAttribute("x2", a.lx); line.setAttribute("y2", a.ly);
+  label.textContent = a.name;
+  label.className = `plate-label mono ${a.side}`;
+  label.style.left = a.lx + "%"; label.style.top = a.ly + "%";
+  card.innerHTML = `<h3>${esc(a.name)}</h3><p>${esc(a.what)}</p><p class="why">${esc(a.why)}</p>`;
 };
 root.querySelectorAll("[data-part]").forEach((b) => {
   b.addEventListener("mouseenter", () => showPart(b.dataset.part));
   b.addEventListener("focus", () => showPart(b.dataset.part));
   b.addEventListener("click", () => showPart(b.dataset.part));
 });
-
-// Шапка
-const header = $("#header");
-const onScroll = () => header.classList.toggle("scrolled", scrollY > 30);
-addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+showPart(ANATOMY[0].id);
 
 // Мобильное меню
 const nav = $("#nav"), burger = $("#burger");
@@ -143,16 +134,6 @@ root.querySelectorAll("[data-goal]").forEach((a) => a.addEventListener("click", 
   const r = root.querySelector(`input[name="goal"][value="${a.dataset.goal}"]`);
   if (r) r.checked = true;
 }));
-
-// Появление при скролле
-const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-}), { threshold: 0.12 });
-root.querySelectorAll(".reveal").forEach((el) => {
-  // Всё, что уже на экране при загрузке, показываем сразу
-  if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in");
-  else io.observe(el);
-});
 
 // Лайтбокс
 const lb = $("#lightbox");
