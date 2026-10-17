@@ -231,7 +231,7 @@ em { font-style: italic; color: var(--rust); }
 .anat-stage.on .anat-dot::before { animation: none; opacity: 0; }
 @keyframes anat-pulse { 0% { transform: scale(.8); opacity: 1; } 100% { transform: scale(1.7); opacity: 0; } }
 .anat-panel { background: var(--paper); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); border: 1px solid rgba(91, 58, 43, .12); position: sticky; top: 96px; }
-#anatCard { min-height: 320px; }
+#anatCard { min-height: 220px; }
 #anatCard.swap { animation: anat-in .35s ease; }
 @keyframes anat-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .anat-num { display: inline-block; font: 600 12px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--cocoa); margin-bottom: 14px; }
@@ -281,6 +281,8 @@ em { font-style: italic; color: var(--rust); }
 /* Чемпионат мира */
 .champ { background: var(--choc-deep); color: var(--milk); overflow: hidden; }
 .champ .eyebrow { color: var(--sun); }
+/* Заголовки на тёмном фоне — кремовые */
+.champ h2, .contact h2, .queue h3, .path.featured h3 { color: var(--milk); }
 .champ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 80px); align-items: center; }
 .champ img { border-radius: var(--radius); width: 100%; aspect-ratio: 4/3; object-fit: cover; }
 .champ .lead { color: rgba(246, 241, 231, .75); }
@@ -420,3 +422,7 @@ em { font-style: italic; color: var(--rust); }
   .registry td:nth-child(2) { white-space: normal; }
   .home-photos { height: 360px; }
 }
+
+/* Один бокс «Что уезжает вместе со щенком» — список в две колонки */
+.two-col.one { grid-template-columns: 1fr; }
+.two-col.one ul { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
