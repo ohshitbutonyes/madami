@@ -3,7 +3,6 @@
 <style>
 .mdm { --milk: #f6f1e7;
   --paper: #fbf8f2;
-  --sand: #ead9bd;
   --rust: #b0532b;
   --rust-dark: #8f3f1d;
   --meadow: #5e6b34;
@@ -13,33 +12,41 @@
   --ink-soft: #5a5149;
   --choc: #5b3a2b;
   --choc-deep: #3b261c;
-  --cocoa: #a57b63;
   --latte: #f2e8de;
   --head: #2f2119;
-  --line: rgba(31, 27, 23, .18);
+  --line: rgba(31, 27, 23, .16);
   --serif: "Alegreya", Georgia, serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  --wrap: 1240px; }
+  --wrap: 1200px;
+  --gap: clamp(28px, 4vw, 64px);
+  --pad: clamp(56px, 6.5vw, 96px); }
 .mdm, .mdm * { box-sizing: border-box; }
 .mdm { scroll-padding-top: 64px; }
 .mdm { margin: 0;
-  font: 400 19px/1.5 var(--serif);
+  font: 400 18px/1.5 var(--serif);
   color: var(--ink);
   background: var(--milk);
   -webkit-font-smoothing: antialiased; }
 .mdm img { max-width: 100%; display: block; }
 .mdm a { color: inherit; }
 .mdm figure { margin: 0; }
-.mdm h1, .mdm h2, .mdm h3 { font-family: var(--serif); font-weight: 500; line-height: 1.05; margin: 0; color: var(--head); }
-.mdm h1 { font-size: clamp(64px, 10vw, 148px); letter-spacing: -.03em; line-height: .9; }
-.mdm h2 { font-size: clamp(34px, 4.6vw, 60px); letter-spacing: -.02em; margin-bottom: clamp(28px, 4vw, 48px); max-width: 16em; }
-.mdm h3 { font-size: 23px; font-weight: 700; }
-.mdm p { margin: 0 0 .8em; }
-.mdm .mono { font-family: var(--mono); font-size: 13px; letter-spacing: .02em; line-height: 1.5; color: var(--ink-soft); }
+.mdm h1, .mdm h2, .mdm h3 { font-family: var(--serif); font-weight: 500; line-height: 1.08; margin: 0; color: var(--head); }
+.mdm h1 { font-size: clamp(60px, 8.5vw, 124px); letter-spacing: -.03em; line-height: .92; }
+.mdm h2 { font-size: clamp(30px, 3.2vw, 44px); letter-spacing: -.015em; }
+.mdm h3 { font-size: 20px; font-weight: 700; }
+.mdm p { margin: 0 0 .7em; }
+.mdm .lead { font-size: clamp(20px, 1.7vw, 24px); line-height: 1.4; margin-bottom: 24px; }
+.mdm .mono { font-family: var(--mono); font-size: 12.5px; letter-spacing: .02em; line-height: 1.5; color: var(--ink-soft); }
 .mdm .wrap { width: min(var(--wrap), 100% - 40px); margin-inline: auto; }
-.mdm .section { padding: clamp(64px, 8vw, 112px) 0; border-top: 1px solid var(--line); }
-.mdm .btn { display: inline-block; padding: 14px 22px; border: 1px solid transparent; border-radius: 2px;
-  font: 500 17px/1 var(--serif); text-decoration: none; cursor: pointer; transition: background .15s, color .15s; }
+.mdm .section { padding: var(--pad) 0; }
+.mdm .section + .section:not(.plate):not(.champ):not(.contact) .sec { border-top: 1px solid var(--line); padding-top: var(--pad); }
+.mdm .section + .section:not(.plate):not(.champ):not(.contact) { padding-top: 0; }
+.mdm .sec { display: grid; grid-template-columns: 4fr 8fr; gap: var(--gap); align-items: start; }
+.mdm .sec > h2, .mdm .sec-side { position: sticky; top: 84px; }
+.mdm .sec-side h2 { margin-bottom: 20px; }
+.mdm .sec-side > p { color: var(--ink-soft); }
+.mdm .btn { display: inline-block; padding: 13px 22px; border: 0; border-radius: 2px;
+  font: 500 17px/1 var(--serif); text-decoration: none; cursor: pointer; transition: background .15s; }
 .mdm .btn-primary { background: var(--rust); color: #fff; }
 .mdm .btn-primary:hover { background: var(--rust-dark); }
 .mdm .btn-light { background: var(--milk); color: var(--ink); }
@@ -47,65 +54,59 @@
 .mdm .link-arrow { font-size: 18px; text-decoration: none; border-bottom: 1px solid currentColor; }
 .mdm .link-arrow::after { content: " →"; }
 .mdm .header { position: sticky; top: 0; z-index: 50; background: var(--milk); border-bottom: 1px solid var(--line); }
-.mdm .header .wrap { display: flex; align-items: center; gap: 32px; height: 60px; }
-.mdm .logo { font: 700 21px/1 var(--serif); text-decoration: none; color: var(--head); margin-right: auto; }
+.mdm .header .wrap { display: flex; align-items: center; gap: 28px; height: 60px; }
+.mdm .logo { font: 700 20px/1 var(--serif); text-decoration: none; color: var(--head); margin-right: auto; }
 .mdm .nav { display: flex; gap: 22px; }
 .mdm .nav a { text-decoration: none; font-size: 17px; color: var(--ink-soft); }
 .mdm .nav a:hover { color: var(--rust); }
 .mdm .header-phone { text-decoration: none; color: var(--ink); font-size: 14px; }
 .mdm .burger { display: none; background: none; border: 0; width: 40px; height: 40px; cursor: pointer; padding: 8px; }
 .mdm .burger span { display: block; height: 1.5px; background: var(--ink); margin: 7px 0; }
-.mdm .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 60px); }
-.mdm .hero-text { padding: clamp(40px, 6vw, 88px) clamp(20px, 5vw, 72px) 48px max(20px, calc((100vw - var(--wrap)) / 2));
-  display: flex; flex-direction: column; justify-content: flex-end; }
-.mdm .hero-meta { margin-bottom: auto; }
-.mdm .hero h1 { margin: 40px 0 28px; }
-.mdm .hero-sub { font-size: clamp(20px, 1.8vw, 24px); max-width: 26em; color: var(--ink-soft); }
-.mdm .hero-phones { margin: 28px 0 32px; border-top: 1px solid var(--line); }
-.mdm .hero-phones div { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.mdm .hero { width: min(var(--wrap), 100% - 40px); margin: 0 auto; padding: 40px 0 var(--pad); display: grid; grid-template-columns: 5fr 7fr; gap: var(--gap); align-items: center; }
+.mdm .hero h1 { margin: 20px 0 24px; }
+.mdm .hero-sub { font-size: clamp(19px, 1.6vw, 22px); color: var(--ink-soft); max-width: 24em; }
+.mdm .hero-phones { margin: 24px 0 28px; border-top: 1px solid var(--line); }
+.mdm .hero-phones div { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); }
 .mdm .hero-phones dt { color: var(--ink-soft); }
-.mdm .hero-phones dd { margin: 0; font-size: clamp(22px, 2.2vw, 30px); }
+.mdm .hero-phones dd { margin: 0; font-size: clamp(20px, 1.9vw, 26px); }
 .mdm .hero-phones a { text-decoration: none; }
 .mdm .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
-.mdm .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
-.mdm .band { display: grid; grid-template-columns: repeat(5, 1fr); }
-.mdm .band img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
-.mdm .toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.mdm .toc a { display: grid; grid-template-columns: 64px 1fr 1fr; gap: 20px; align-items: baseline;
-  padding: 24px 0; border-bottom: 1px solid var(--line); text-decoration: none; transition: color .15s; }
-.mdm .toc-t { font-size: clamp(26px, 3vw, 40px); line-height: 1.1; }
+.mdm .hero-photo img { width: 100%; aspect-ratio: 4 / 5; max-height: calc(100vh - 140px); object-fit: cover; object-position: 50% 35%; }
+.mdm .band { width: min(var(--wrap), 100% - 40px); margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.mdm .band img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.mdm .toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.mdm .toc a { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.mdm .toc-n { grid-row: span 2; line-height: 34px; }
+.mdm .toc-t { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.15; }
 .mdm .toc-d { color: var(--ink-soft); }
 .mdm .toc a:hover .toc-t { color: var(--rust); }
 .mdm .toc a:hover .toc-t::after { content: " →"; }
-.mdm .home { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
-.mdm .home-big img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.mdm .home-text { padding-top: 8px; }
-.mdm .home-text h2 { margin-bottom: 24px; }
-.mdm .home-small { margin-top: 40px; width: 70%; }
-.mdm .home-small img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.mdm .plain { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-.mdm .plain li { padding: 10px 0; border-bottom: 1px solid var(--line); }
-.mdm .cols3, .mdm .cols4 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
-.mdm .cols4 { grid-template-columns: repeat(4, 1fr); }
-.mdm .cols3 > div, .mdm .cols4 > div { padding: 20px 24px 0 0; }
-.mdm .cols3 > div + div, .mdm .cols4 > div + div { padding-left: 24px; border-left: 1px solid var(--line); }
-.mdm .cols3 h3, .mdm .cols4 h3 { margin-bottom: 10px; }
-.mdm .cols3 p, .mdm .cols4 p { color: var(--ink-soft); }
-.mdm .breed { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
-.mdm .breed-photo img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.mdm .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.mdm .pair img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.mdm .side-photo { margin-top: 4px; }
+.mdm .side-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
 .mdm figcaption.mono { margin-top: 8px; }
-.mdm .spec { border-collapse: collapse; width: 100%; margin: 24px 0 0; }
-.mdm .spec th, .mdm .spec td { text-align: left; padding: 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-.mdm .spec th { font: 400 13px/1.9 var(--mono); color: var(--ink-soft); width: 34%; padding-right: 16px; }
-.mdm .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
-.mdm .fit h3 { margin-bottom: 8px; }
-.mdm .plus, .mdm .minus { margin: 0; padding: 0; list-style: none; }
-.mdm .plus li, .mdm .minus li { padding: 7px 0 7px 22px; border-bottom: 1px solid var(--line); position: relative; }
+.mdm .plain { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.mdm .plain li { padding: 9px 0; border-bottom: 1px solid var(--line); }
+.mdm .cols3, .mdm .cols2 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+.mdm .cols2 { grid-template-columns: 1fr 1fr; }
+.mdm .cols3 > div { padding: 16px 20px 0 0; }
+.mdm .cols3 > div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.mdm .cols2 > div { padding: 16px 20px 16px 0; border-bottom: 1px solid var(--line); }
+.mdm .cols2 > div:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--line); }
+.mdm .cols3 h3, .mdm .cols2 h3 { margin-bottom: 6px; }
+.mdm .cols3 p, .mdm .cols2 p { color: var(--ink-soft); }
+.mdm .spec { border-collapse: collapse; width: 100%; border-top: 1px solid var(--ink); }
+.mdm .spec th, .mdm .spec td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+.mdm .spec th { font: 400 12.5px/1.5 var(--mono); color: var(--ink-soft); white-space: nowrap; }
+.mdm .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; }
+.mdm .fit h3 { margin-bottom: 6px; }
+.mdm .plus, .mdm .minus { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
+.mdm .plus li, .mdm .minus li { padding: 8px 0 8px 22px; border-bottom: 1px solid var(--line); position: relative; }
 .mdm .plus li::before, .mdm .minus li::before { position: absolute; left: 0; font-family: var(--mono); }
 .mdm .plus li::before { content: "+"; color: var(--meadow); }
 .mdm .minus li::before { content: "−"; color: var(--rust); }
 .mdm .plate { background: var(--latte); }
-.mdm .plate-grid { display: grid; grid-template-columns: 7fr 4fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
 .mdm .plate-stage { position: relative; aspect-ratio: 1; }
 .mdm .plate-stage img { width: 100%; height: 100%; object-fit: cover; }
 .mdm .plate-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -117,83 +118,82 @@
 .mdm .plate-label { position: absolute; padding: 4px 8px; background: var(--paper); color: var(--choc); border-radius: 2px;
   white-space: nowrap; pointer-events: none; transform: translateY(-50%); }
 .mdm .plate-label.right { transform: translate(-100%, -50%); }
-.mdm .plate-legend { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--choc); }
-.mdm .plate-legend button { display: grid; grid-template-columns: 36px 1fr; width: 100%; padding: 8px 0; text-align: left; cursor: pointer;
-  background: none; border: 0; border-bottom: 1px solid rgba(91, 58, 43, .2); font: inherit; color: var(--ink); }
-.mdm .plate-legend .mono { font-size: 12px; line-height: 28px; }
-.mdm .plate-legend button:hover, .mdm .plate-legend button.active { color: var(--rust); }
-.mdm .plate-note { margin-top: 24px; min-height: 130px; }
-.mdm .plate-note h3 { color: var(--choc); margin-bottom: 8px; }
-.mdm .plate-note p { margin: 0 0 6px; }
+.mdm .plate-note { min-height: 110px; margin-bottom: 16px; }
+.mdm .plate-note h3 { color: var(--choc); margin-bottom: 4px; }
+.mdm .plate-note p { margin: 0 0 4px; }
 .mdm .plate-note .why { color: var(--ink-soft); }
-.mdm .table-title { margin: 8px 0 12px; font-size: 19px; }
-.mdm .table-title ~ .table-title { margin-top: 48px; }
-.mdm .catalog { width: 100%; border-collapse: collapse; font-size: 17px; }
-.mdm .catalog th { text-align: left; font: 400 12px/1.4 var(--mono); color: var(--ink-soft); padding: 8px 16px 8px 0; border-bottom: 1px solid var(--ink); }
-.mdm .catalog td { padding: 12px 16px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-.mdm .catalog .name { font-weight: 700; white-space: nowrap; }
-.mdm .catalog .mono { font-size: 13px; white-space: nowrap; }
+.mdm .plate-legend { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--choc); columns: 2; column-gap: 20px; }
+.mdm .plate-legend li { break-inside: avoid; }
+.mdm .plate-legend button { display: grid; grid-template-columns: 30px 1fr; width: 100%; padding: 6px 0; text-align: left; cursor: pointer;
+  background: none; border: 0; border-bottom: 1px solid rgba(91, 58, 43, .18); font: inherit; font-size: 17px; color: var(--ink); }
+.mdm .plate-legend .mono { font-size: 11.5px; line-height: 26px; }
+.mdm .plate-legend button:hover, .mdm .plate-legend button.active { color: var(--rust); }
+.mdm .table-title { margin: 0 0 10px; font-size: 18px; }
+.mdm .table-title ~ .table-title { margin-top: 40px; }
+.mdm .catalog { width: 100%; border-collapse: collapse; font-size: 16px; }
+.mdm .catalog th { text-align: left; font: 400 12px/1.4 var(--mono); color: var(--ink-soft); padding: 8px 14px 8px 0; border-bottom: 1px solid var(--ink); }
+.mdm .catalog td { padding: 11px 14px 11px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.mdm .catalog tbody:first-child tr:first-child td { border-top: 1px solid var(--ink); }
+.mdm .catalog .name { font-weight: 700; display: block; }
+.mdm .catalog .sub { display: block; font-size: 14px; color: var(--ink-soft); }
+.mdm .catalog .mono { font-size: 12.5px; white-space: nowrap; }
 .mdm .catalog .muted { color: var(--ink-soft); }
-.mdm .champ { background: var(--choc-deep); color: var(--milk); border-top: 0; }
+.mdm #mdm-dogsTable td:first-child { width: 38%; }
+.mdm .champ { background: var(--choc-deep); color: var(--milk); }
 .mdm .champ h2 { color: var(--milk); }
 .mdm .champ .mono { color: rgba(246, 241, 231, .65); }
-.mdm .champ-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
 .mdm .champ img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.mdm .titles { width: 100%; border-collapse: collapse; margin-bottom: 32px; border-top: 1px solid rgba(246, 241, 231, .4); }
-.mdm .titles td { padding: 14px 16px 14px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); font-size: 19px; }
-.mdm .titles td.mono { color: var(--sun); font-size: 12.5px; text-align: right; padding-right: 0; }
-.mdm .litter { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
-.mdm .litter-pics { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.mdm .litter-pics img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
-.mdm .litter-info h3 { font-size: 28px; margin: 4px 0 0; }
-.mdm .litter-info .queue-title { margin-top: 40px; font-size: 21px; }
-.mdm .queue { margin: 12px 0 28px; padding: 0; list-style: none; counter-reset: q; border-top: 1px solid var(--line); }
-.mdm .queue li { counter-increment: q; padding: 8px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 36px 1fr; }
-.mdm .queue li::before { content: "0" counter(q); font: 400 12px/28px var(--mono); color: var(--ink-soft); }
-.mdm .registry { margin-top: 56px; }
-.mdm .registry summary { cursor: pointer; font-size: 19px; padding: 12px 0; border-top: 1px solid var(--ink); list-style: none; }
-.mdm .registry summary::after { content: " +"; color: var(--rust); }
+.mdm .titles { width: 100%; border-collapse: collapse; margin-bottom: 28px; border-top: 1px solid rgba(246, 241, 231, .5); }
+.mdm .titles td { padding: 11px 12px 11px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); font-size: 17px; vertical-align: baseline; }
+.mdm .titles td.mono { color: var(--sun); font-size: 11.5px; text-align: right; padding-right: 0; white-space: nowrap; }
+.mdm .sec-side h3 { margin-top: 4px; }
+.mdm .sec-side .queue-title { margin-top: 28px; font-size: 18px; }
+.mdm .queue { margin: 10px 0 24px; padding: 0; list-style: none; counter-reset: q; border-top: 1px solid var(--line); }
+.mdm .queue li { counter-increment: q; padding: 7px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 32px 1fr; }
+.mdm .queue li::before { content: "0" counter(q); font: 400 12px/27px var(--mono); color: var(--ink-soft); }
+.mdm .registry { margin-top: 28px; }
+.mdm .registry summary { cursor: pointer; font-size: 18px; padding: 10px 0; border-top: 1px solid var(--ink); list-style: none; }
+.mdm .registry summary::after { content: " +"; color: var(--rust); font-family: var(--mono); }
 .mdm .registry[open] summary::after { content: " −"; }
 .mdm .registry summary::-webkit-details-marker, .mdm .faq summary::-webkit-details-marker { display: none; }
-.mdm .how { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 72px); }
-.mdm .how h2 { margin: 0; }
 .mdm .steps { margin: 0; padding: 0; list-style: none; counter-reset: s; border-top: 1px solid var(--ink); }
-.mdm .steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; padding: 12px 0; border-bottom: 1px solid var(--line); }
-.mdm .steps li::before { content: "0" counter(s); font: 400 12px/28px var(--mono); color: var(--ink-soft); }
-.mdm .with-puppy { grid-column: 2; margin-top: 20px; color: var(--ink-soft); }
-.mdm .faq-wrap { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 72px); }
-.mdm .faq-wrap h2 { margin: 0; }
+.mdm .steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.mdm .steps li::before { content: "0" counter(s); font: 400 12px/27px var(--mono); color: var(--ink-soft); }
+.mdm .note { margin-top: 18px; color: var(--ink-soft); }
 .mdm .faq { border-top: 1px solid var(--ink); }
 .mdm .faq details { border-bottom: 1px solid var(--line); }
-.mdm .faq summary { cursor: pointer; padding: 14px 32px 14px 0; font-size: 20px; list-style: none; position: relative; }
+.mdm .faq summary { cursor: pointer; padding: 12px 32px 12px 0; font-size: 19px; list-style: none; position: relative; }
 .mdm .faq summary::after { content: "+"; position: absolute; right: 0; top: 12px; font-family: var(--mono); color: var(--rust); }
 .mdm .faq details[open] summary::after { content: "−"; }
 .mdm .faq details p { color: var(--ink-soft); }
-.mdm .gallery { columns: 4 220px; column-gap: 6px; }
+.mdm .gallery { columns: 3; column-gap: 6px; }
 .mdm .gallery img { width: 100%; margin-bottom: 6px; break-inside: avoid; cursor: zoom-in; }
 .mdm .lightbox { position: fixed; inset: 0; background: rgba(20, 16, 12, .92); display: none; place-items: center; z-index: 100; padding: 24px; cursor: zoom-out; }
 .mdm .lightbox.open { display: grid; }
 .mdm .lightbox img { max-height: 92vh; }
-.mdm .contact { background: var(--meadow-dark); color: var(--milk); border-top: 0; }
+.mdm .contact { background: var(--meadow-dark); color: var(--milk); }
 .mdm .contact h2 { color: var(--milk); }
-.mdm .contact-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); }
-.mdm .contacts { margin: 28px 0 0; border-top: 1px solid rgba(246, 241, 231, .4); }
-.mdm .contacts div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); }
-.mdm .contacts dt { font: 400 13px/1.9 var(--mono); color: rgba(246, 241, 231, .6); }
-.mdm .contacts dd { margin: 0; font-size: 21px; }
+.mdm .contact .sec-side > p { color: rgba(246, 241, 231, .75); }
+.mdm .contacts { margin: 20px 0 0; border-top: 1px solid rgba(246, 241, 231, .5); }
+.mdm .contacts div { padding: 9px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); }
+.mdm .contacts dt { font: 400 12px/1.6 var(--mono); color: rgba(246, 241, 231, .6); }
+.mdm .contacts dd { margin: 0; font-size: 19px; }
 .mdm .contacts a { text-decoration: none; }
 .mdm .contacts a:hover { color: var(--sun); }
-.mdm .form { background: var(--milk); color: var(--ink); padding: clamp(22px, 3vw, 36px); display: grid; gap: 16px; align-self: start; }
-.mdm .form h3 { color: var(--head); font-size: 26px; }
-.mdm .field { display: grid; gap: 4px; border: 0; padding: 0; margin: 0; }
-.mdm .field label, .mdm .field legend { font: 400 12.5px/1.6 var(--mono); color: var(--ink-soft); padding: 0; }
-.mdm .field input, .mdm .field select, .mdm .field textarea { font: inherit; font-size: 18px; padding: 8px 0; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); }
+.mdm .form { background: var(--milk); color: var(--ink); padding: clamp(22px, 3vw, 40px); display: grid; gap: 18px; }
+.mdm .form h3 { color: var(--head); font-size: 26px; font-weight: 500; }
+.mdm .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mdm .field { display: grid; gap: 4px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.mdm .field label, .mdm .field legend { font: 400 12px/1.6 var(--mono); color: var(--ink-soft); padding: 0; }
+.mdm .field input, .mdm .field select, .mdm .field textarea { font: inherit; font-size: 18px; padding: 6px 0; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); width: 100%; }
 .mdm .field input:focus, .mdm .field select:focus, .mdm .field textarea:focus { outline: none; border-bottom-color: var(--rust); }
-.mdm .field label.radio { font: 400 18px/1.6 var(--serif); color: var(--ink); display: flex; gap: 10px; align-items: center; cursor: pointer; }
+.mdm .radios { display: flex; flex-wrap: wrap; gap: 6px 22px; padding-top: 4px; }
+.mdm .field label.radio { font: 400 18px/1.5 var(--serif); color: var(--ink); display: flex; gap: 8px; align-items: center; cursor: pointer; }
 .mdm .radio input { accent-color: var(--rust); margin: 0; }
+.mdm .radios .radio { flex: 0 0 auto; white-space: nowrap; }
 .mdm .form .btn { justify-self: start; }
 .mdm .form-ok { display: none; font-size: 16px; color: var(--meadow-dark); margin: 0; }
-.mdm .footer { background: var(--choc-deep); color: rgba(246, 241, 231, .6); padding: 24px 0; font-size: 16px; }
+.mdm .footer { background: var(--choc-deep); color: rgba(246, 241, 231, .6); padding: 22px 0; font-size: 16px; }
 .mdm .footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 .mdm .footer .mono { color: inherit; }
 @media (max-width: 1080px) {
@@ -204,38 +204,31 @@
   .mdm .nav.open a { font-size: 22px; color: var(--ink); }
 }
 @media (max-width: 900px) {
-  .mdm .hero, .mdm .home, .mdm .breed, .mdm .plate-grid, .mdm .champ-grid, .mdm .litter, .mdm .how, .mdm .faq-wrap, .mdm .contact-grid { grid-template-columns: 1fr; }
-  .mdm .hero { min-height: 0; }
+  .mdm .sec, .mdm .hero { grid-template-columns: 1fr; }
+  .mdm .sec > h2, .mdm .sec-side { position: static; }
+  .mdm .hero { padding-top: 20px; }
   .mdm .hero-photo { order: -1; }
-  .mdm .hero-photo img { height: 62vh; }
-  .mdm .hero h1 { margin-top: 24px; }
+  .mdm .hero-photo img { aspect-ratio: 4 / 3; max-height: none; }
   .mdm .band { grid-template-columns: repeat(3, 1fr); }
   .mdm .band img:nth-child(n+4) { display: none; }
-  .mdm .cols4 { grid-template-columns: 1fr 1fr; }
-  .mdm .cols4 > div:nth-child(3) { padding-left: 0; border-left: 0; }
-  .mdm .with-puppy { grid-column: auto; }
-  .mdm .breed-photo { order: -1; }
-  .mdm .breed-photo img { aspect-ratio: 4 / 3; }
-  .mdm .toc a { grid-template-columns: 44px 1fr; }
-  .mdm .toc-d { grid-column: 2; }
-  .mdm .plate-side { display: flex; flex-direction: column; }
-  .mdm .plate-note { order: -1; margin: 0 0 20px; min-height: 0; }
+  .mdm .plate-note { min-height: 0; }
+  .mdm .gallery { columns: 2; }
 }
 @media (max-width: 640px) {
-  .mdm { font-size: 18px; }
+  .mdm { font-size: 17px; }
   .mdm .header-phone { display: none; }
-  .mdm .cols3, .mdm .cols4 { grid-template-columns: 1fr; }
-  .mdm .cols3 > div, .mdm .cols4 > div { padding: 16px 0; }
-  .mdm .cols3 > div + div, .mdm .cols4 > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
-  .mdm .fit { grid-template-columns: 1fr; }
-  .mdm .home-small { width: 100%; }
+  .mdm .cols3, .mdm .cols2, .mdm .fit, .mdm .form-row { grid-template-columns: 1fr; }
+  .mdm .cols3 > div, .mdm .cols2 > div, .mdm .cols2 > div:nth-child(even) { padding: 14px 0; border-left: 0; }
+  .mdm .cols3 > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .mdm .cols2 > div:nth-child(even) { padding-left: 0; }
+  .mdm .spec tr { display: grid; grid-template-columns: auto 1fr; }
+  .mdm .plate-legend { columns: 1; }
   .mdm .catalog thead { display: none; }
-  .mdm .catalog tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
-  .mdm .catalog td { display: block; padding: 2px 0; border: 0; }
+  .mdm .catalog tr { display: block; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .mdm .catalog td { display: block; padding: 2px 0; border: 0 !important; }
   .mdm .catalog td[data-label]::before { content: attr(data-label) " "; font: 400 12px var(--mono); color: var(--ink-soft); }
-  .mdm .catalog .name, .mdm .catalog .mono { white-space: normal; }
+  .mdm .catalog .mono { white-space: normal; }
   .mdm .plate-label { font-size: 11px; }
-  .mdm .contacts div { grid-template-columns: 1fr; gap: 0; }
 }
 .mdm { overflow-x: clip; }
 .mdm table { border: 0; }
@@ -292,27 +285,27 @@
     <img data-img="g12.jpg" alt="Щенок стоит" loading="lazy">
     <img data-img="g06.jpg" alt="Взрослый гросс сидит на ступенях" loading="lazy">
     <img data-img="g10.jpg" alt="Взрослый гросс у каменной стены" loading="lazy">
+    <img data-img="g25.jpg" alt="Щенок в зелёном ошейнике" loading="lazy">
   </div>
 
   <!-- КАКУЮ СОБАКУ -->
   <section class="section">
-    <div class="wrap">
+    <div class="wrap sec">
       <h2>Какую собаку вы ищете?</h2>
-      <ul class="toc">
-        <li><a href="#mdm-contact" data-goal="Компаньон в семью"><span class="toc-n mono">01</span><span class="toc-t">Собаку в семью</span><span class="toc-d">Покажем родителей и подберём щенка по характеру.</span></a></li>
-        <li><a href="#mdm-breed"><span class="toc-n mono">02</span><span class="toc-t">Первую собаку в жизни</span><span class="toc-d">Расскажем про породу и поможем с первыми месяцами.</span></a></li>
-        <li><a href="#mdm-champ"><span class="toc-n mono">03</span><span class="toc-t">Щенка для выставок</span><span class="toc-d">Обсудим линии родителей и перспективы щенка.</span></a></li>
-      </ul>
+      <div class="sec-body">
+        <ul class="toc">
+          <li><a href="#mdm-contact" data-goal="Компаньон в семью"><span class="toc-n mono">01</span><span class="toc-t">Собаку в семью</span><span class="toc-d">Покажем родителей и подберём щенка по характеру.</span></a></li>
+          <li><a href="#mdm-breed"><span class="toc-n mono">02</span><span class="toc-t">Первую собаку в жизни</span><span class="toc-d">Расскажем про породу и поможем с первыми месяцами.</span></a></li>
+          <li><a href="#mdm-champ"><span class="toc-n mono">03</span><span class="toc-t">Щенка для выставок</span><span class="toc-d">Обсудим линии родителей и перспективы щенка.</span></a></li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- ПИТОМНИК -->
   <section class="section" id="mdm-home">
-    <div class="wrap home">
-      <figure class="home-big">
-        <img data-img="autumn.jpg" alt="Взрослый гросс на фоне осенней листвы" loading="lazy">
-      </figure>
-      <div class="home-text">
+    <div class="wrap sec">
+      <div class="sec-side">
         <h2>Собаки живут дома</h2>
         <p>Семейный питомник в 10 км от Воронежа, рядом Дон. Название сложилось из первых букв наших имён.</p>
         <ul class="plain">
@@ -320,18 +313,19 @@
           <li>Щенки растут в доме, среди людей.</li>
           <li>Не больше одного помёта за раз.</li>
         </ul>
-        <figure class="home-small">
-          <img data-img="puppy-floor.jpg" alt="Щенок гросса на деревянном полу" loading="lazy">
-        </figure>
+      </div>
+      <div class="sec-body pair">
+        <img data-img="autumn.jpg" alt="Взрослый гросс на фоне осенней листвы" loading="lazy">
+        <img data-img="puppy-floor.jpg" alt="Щенок гросса на деревянном полу" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- ПРОВЕРКИ -->
   <section class="section" id="mdm-trust">
-    <div class="wrap">
-      <h2>Что можно проверить до решения</h2>
-      <div class="cols3">
+    <div class="wrap sec">
+      <h2>Что можно проверить</h2>
+      <div class="sec-body cols3">
         <div>
           <h3>Здоровье родителей</h3>
           <p>Производители проверены на дисплазию суставов.</p>
@@ -343,7 +337,7 @@
           <p class="mono">FCI–РКФ № 9392</p>
         </div>
         <div>
-          <h3>Характер щенка</h3>
+          <h3>Характер</h3>
           <p>Знаем каждого щенка и советуем, кто подойдёт вашей семье.</p>
           <p class="mono">Подбор после актирования</p>
         </div>
@@ -353,17 +347,20 @@
 
   <!-- ПОРОДА -->
   <section class="section" id="mdm-breed">
-    <div class="wrap breed">
-      <div class="breed-text">
-        <h2>Гросс — самый крупный из четырёх швейцарских зенненхундов</h2>
-        <p>Бывший фермерский сторож, теперь семейная собака.</p>
+    <div class="wrap sec">
+      <div class="sec-side">
+        <h2>Порода</h2>
+        <figure class="side-photo">
+          <img data-img="meadow.jpg" alt="Большой швейцарский зенненхунд сидит на траве" loading="lazy">
+          <figcaption class="mono">Grosser Schweizer Sennenhund</figcaption>
+        </figure>
+      </div>
+      <div class="sec-body">
+        <p class="lead">Гросс — самый крупный из четырёх швейцарских зенненхундов. Бывший фермерский сторож, теперь семейная собака.</p>
         <table class="spec">
-          <tr><th>Страна</th><td>Швейцария</td></tr>
-          <tr><th>FCI</th><td>Группа 2, секция 3</td></tr>
-          <tr><th>Рост, кобели</th><td>65–72 см</td></tr>
-          <tr><th>Рост, суки</th><td>60–68 см</td></tr>
-          <tr><th>Вес</th><td>50–70 кг</td></tr>
-          <tr><th>Окрас</th><td>Трёхцветный</td></tr>
+          <tr><th>Страна</th><td>Швейцария</td><th>FCI</th><td>Группа 2, секция 3</td></tr>
+          <tr><th>Кобели</th><td>65–72 см</td><th>Суки</th><td>60–68 см</td></tr>
+          <tr><th>Вес</th><td>50–70 кг</td><th>Окрас</th><td>Трёхцветный</td></tr>
         </table>
         <div class="fit">
           <div>
@@ -386,18 +383,18 @@
           </div>
         </div>
       </div>
-      <figure class="breed-photo">
-        <img data-img="meadow.jpg" alt="Большой швейцарский зенненхунд сидит на траве" loading="lazy">
-        <figcaption class="mono">Grosser Schweizer Sennenhund</figcaption>
-      </figure>
     </div>
   </section>
 
   <!-- АНАТОМИЯ -->
   <section class="section plate" id="mdm-anatomy">
-    <div class="wrap">
-      <h2>Из чего сделан гросс</h2>
-      <div class="plate-grid">
+    <div class="wrap sec">
+      <div class="sec-side">
+        <h2>Из чего сделан гросс</h2>
+        <div class="plate-note" id="mdm-anatCard" aria-live="polite"></div>
+        <ol class="plate-legend" id="mdm-anatLegend"></ol>
+      </div>
+      <div class="sec-body">
         <div class="plate-stage" id="mdm-anatStage">
           <img data-img="standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке">
           <svg class="plate-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -406,107 +403,103 @@
           <div id="mdm-anatDots"></div>
           <span class="plate-label mono" id="mdm-anatLabel"></span>
         </div>
-        <div class="plate-side">
-          <ol class="plate-legend" id="mdm-anatLegend"></ol>
-          <div class="plate-note" id="mdm-anatCard" aria-live="polite"></div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- СОБАКИ -->
   <section class="section" id="mdm-dogs">
-    <div class="wrap">
+    <div class="wrap sec">
       <h2>Наши собаки</h2>
-      <h3 class="table-title">Суки</h3>
-      <table class="catalog">
-        <thead><tr><th>Кличка</th><th>Родилась</th><th>Родители</th><th>Титулы</th><th>HD / ED</th></tr></thead>
-        <tbody id="mdm-dogsTable"></tbody>
-      </table>
-      <h3 class="table-title">Кобели в нашем разведении</h3>
-      <table class="catalog">
-        <tbody id="mdm-malesTable"></tbody>
-      </table>
+      <div class="sec-body">
+        <h3 class="table-title">Суки</h3>
+        <table class="catalog">
+          <thead><tr><th>Кличка</th><th>Родилась</th><th>Титулы</th><th>HD / ED</th></tr></thead>
+          <tbody id="mdm-dogsTable"></tbody>
+        </table>
+        <h3 class="table-title">Кобели в нашем разведении</h3>
+        <table class="catalog">
+          <tbody id="mdm-malesTable"></tbody>
+        </table>
+      </div>
     </div>
   </section>
 
   <!-- ЧЕМПИОНАТ -->
   <section class="section champ" id="mdm-champ">
-    <div class="wrap champ-grid">
-      <figure>
-        <img data-img="wds-2023.jpg" alt="AMOR IZ DOMA MADAMY на World Dog Show 2023 в Женеве" loading="lazy">
-        <figcaption class="mono">World Dog Show · Женева · 26.08.2023</figcaption>
-      </figure>
-      <div>
+    <div class="wrap sec">
+      <div class="sec-side">
         <h2>Чемпионат мира 2023, Женева</h2>
         <table class="titles">
           <tr><td>RIGHT IZ DOMA MADAMY</td><td class="mono">Чемпион мира 2023</td></tr>
-          <tr><td>AMOR IZ DOMA MADAMY</td><td class="mono">Вице-чемпион мира 2023</td></tr>
+          <tr><td>AMOR IZ DOMA MADAMY</td><td class="mono">Вице-чемпион 2023</td></tr>
           <tr><td>ARCHI FOR SENNENHUND ROSSII</td><td class="mono">Чемпион мира 2016</td></tr>
         </table>
         <a class="btn btn-light" href="#mdm-contact" data-goal="Выставки и разведение">Обсудить выставочную цель</a>
       </div>
+      <figure class="sec-body">
+        <img data-img="wds-2023.jpg" alt="AMOR IZ DOMA MADAMY на World Dog Show 2023 в Женеве" loading="lazy">
+        <figcaption class="mono">World Dog Show · Женева · 26.08.2023</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- ЩЕНКИ -->
   <section class="section" id="mdm-puppies">
-    <div class="wrap">
-      <h2>Щенки</h2>
-      <div class="litter">
-        <figure class="litter-pics">
+    <div class="wrap sec">
+      <div class="sec-side">
+        <h2>Щенки</h2>
+        <p class="mono">Последний помёт · 21.11.2025</p>
+        <h3>AMOR × CHILLI PEPPER</h3>
+        <p>Отец — вице-чемпион мира 2023. Щенки переезжают с двух месяцев.</p>
+        <h3 class="queue-title">Запись на следующие помёты</h3>
+        <ol class="queue">
+          <li>Знакомимся</li>
+          <li>Выбираем помёт</li>
+          <li>Очередь по дате обращения</li>
+          <li>Бронь после рождения</li>
+        </ol>
+        <a class="btn btn-primary" href="#mdm-contact" data-goal="Компаньон в семью">Встать в очередь</a>
+      </div>
+      <div class="sec-body">
+        <div class="pair">
           <img data-img="litter-1.jpg" alt="Щенок гросса в саду" loading="lazy">
           <img data-img="litter-2.jpg" alt="Щенок гросса в саду" loading="lazy">
-        </figure>
-        <div class="litter-info">
-          <p class="mono">Последний помёт · 21.11.2025</p>
-          <h3>AMOR × CHILLI PEPPER</h3>
-          <table class="spec">
-            <tr><th>Отец</th><td>AMOR IZ DOMA MADAMY, вице-чемпион мира 2023</td></tr>
-            <tr><th>Мать</th><td>CHILLI PEPPER IZ DOMA MADAMY</td></tr>
-            <tr><th>Переезд</th><td>С двух месяцев</td></tr>
-          </table>
-          <h3 class="queue-title">Запись на следующие помёты</h3>
-          <ol class="queue">
-            <li>Знакомимся</li>
-            <li>Выбираем помёт</li>
-            <li>Встаёте в очередь по дате обращения</li>
-            <li>Бронь после рождения</li>
-          </ol>
-          <a class="btn btn-primary" href="#mdm-contact" data-goal="Компаньон в семью">Встать в очередь</a>
         </div>
+        <details class="registry">
+          <summary>Все помёты с 2019 года</summary>
+          <table class="catalog">
+            <tbody id="mdm-registry"></tbody>
+          </table>
+        </details>
       </div>
-      <details class="registry">
-        <summary>Все помёты с 2019 года</summary>
-        <table class="catalog">
-          <tbody id="mdm-registry"></tbody>
-        </table>
-      </details>
     </div>
   </section>
 
   <!-- ПОКУПКА -->
   <section class="section" id="mdm-how">
-    <div class="wrap how">
+    <div class="wrap sec">
       <h2>Как проходит покупка</h2>
-      <ol class="steps">
-        <li><span><b>Знакомство.</b> Звоните или пишите, расскажите о себе.</span></li>
-        <li><span><b>Подбор помёта.</b> Показываем родителей и документы.</span></li>
-        <li><span><b>Очередь.</b> По дате обращения.</span></li>
-        <li><span><b>Первые недели.</b> Присылаем фото и видео, можно приехать.</span></li>
-        <li><span><b>Выбор.</b> В 45 дней осмотр клуба, советуем щенка.</span></li>
-        <li><span><b>Домой.</b> В два месяца, с прививками и документами.</span></li>
-        <li><span><b>Дальше.</b> Отвечаем на вопросы хоть через десять лет.</span></li>
-      </ol>
-      <p class="with-puppy"><span class="mono">Со щенком:</span> метрика РКФ, клеймо, ветпаспорт, родословные родителей и HD/ED, корм на первые дни, памятка. Чип и выездные документы по запросу.</p>
+      <div class="sec-body">
+        <ol class="steps">
+          <li><span><b>Знакомство.</b> Звоните или пишите, расскажите о себе.</span></li>
+          <li><span><b>Подбор помёта.</b> Показываем родителей и документы.</span></li>
+          <li><span><b>Очередь.</b> По дате обращения.</span></li>
+          <li><span><b>Первые недели.</b> Присылаем фото и видео, можно приехать.</span></li>
+          <li><span><b>Выбор.</b> В 45 дней осмотр клуба, советуем щенка.</span></li>
+          <li><span><b>Домой.</b> В два месяца, с прививками и документами.</span></li>
+          <li><span><b>Дальше.</b> Отвечаем на вопросы хоть через десять лет.</span></li>
+        </ol>
+        <p class="note"><span class="mono">Со щенком:</span> метрика РКФ, клеймо, ветпаспорт, родословные родителей и HD/ED, корм на первые дни, памятка. Чип и выездные документы по запросу.</p>
+      </div>
     </div>
   </section>
 
   <!-- ПОСЛЕ ПОКУПКИ -->
   <section class="section" id="mdm-after">
-    <div class="wrap">
+    <div class="wrap sec">
       <h2>После покупки</h2>
-      <div class="cols4">
+      <div class="sec-body cols2">
         <div><h3>Консультации</h3><p>Кормление, воспитание, здоровье.</p></div>
         <div><h3>Выставки</h3><p>Готовим к рингу и выставляем.</p></div>
         <div><h3>Передержка</h3><p>Для собак нашего разведения.</p></div>
@@ -517,24 +510,24 @@
 
   <!-- ВОПРОСЫ -->
   <section class="section" id="mdm-faq">
-    <div class="wrap faq-wrap">
+    <div class="wrap sec">
       <h2>Вопросы</h2>
-      <div class="faq" id="mdm-faqList"></div>
+      <div class="sec-body faq" id="mdm-faqList"></div>
     </div>
   </section>
 
   <!-- АЛЬБОМ -->
   <section class="section" id="mdm-gallery">
-    <div class="wrap">
+    <div class="wrap sec">
       <h2>Альбом</h2>
-      <div class="gallery" id="mdm-gallery-grid"></div>
+      <div class="sec-body gallery" id="mdm-gallery-grid"></div>
     </div>
   </section>
 
   <!-- КОНТАКТЫ -->
   <section class="section contact" id="mdm-contact">
-    <div class="wrap contact-grid">
-      <div>
+    <div class="wrap sec">
+      <div class="sec-side">
         <h2>Приезжайте знакомиться</h2>
         <p>Звоните, даже если пока просто присматриваетесь.</p>
         <dl class="contacts">
@@ -542,24 +535,28 @@
           <div><dt>Василий</dt><dd><a href="tel:+79102413201">8 (910) 241-32-01</a></dd></div>
           <div><dt>Ещё</dt><dd><a href="tel:+79529563887">8 (952) 956-38-87</a></dd></div>
           <div><dt>Почта</dt><dd><a href="mailto:lovedog_marishka@mail.ru">lovedog_marishka@mail.ru</a></dd></div>
-          <div><dt>Адрес</dt><dd>Воронежская обл., Рамонский р-н, с. Ямное, ул. Советская, 84. 10 км от Воронежа по М-4. Визит по договорённости.</dd></div>
+          <div><dt>Адрес</dt><dd>с. Ямное, ул. Советская, 84, Рамонский р-н, Воронежская обл. 10 км от Воронежа по М-4.</dd></div>
         </dl>
       </div>
-      <form class="form" id="mdm-leadForm" novalidate>
+      <form class="sec-body form" id="mdm-leadForm" novalidate>
         <h3>Написать нам</h3>
-        <div class="field">
-          <label for="mdm-f-name">Имя</label>
-          <input id="mdm-f-name" name="name" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="mdm-f-contact">Телефон или мессенджер</label>
-          <input id="mdm-f-contact" name="contact" autocomplete="tel" required>
+        <div class="form-row">
+          <div class="field">
+            <label for="mdm-f-name">Имя</label>
+            <input id="mdm-f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="mdm-f-contact">Телефон или мессенджер</label>
+            <input id="mdm-f-contact" name="contact" autocomplete="tel" required>
+          </div>
         </div>
         <fieldset class="field">
           <legend>Цель</legend>
-          <label class="radio"><input type="radio" name="goal" value="Компаньон в семью" checked> Компаньон в семью</label>
-          <label class="radio"><input type="radio" name="goal" value="Первая собака"> Первая собака</label>
-          <label class="radio"><input type="radio" name="goal" value="Выставки и разведение"> Выставки / разведение</label>
+          <div class="radios">
+            <label class="radio"><input type="radio" name="goal" value="Компаньон в семью" checked> Компаньон в семью</label>
+            <label class="radio"><input type="radio" name="goal" value="Первая собака"> Первая собака</label>
+            <label class="radio"><input type="radio" name="goal" value="Выставки и разведение"> Выставки / разведение</label>
+          </div>
         </fieldset>
         <div class="field">
           <label for="mdm-f-when">Когда хотели бы взять щенка</label>
@@ -572,7 +569,7 @@
         </div>
         <div class="field">
           <label for="mdm-f-msg">Вопрос (необязательно)</label>
-          <textarea id="mdm-f-msg" name="msg" rows="3"></textarea>
+          <textarea id="mdm-f-msg" name="msg" rows="2"></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Отправить</button>
         <p class="form-ok" id="mdm-formOk" role="status">Откроется почта с готовым письмом, останется нажать «Отправить».</p>
@@ -682,9 +679,8 @@ root.querySelectorAll("[data-img]").forEach((im) => { im.src = IMG + im.dataset.
 
 // Каталог собак
 $("#mdm-dogsTable").innerHTML = DOGS.map((d) => `<tr>
-  <td class="name">${esc(d.name)}</td>
+  <td><span class="name">${esc(d.name)}</span><span class="sub">${esc(d.parents)}</span></td>
   <td class="mono" data-label="Род.">${esc(d.born || "—")}</td>
-  <td class="muted">${esc(d.parents)}</td>
   <td>${esc(d.titles || "Племенная сука питомника")}</td>
   <td class="mono" data-label="HD/ED">${d.hd ? "A / 0" : "по запросу"}</td>
 </tr>`).join("");

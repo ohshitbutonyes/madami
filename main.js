@@ -81,9 +81,8 @@ const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">"
 
 // Каталог собак
 $("#dogsTable").innerHTML = DOGS.map((d) => `<tr>
-  <td class="name">${esc(d.name)}</td>
+  <td><span class="name">${esc(d.name)}</span><span class="sub">${esc(d.parents)}</span></td>
   <td class="mono" data-label="Род.">${esc(d.born || "—")}</td>
-  <td class="muted">${esc(d.parents)}</td>
   <td>${esc(d.titles || "Племенная сука питомника")}</td>
   <td class="mono" data-label="HD/ED">${d.hd ? "A / 0" : "по запросу"}</td>
 </tr>`).join("");
