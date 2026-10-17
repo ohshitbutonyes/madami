@@ -1,13 +1,23 @@
-/* Madami — альбом и каталог питомника. Палитра прежняя: молоко, подпал, луг, шоколад.
+/* Madami — альбом и каталог питомника. Палитра из мудбордов: небо, солнце, луг, дерево, полевые цветы.
    Одна сетка на весь сайт: слева колонка с заголовком (4/12), справа содержимое (8/12). */
 :root {
-  --milk: #f6f1e7;
+  --milk: #f4f0e6;        /* Coconut Milk */
   --paper: #fbf8f2;
+  /* Фоны разделов — светлые оттенки мудборда */
+  --sky: #d7e6f2;         /* Sky Blue, светлый */
+  --sky-deep: #8db6d9;
+  --wood: #eedbb9;        /* срез дерева */
+  --wood-dark: #9c6b3c;
+  --meadow-tint: #e2e7cc; /* Jade / олива, светлый */
+  --jade: #6e9a62;
+  --peach: #fbe3cd;       /* полевые цветы */
+  --peach-deep: #f08a4b;
+  --olive: #4f4d24;       /* #5E5C2D, чуть темнее для текста */
   --rust: #b0532b;
   --rust-dark: #8f3f1d;
   --meadow: #5e6b34;
   --meadow-dark: #3f4a22;
-  --sun: #f2b84b;
+  --sun: #f9b202;         /* Lemon Chrome */
   --ink: #1f1b17;
   --ink-soft: #5a5149;
   --choc: #5b3a2b;
@@ -44,10 +54,19 @@ p { margin: 0 0 .7em; }
 .mono { font-family: var(--mono); font-size: 12.5px; letter-spacing: .02em; line-height: 1.5; color: var(--ink-soft); }
 .wrap { width: min(var(--wrap), 100% - 40px); margin-inline: auto; }
 
+/* Фоны разделов */
+.bg-milk { background: var(--milk); }
+.bg-sky { background: var(--sky); }
+.bg-wood { background: var(--wood); }
+.bg-meadow { background: var(--meadow-tint); }
+.bg-peach { background: var(--peach); }
+.bg-choc { background: var(--choc-deep); color: var(--milk); }
+.bg-olive { background: var(--olive); color: var(--milk); }
+
 /* Общая сетка разделов */
 .section { padding: var(--pad) 0; }
-.section + .section:not(.plate):not(.champ):not(.contact) .sec { border-top: 1px solid var(--line); padding-top: var(--pad); }
-.section + .section:not(.plate):not(.champ):not(.contact) { padding-top: 0; }
+.bg-milk + .bg-milk .sec { border-top: 1px solid var(--line); padding-top: var(--pad); }
+.bg-milk + .bg-milk { padding-top: 0; }
 .sec { display: grid; grid-template-columns: 4fr 8fr; gap: var(--gap); align-items: start; }
 .sec > h2, .sec-side { position: sticky; top: 84px; }
 .sec-side h2 { margin-bottom: 20px; }
@@ -77,10 +96,11 @@ p { margin: 0 0 .7em; }
 .burger span { display: block; height: 1.5px; background: var(--ink); margin: 7px 0; }
 
 /* Обложка: та же сетка 4/8, текст по центру по высоте */
+.hero-wrap { background: linear-gradient(180deg, #b9d3ea 0%, var(--sky) 55%, #e9eff0 100%); }
 .hero { width: min(var(--wrap), 100% - 40px); margin: 0 auto; padding: 40px 0 var(--pad); display: grid; grid-template-columns: 5fr 7fr; gap: var(--gap); align-items: center; }
 .hero h1 { margin: 20px 0 24px; }
 .hero-sub { font-size: clamp(19px, 1.6vw, 22px); color: var(--ink-soft); max-width: 24em; }
-.hero-phones { margin: 24px 0 28px; border-top: 1px solid var(--line); }
+.hero-phones { margin: 24px 0 28px; border-top: 1px solid rgba(31, 27, 23, .25); }
 .hero-phones div { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); }
 .hero-phones dt { color: var(--ink-soft); }
 .hero-phones dd { margin: 0; font-size: clamp(20px, 1.9vw, 26px); }
@@ -89,16 +109,17 @@ p { margin: 0 0 .7em; }
 .hero-photo img { width: 100%; aspect-ratio: 4 / 5; max-height: calc(100vh - 140px); object-fit: cover; object-position: 50% 35%; }
 
 /* Лента фото — того же ритма, что и альбом */
+.band-wrap { background: linear-gradient(180deg, #e9eff0 50%, var(--milk) 50%); }
 .band { width: min(var(--wrap), 100% - 40px); margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
 .band img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 
 /* Оглавление */
-.toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.toc { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--sun); }
 .toc a { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
-.toc-n { grid-row: span 2; line-height: 34px; }
+.toc-n { grid-row: span 2; line-height: 34px; color: var(--wood-dark); }
 .toc-t { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.15; }
 .toc-d { color: var(--ink-soft); }
-.toc a:hover .toc-t { color: var(--rust); }
+.toc a:hover .toc-t { color: var(--peach-deep); }
 .toc a:hover .toc-t::after { content: " →"; }
 
 /* Пары фото и фото в боковой колонке */
@@ -111,7 +132,7 @@ figcaption.mono { margin-top: 8px; }
 /* Списки и колонки с линейками */
 .plain { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .plain li { padding: 9px 0; border-bottom: 1px solid var(--line); }
-.cols3, .cols2 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+.cols3, .cols2 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 3px solid var(--sun); }
 .cols2 { grid-template-columns: 1fr 1fr; }
 .cols3 > div { padding: 16px 20px 0 0; }
 .cols3 > div + div { padding-left: 20px; border-left: 1px solid var(--line); }
@@ -129,11 +150,11 @@ figcaption.mono { margin-top: 8px; }
 .plus, .minus { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
 .plus li, .minus li { padding: 8px 0 8px 22px; border-bottom: 1px solid var(--line); position: relative; }
 .plus li::before, .minus li::before { position: absolute; left: 0; font-family: var(--mono); }
-.plus li::before { content: "+"; color: var(--meadow); }
-.minus li::before { content: "−"; color: var(--rust); }
+.plus li::before { content: "+"; color: var(--jade); font-weight: 500; }
+.minus li::before { content: "−"; color: var(--peach-deep); font-weight: 500; }
 
 /* Анатомия — вкладка из книги о породе */
-.plate { background: var(--latte); }
+.plate .plate-legend { border-top-color: var(--sky-deep); }
 .plate-stage { position: relative; aspect-ratio: 1; }
 .plate-stage img { width: 100%; height: 100%; object-fit: cover; }
 .plate-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -160,7 +181,7 @@ figcaption.mono { margin-top: 8px; }
   background: none; border: 0; border-bottom: 1px solid rgba(91, 58, 43, .18); font: inherit; font-size: 17px; color: var(--ink);
 }
 .plate-legend .mono { font-size: 11.5px; line-height: 26px; }
-.plate-legend button:hover, .plate-legend button.active { color: var(--rust); }
+.plate-legend button:hover, .plate-legend button.active { color: var(--peach-deep); }
 
 /* Каталог */
 .table-title { margin: 0 0 10px; font-size: 18px; }
@@ -176,11 +197,11 @@ figcaption.mono { margin-top: 8px; }
 #dogsTable td:first-child { width: 38%; }
 
 /* Чемпионат */
-.champ { background: var(--choc-deep); color: var(--milk); }
 .champ h2 { color: var(--milk); }
 .champ .mono { color: rgba(246, 241, 231, .65); }
+.champ .titles { border-top: 3px solid var(--sun); }
 .champ img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.titles { width: 100%; border-collapse: collapse; margin-bottom: 28px; border-top: 1px solid rgba(246, 241, 231, .5); }
+.titles { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
 .titles td { padding: 11px 12px 11px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); font-size: 17px; vertical-align: baseline; }
 .titles td.mono { color: var(--sun); font-size: 11.5px; text-align: right; padding-right: 0; white-space: nowrap; }
 
@@ -189,7 +210,7 @@ figcaption.mono { margin-top: 8px; }
 .sec-side .queue-title { margin-top: 28px; font-size: 18px; }
 .queue { margin: 10px 0 24px; padding: 0; list-style: none; counter-reset: q; border-top: 1px solid var(--line); }
 .queue li { counter-increment: q; padding: 7px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 32px 1fr; }
-.queue li::before { content: "0" counter(q); font: 400 12px/27px var(--mono); color: var(--ink-soft); }
+.queue li::before { content: "0" counter(q); font: 400 12px/27px var(--mono); color: var(--wood-dark); }
 .registry { margin-top: 28px; }
 .registry summary { cursor: pointer; font-size: 18px; padding: 10px 0; border-top: 1px solid var(--ink); list-style: none; }
 .registry summary::after { content: " +"; color: var(--rust); font-family: var(--mono); }
@@ -197,13 +218,13 @@ figcaption.mono { margin-top: 8px; }
 .registry summary::-webkit-details-marker, .faq summary::-webkit-details-marker { display: none; }
 
 /* Покупка */
-.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; border-top: 1px solid var(--ink); }
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; border-top: 3px solid var(--sun); }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; padding: 11px 0; border-bottom: 1px solid var(--line); }
-.steps li::before { content: "0" counter(s); font: 400 12px/27px var(--mono); color: var(--ink-soft); }
+.steps li::before { content: "0" counter(s); font: 400 12px/27px var(--mono); color: var(--wood-dark); }
 .note { margin-top: 18px; color: var(--ink-soft); }
 
 /* Вопросы */
-.faq { border-top: 1px solid var(--ink); }
+.faq { border-top: 3px solid var(--sun); }
 .faq details { border-bottom: 1px solid var(--line); }
 .faq summary { cursor: pointer; padding: 12px 32px 12px 0; font-size: 19px; list-style: none; position: relative; }
 .faq summary::after { content: "+"; position: absolute; right: 0; top: 12px; font-family: var(--mono); color: var(--rust); }
@@ -218,10 +239,9 @@ figcaption.mono { margin-top: 8px; }
 .lightbox img { max-height: 92vh; }
 
 /* Контакты */
-.contact { background: var(--meadow-dark); color: var(--milk); }
 .contact h2 { color: var(--milk); }
 .contact .sec-side > p { color: rgba(246, 241, 231, .75); }
-.contacts { margin: 20px 0 0; border-top: 1px solid rgba(246, 241, 231, .5); }
+.contacts { margin: 20px 0 0; border-top: 3px solid var(--sun); }
 .contacts div { padding: 9px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); }
 .contacts dt { font: 400 12px/1.6 var(--mono); color: rgba(246, 241, 231, .6); }
 .contacts dd { margin: 0; font-size: 19px; }
@@ -241,7 +261,7 @@ figcaption.mono { margin-top: 8px; }
 .radio input { accent-color: var(--rust); margin: 0; }
 .radios .radio { flex: 0 0 auto; white-space: nowrap; }
 .form .btn { justify-self: start; }
-.form-ok { display: none; font-size: 16px; color: var(--meadow-dark); margin: 0; }
+.form-ok { display: none; font-size: 16px; color: var(--olive); margin: 0; }
 
 .footer { background: var(--choc-deep); color: rgba(246, 241, 231, .6); padding: 22px 0; font-size: 16px; }
 .footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }

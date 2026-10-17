@@ -1,13 +1,23 @@
 <!-- Из Дома МаДаМи — сайт v1. Вставлять целиком в блок T123 «HTML-код». -->
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-.mdm { --milk: #f6f1e7;
+.mdm { --milk: #f4f0e6;        
   --paper: #fbf8f2;
+  
+  --sky: #d7e6f2;         
+  --sky-deep: #8db6d9;
+  --wood: #eedbb9;        
+  --wood-dark: #9c6b3c;
+  --meadow-tint: #e2e7cc; 
+  --jade: #6e9a62;
+  --peach: #fbe3cd;       
+  --peach-deep: #f08a4b;
+  --olive: #4f4d24;       
   --rust: #b0532b;
   --rust-dark: #8f3f1d;
   --meadow: #5e6b34;
   --meadow-dark: #3f4a22;
-  --sun: #f2b84b;
+  --sun: #f9b202;         
   --ink: #1f1b17;
   --ink-soft: #5a5149;
   --choc: #5b3a2b;
@@ -38,9 +48,16 @@
 .mdm .lead { font-size: clamp(20px, 1.7vw, 24px); line-height: 1.4; margin-bottom: 24px; }
 .mdm .mono { font-family: var(--mono); font-size: 12.5px; letter-spacing: .02em; line-height: 1.5; color: var(--ink-soft); }
 .mdm .wrap { width: min(var(--wrap), 100% - 40px); margin-inline: auto; }
+.mdm .bg-milk { background: var(--milk); }
+.mdm .bg-sky { background: var(--sky); }
+.mdm .bg-wood { background: var(--wood); }
+.mdm .bg-meadow { background: var(--meadow-tint); }
+.mdm .bg-peach { background: var(--peach); }
+.mdm .bg-choc { background: var(--choc-deep); color: var(--milk); }
+.mdm .bg-olive { background: var(--olive); color: var(--milk); }
 .mdm .section { padding: var(--pad) 0; }
-.mdm .section + .section:not(.plate):not(.champ):not(.contact) .sec { border-top: 1px solid var(--line); padding-top: var(--pad); }
-.mdm .section + .section:not(.plate):not(.champ):not(.contact) { padding-top: 0; }
+.mdm .bg-milk + .bg-milk .sec { border-top: 1px solid var(--line); padding-top: var(--pad); }
+.mdm .bg-milk + .bg-milk { padding-top: 0; }
 .mdm .sec { display: grid; grid-template-columns: 4fr 8fr; gap: var(--gap); align-items: start; }
 .mdm .sec > h2, .mdm .sec-side { position: sticky; top: 84px; }
 .mdm .sec-side h2 { margin-bottom: 20px; }
@@ -62,24 +79,26 @@
 .mdm .header-phone { text-decoration: none; color: var(--ink); font-size: 14px; }
 .mdm .burger { display: none; background: none; border: 0; width: 40px; height: 40px; cursor: pointer; padding: 8px; }
 .mdm .burger span { display: block; height: 1.5px; background: var(--ink); margin: 7px 0; }
+.mdm .hero-wrap { background: linear-gradient(180deg, #b9d3ea 0%, var(--sky) 55%, #e9eff0 100%); }
 .mdm .hero { width: min(var(--wrap), 100% - 40px); margin: 0 auto; padding: 40px 0 var(--pad); display: grid; grid-template-columns: 5fr 7fr; gap: var(--gap); align-items: center; }
 .mdm .hero h1 { margin: 20px 0 24px; }
 .mdm .hero-sub { font-size: clamp(19px, 1.6vw, 22px); color: var(--ink-soft); max-width: 24em; }
-.mdm .hero-phones { margin: 24px 0 28px; border-top: 1px solid var(--line); }
+.mdm .hero-phones { margin: 24px 0 28px; border-top: 1px solid rgba(31, 27, 23, .25); }
 .mdm .hero-phones div { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); }
 .mdm .hero-phones dt { color: var(--ink-soft); }
 .mdm .hero-phones dd { margin: 0; font-size: clamp(20px, 1.9vw, 26px); }
 .mdm .hero-phones a { text-decoration: none; }
 .mdm .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
 .mdm .hero-photo img { width: 100%; aspect-ratio: 4 / 5; max-height: calc(100vh - 140px); object-fit: cover; object-position: 50% 35%; }
+.mdm .band-wrap { background: linear-gradient(180deg, #e9eff0 50%, var(--milk) 50%); }
 .mdm .band { width: min(var(--wrap), 100% - 40px); margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
 .mdm .band img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-.mdm .toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.mdm .toc { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--sun); }
 .mdm .toc a { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
-.mdm .toc-n { grid-row: span 2; line-height: 34px; }
+.mdm .toc-n { grid-row: span 2; line-height: 34px; color: var(--wood-dark); }
 .mdm .toc-t { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.15; }
 .mdm .toc-d { color: var(--ink-soft); }
-.mdm .toc a:hover .toc-t { color: var(--rust); }
+.mdm .toc a:hover .toc-t { color: var(--peach-deep); }
 .mdm .toc a:hover .toc-t::after { content: " →"; }
 .mdm .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .mdm .pair img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
@@ -88,7 +107,7 @@
 .mdm figcaption.mono { margin-top: 8px; }
 .mdm .plain { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .mdm .plain li { padding: 9px 0; border-bottom: 1px solid var(--line); }
-.mdm .cols3, .mdm .cols2 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+.mdm .cols3, .mdm .cols2 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 3px solid var(--sun); }
 .mdm .cols2 { grid-template-columns: 1fr 1fr; }
 .mdm .cols3 > div { padding: 16px 20px 0 0; }
 .mdm .cols3 > div + div { padding-left: 20px; border-left: 1px solid var(--line); }
@@ -104,9 +123,9 @@
 .mdm .plus, .mdm .minus { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
 .mdm .plus li, .mdm .minus li { padding: 8px 0 8px 22px; border-bottom: 1px solid var(--line); position: relative; }
 .mdm .plus li::before, .mdm .minus li::before { position: absolute; left: 0; font-family: var(--mono); }
-.mdm .plus li::before { content: "+"; color: var(--meadow); }
-.mdm .minus li::before { content: "−"; color: var(--rust); }
-.mdm .plate { background: var(--latte); }
+.mdm .plus li::before { content: "+"; color: var(--jade); font-weight: 500; }
+.mdm .minus li::before { content: "−"; color: var(--peach-deep); font-weight: 500; }
+.mdm .plate .plate-legend { border-top-color: var(--sky-deep); }
 .mdm .plate-stage { position: relative; aspect-ratio: 1; }
 .mdm .plate-stage img { width: 100%; height: 100%; object-fit: cover; }
 .mdm .plate-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -127,7 +146,7 @@
 .mdm .plate-legend button { display: grid; grid-template-columns: 30px 1fr; width: 100%; padding: 6px 0; text-align: left; cursor: pointer;
   background: none; border: 0; border-bottom: 1px solid rgba(91, 58, 43, .18); font: inherit; font-size: 17px; color: var(--ink); }
 .mdm .plate-legend .mono { font-size: 11.5px; line-height: 26px; }
-.mdm .plate-legend button:hover, .mdm .plate-legend button.active { color: var(--rust); }
+.mdm .plate-legend button:hover, .mdm .plate-legend button.active { color: var(--peach-deep); }
 .mdm .table-title { margin: 0 0 10px; font-size: 18px; }
 .mdm .table-title ~ .table-title { margin-top: 40px; }
 .mdm .catalog { width: 100%; border-collapse: collapse; font-size: 16px; }
@@ -139,28 +158,28 @@
 .mdm .catalog .mono { font-size: 12.5px; white-space: nowrap; }
 .mdm .catalog .muted { color: var(--ink-soft); }
 .mdm #mdm-dogsTable td:first-child { width: 38%; }
-.mdm .champ { background: var(--choc-deep); color: var(--milk); }
 .mdm .champ h2 { color: var(--milk); }
 .mdm .champ .mono { color: rgba(246, 241, 231, .65); }
+.mdm .champ .titles { border-top: 3px solid var(--sun); }
 .mdm .champ img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.mdm .titles { width: 100%; border-collapse: collapse; margin-bottom: 28px; border-top: 1px solid rgba(246, 241, 231, .5); }
+.mdm .titles { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
 .mdm .titles td { padding: 11px 12px 11px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); font-size: 17px; vertical-align: baseline; }
 .mdm .titles td.mono { color: var(--sun); font-size: 11.5px; text-align: right; padding-right: 0; white-space: nowrap; }
 .mdm .sec-side h3 { margin-top: 4px; }
 .mdm .sec-side .queue-title { margin-top: 28px; font-size: 18px; }
 .mdm .queue { margin: 10px 0 24px; padding: 0; list-style: none; counter-reset: q; border-top: 1px solid var(--line); }
 .mdm .queue li { counter-increment: q; padding: 7px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 32px 1fr; }
-.mdm .queue li::before { content: "0" counter(q); font: 400 12px/27px var(--mono); color: var(--ink-soft); }
+.mdm .queue li::before { content: "0" counter(q); font: 400 12px/27px var(--mono); color: var(--wood-dark); }
 .mdm .registry { margin-top: 28px; }
 .mdm .registry summary { cursor: pointer; font-size: 18px; padding: 10px 0; border-top: 1px solid var(--ink); list-style: none; }
 .mdm .registry summary::after { content: " +"; color: var(--rust); font-family: var(--mono); }
 .mdm .registry[open] summary::after { content: " −"; }
 .mdm .registry summary::-webkit-details-marker, .mdm .faq summary::-webkit-details-marker { display: none; }
-.mdm .steps { margin: 0; padding: 0; list-style: none; counter-reset: s; border-top: 1px solid var(--ink); }
+.mdm .steps { margin: 0; padding: 0; list-style: none; counter-reset: s; border-top: 3px solid var(--sun); }
 .mdm .steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; padding: 11px 0; border-bottom: 1px solid var(--line); }
-.mdm .steps li::before { content: "0" counter(s); font: 400 12px/27px var(--mono); color: var(--ink-soft); }
+.mdm .steps li::before { content: "0" counter(s); font: 400 12px/27px var(--mono); color: var(--wood-dark); }
 .mdm .note { margin-top: 18px; color: var(--ink-soft); }
-.mdm .faq { border-top: 1px solid var(--ink); }
+.mdm .faq { border-top: 3px solid var(--sun); }
 .mdm .faq details { border-bottom: 1px solid var(--line); }
 .mdm .faq summary { cursor: pointer; padding: 12px 32px 12px 0; font-size: 19px; list-style: none; position: relative; }
 .mdm .faq summary::after { content: "+"; position: absolute; right: 0; top: 12px; font-family: var(--mono); color: var(--rust); }
@@ -171,10 +190,9 @@
 .mdm .lightbox { position: fixed; inset: 0; background: rgba(20, 16, 12, .92); display: none; place-items: center; z-index: 100; padding: 24px; cursor: zoom-out; }
 .mdm .lightbox.open { display: grid; }
 .mdm .lightbox img { max-height: 92vh; }
-.mdm .contact { background: var(--meadow-dark); color: var(--milk); }
 .mdm .contact h2 { color: var(--milk); }
 .mdm .contact .sec-side > p { color: rgba(246, 241, 231, .75); }
-.mdm .contacts { margin: 20px 0 0; border-top: 1px solid rgba(246, 241, 231, .5); }
+.mdm .contacts { margin: 20px 0 0; border-top: 3px solid var(--sun); }
 .mdm .contacts div { padding: 9px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); }
 .mdm .contacts dt { font: 400 12px/1.6 var(--mono); color: rgba(246, 241, 231, .6); }
 .mdm .contacts dd { margin: 0; font-size: 19px; }
@@ -192,7 +210,7 @@
 .mdm .radio input { accent-color: var(--rust); margin: 0; }
 .mdm .radios .radio { flex: 0 0 auto; white-space: nowrap; }
 .mdm .form .btn { justify-self: start; }
-.mdm .form-ok { display: none; font-size: 16px; color: var(--meadow-dark); margin: 0; }
+.mdm .form-ok { display: none; font-size: 16px; color: var(--olive); margin: 0; }
 .mdm .footer { background: var(--choc-deep); color: rgba(246, 241, 231, .6); padding: 22px 0; font-size: 16px; }
 .mdm .footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 .mdm .footer .mono { color: inherit; }
@@ -259,7 +277,8 @@
 <main id="mdm-top">
 
   <!-- ОБЛОЖКА -->
-  <section class="hero">
+  <section class="bg-sky hero-wrap">
+  <div class="hero">
     <div class="hero-text">
       <p class="mono hero-meta">FCI · РКФ № 9392 · с 2008 · Воронеж</p>
       <h1>Из Дома<br>МаДаМи</h1>
@@ -276,9 +295,11 @@
     <figure class="hero-photo">
       <img data-img="hero.jpg" alt="Большой швейцарский зенненхунд сидит на поляне">
     </figure>
+  </div>
   </section>
 
   <!-- ЛЕНТА ФОТО -->
+  <div class="band-wrap">
   <div class="band" aria-label="Наши собаки">
     <img data-img="g21.jpg" alt="Новорождённые щенки" loading="lazy">
     <img data-img="g19.jpg" alt="Щенок зевает" loading="lazy">
@@ -287,9 +308,10 @@
     <img data-img="g10.jpg" alt="Взрослый гросс у каменной стены" loading="lazy">
     <img data-img="g25.jpg" alt="Щенок в зелёном ошейнике" loading="lazy">
   </div>
+  </div>
 
   <!-- КАКУЮ СОБАКУ -->
-  <section class="section">
+  <section class="section bg-milk">
     <div class="wrap sec">
       <h2>Какую собаку вы ищете?</h2>
       <div class="sec-body">
@@ -303,7 +325,7 @@
   </section>
 
   <!-- ПИТОМНИК -->
-  <section class="section" id="mdm-home">
+  <section class="section bg-wood" id="mdm-home">
     <div class="wrap sec">
       <div class="sec-side">
         <h2>Собаки живут дома</h2>
@@ -322,7 +344,7 @@
   </section>
 
   <!-- ПРОВЕРКИ -->
-  <section class="section" id="mdm-trust">
+  <section class="section bg-milk" id="mdm-trust">
     <div class="wrap sec">
       <h2>Что можно проверить</h2>
       <div class="sec-body cols3">
@@ -346,7 +368,7 @@
   </section>
 
   <!-- ПОРОДА -->
-  <section class="section" id="mdm-breed">
+  <section class="section bg-meadow" id="mdm-breed">
     <div class="wrap sec">
       <div class="sec-side">
         <h2>Порода</h2>
@@ -387,7 +409,7 @@
   </section>
 
   <!-- АНАТОМИЯ -->
-  <section class="section plate" id="mdm-anatomy">
+  <section class="section bg-sky plate" id="mdm-anatomy">
     <div class="wrap sec">
       <div class="sec-side">
         <h2>Из чего сделан гросс</h2>
@@ -408,7 +430,7 @@
   </section>
 
   <!-- СОБАКИ -->
-  <section class="section" id="mdm-dogs">
+  <section class="section bg-milk" id="mdm-dogs">
     <div class="wrap sec">
       <h2>Наши собаки</h2>
       <div class="sec-body">
@@ -426,7 +448,7 @@
   </section>
 
   <!-- ЧЕМПИОНАТ -->
-  <section class="section champ" id="mdm-champ">
+  <section class="section bg-choc champ" id="mdm-champ">
     <div class="wrap sec">
       <div class="sec-side">
         <h2>Чемпионат мира 2023, Женева</h2>
@@ -445,7 +467,7 @@
   </section>
 
   <!-- ЩЕНКИ -->
-  <section class="section" id="mdm-puppies">
+  <section class="section bg-peach" id="mdm-puppies">
     <div class="wrap sec">
       <div class="sec-side">
         <h2>Щенки</h2>
@@ -477,7 +499,7 @@
   </section>
 
   <!-- ПОКУПКА -->
-  <section class="section" id="mdm-how">
+  <section class="section bg-milk" id="mdm-how">
     <div class="wrap sec">
       <h2>Как проходит покупка</h2>
       <div class="sec-body">
@@ -496,7 +518,7 @@
   </section>
 
   <!-- ПОСЛЕ ПОКУПКИ -->
-  <section class="section" id="mdm-after">
+  <section class="section bg-wood" id="mdm-after">
     <div class="wrap sec">
       <h2>После покупки</h2>
       <div class="sec-body cols2">
@@ -509,7 +531,7 @@
   </section>
 
   <!-- ВОПРОСЫ -->
-  <section class="section" id="mdm-faq">
+  <section class="section bg-milk" id="mdm-faq">
     <div class="wrap sec">
       <h2>Вопросы</h2>
       <div class="sec-body faq" id="mdm-faqList"></div>
@@ -517,7 +539,7 @@
   </section>
 
   <!-- АЛЬБОМ -->
-  <section class="section" id="mdm-gallery">
+  <section class="section bg-milk" id="mdm-gallery">
     <div class="wrap sec">
       <h2>Альбом</h2>
       <div class="sec-body gallery" id="mdm-gallery-grid"></div>
@@ -525,7 +547,7 @@
   </section>
 
   <!-- КОНТАКТЫ -->
-  <section class="section contact" id="mdm-contact">
+  <section class="section bg-olive contact" id="mdm-contact">
     <div class="wrap sec">
       <div class="sec-side">
         <h2>Приезжайте знакомиться</h2>
