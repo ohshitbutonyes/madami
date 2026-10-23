@@ -192,7 +192,8 @@
 .mdm .lightbox img { max-height: 92vh; }
 .mdm .contact h2 { color: var(--milk); }
 .mdm .contact .sec-side > p { color: rgba(246, 241, 231, .75); }
-.mdm .contacts { margin: 20px 0 0; border-top: 3px solid var(--sun); }
+.mdm .contacts { margin: 0 0 32px; border-top: 3px solid var(--sun); display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+.mdm .contacts div:last-child { grid-column: 1 / -1; }
 .mdm .contacts div { padding: 9px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); }
 .mdm .contacts dt { font: 400 12px/1.6 var(--mono); color: rgba(246, 241, 231, .6); }
 .mdm .contacts dd { margin: 0; font-size: 19px; }
@@ -242,7 +243,7 @@
 @media (max-width: 640px) {
   .mdm { font-size: 17px; }
   .mdm .header-phone { display: none; }
-  .mdm .cols3, .mdm .cols2, .mdm .fit, .mdm .form-row { grid-template-columns: 1fr; }
+  .mdm .cols3, .mdm .cols2, .mdm .fit, .mdm .form-row, .mdm .contacts { grid-template-columns: 1fr; }
   .mdm .cols3 > div, .mdm .cols2 > div, .mdm .cols2 > div:nth-child(even) { padding: 14px 0; border-left: 0; }
   .mdm .cols3 > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
   .mdm .cols2 > div:nth-child(even) { padding-left: 0; }
@@ -261,6 +262,102 @@
 .mdm .nav a:hover { color: var(--rust); }
 .mdm .contacts a:hover { color: var(--sun); }
 .mdm .btn-primary:hover { color: #fff; }
+
+/* Штатная форма Tilda в стиле сайта Madami.
+   Попадает в первый блок T123 при сборке (tools/build_tilda.py) и действует на все формы страницы.
+   !important — потому что Tilda пишет цвета и рамки полей прямо в атрибуты style. */
+
+.t-form {
+  font-family: "Alegreya", Georgia, serif !important;
+  background: #f4f0e6;
+  padding: clamp(22px, 3vw, 40px);
+  color: #1f1b17;
+}
+.t-form .t-form__inputsbox { display: block; }
+.t-form .t-input-group { margin-bottom: 18px !important; }
+
+/* Подписи полей — моноширинным, как даты и номера на сайте */
+.t-form .t-input-title,
+.t-form .t-input-group .t-name {
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace !important;
+  font-size: 12px !important; line-height: 1.6 !important; font-weight: 400 !important;
+  color: #5a5149 !important; padding-bottom: 4px !important; letter-spacing: .02em;
+}
+
+/* Поля: только нижняя линия */
+.t-form .t-input,
+.t-form .t-select,
+.t-form textarea.t-input {
+  font-family: "Alegreya", Georgia, serif !important;
+  font-size: 18px !important; color: #1f1b17 !important;
+  background: transparent !important;
+  border: 0 !important; border-bottom: 1px solid #1f1b17 !important; border-radius: 0 !important;
+  box-shadow: none !important; padding: 6px 0 !important; height: auto !important; min-height: 40px;
+  width: 100% !important; box-sizing: border-box;
+  -webkit-appearance: none; appearance: none;
+}
+.t-form textarea.t-input { min-height: 72px; resize: vertical; }
+.t-form .t-input:focus,
+.t-form .t-select:focus { outline: none !important; border-bottom-color: #b0532b !important; }
+.t-form .t-input::placeholder { color: #9b9086 !important; }
+
+/* Список: своя стрелка вместо системной */
+.t-form .t-select {
+  padding-right: 28px !important; cursor: pointer;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%231f1b17' stroke-width='1.5'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") right 4px center / 12px 8px no-repeat !important;
+}
+.t-form .t-select__wrapper::after { display: none !important; }
+
+/* Переключатели и галочка согласия */
+.t-form .t-radio__wrapper { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.t-form .t-radio__control,
+.t-form .t-checkbox__control {
+  margin: 0 !important; cursor: pointer;
+  font-family: "Alegreya", Georgia, serif !important; font-size: 18px !important; line-height: 1.5 !important;
+  color: #1f1b17 !important;
+}
+.t-form .t-radio__control { display: inline-flex !important; align-items: center; gap: 8px; }
+/* Галочка согласия: квадратик слева, текст со ссылкой одной строкой справа */
+.t-form .t-checkbox__control { display: block !important; position: relative; padding-left: 28px !important; font-size: 15px !important; line-height: 1.45 !important; }
+.t-form .t-checkbox__control .t-checkbox__indicator { position: absolute !important; left: 0; top: 1px; }
+.t-form .t-radio__indicator,
+.t-form .t-checkbox__indicator {
+  flex: none; width: 18px !important; height: 18px !important; margin: 0 !important;
+  border: 1.5px solid #1f1b17 !important; background: transparent !important; opacity: 1 !important;
+  box-sizing: border-box;
+}
+.t-form .t-radio__indicator { border-radius: 50% !important; }
+.t-form .t-checkbox__indicator { border-radius: 2px !important; }
+.t-form .t-radio:checked ~ .t-radio__indicator,
+.t-form .t-radio:checked + .t-radio__indicator { border-color: #b0532b !important; }
+.t-form .t-radio__indicator::after {
+  background: #b0532b !important; width: 9px !important; height: 9px !important;
+  left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important;
+}
+.t-form .t-checkbox:checked ~ .t-checkbox__indicator,
+.t-form .t-checkbox:checked + .t-checkbox__indicator { border-color: #b0532b !important; background: #b0532b !important; }
+.t-form .t-checkbox__control a { color: inherit !important; text-decoration: underline; }
+
+/* Кнопка — как остальные кнопки сайта */
+.t-form .t-submit {
+  font-family: "Alegreya", Georgia, serif !important; font-size: 17px !important; font-weight: 500 !important;
+  background: #b0532b !important; color: #fff !important; border: 0 !important; border-radius: 2px !important;
+  height: auto !important; padding: 13px 22px !important; width: auto !important; box-shadow: none !important;
+}
+.t-form .t-submit:hover { background: #8f3f1d !important; }
+
+/* Ошибки и сообщение об отправке */
+.t-form .t-input-error { font-family: "IBM Plex Mono", ui-monospace, monospace !important; font-size: 12px !important; color: #b0532b !important; }
+.t-form .t-form__errorbox-wrapper { background: #fbe3cd !important; color: #1f1b17 !important; }
+.t-form .t-form__successbox,
+.t-form__successbox {
+  font-family: "Alegreya", Georgia, serif !important; font-size: 19px !important;
+  background: #e2e7cc !important; color: #1f1b17 !important; border-radius: 0 !important; padding: 20px !important;
+}
+
+/* Заголовок и подзаголовок блока формы (задаются в настройках блока Tilda) */
+.t-section__title { font-family: "Alegreya", Georgia, serif !important; font-weight: 500 !important; letter-spacing: -.015em; }
+.t-section__descr { font-family: "Alegreya", Georgia, serif !important; }
 </style>
 
 <div class="mdm" id="mdm-root">
@@ -559,6 +656,8 @@
       <div class="sec-side">
         <h2>Приезжайте знакомиться</h2>
         <p>Звоните, даже если пока просто присматриваетесь.</p>
+      </div>
+      <div class="sec-body">
         <dl class="contacts">
           <div><dt>Марина</dt><dd><a href="tel:+79155851548">8 (915) 585-15-48</a></dd></div>
           <div><dt>Василий</dt><dd><a href="tel:+79102413201">8 (910) 241-32-01</a></dd></div>
@@ -567,52 +666,11 @@
           <div><dt>Адрес</dt><dd>с. Ямное, ул. Советская, 84, Рамонский р-н, Воронежская обл. 10 км от Воронежа по М-4.</dd></div>
         </dl>
       </div>
-      <form class="sec-body form" id="mdm-leadForm" novalidate>
-        <h3>Написать нам</h3>
-        <div class="form-row">
-          <div class="field">
-            <label for="mdm-f-name">Имя</label>
-            <input id="mdm-f-name" name="name" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="mdm-f-contact">Телефон или мессенджер</label>
-            <input id="mdm-f-contact" name="contact" autocomplete="tel" required>
-          </div>
-        </div>
-        <fieldset class="field">
-          <legend>Цель</legend>
-          <div class="radios">
-            <label class="radio"><input type="radio" name="goal" value="Компаньон в семью" checked> Компаньон в семью</label>
-            <label class="radio"><input type="radio" name="goal" value="Первая собака"> Первая собака</label>
-            <label class="radio"><input type="radio" name="goal" value="Выставки и разведение"> Выставки / разведение</label>
-          </div>
-        </fieldset>
-        <div class="field">
-          <label for="mdm-f-when">Когда хотели бы взять щенка</label>
-          <select id="mdm-f-when" name="when">
-            <option>Пока присматриваемся</option>
-            <option>В ближайшие 3 месяца</option>
-            <option>В течение полугода</option>
-            <option>Позже</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="mdm-f-msg">Вопрос (необязательно)</label>
-          <textarea id="mdm-f-msg" name="msg" rows="2"></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">Отправить</button>
-        <p class="form-ok" id="mdm-formOk" role="status">Откроется почта с готовым письмом, останется нажать «Отправить».</p>
-      </form>
     </div>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="wrap">
-    <span>Из Дома МаДаМи, кинологический племенной питомник</span>
-    <span class="mono">FCI · РКФ № 9392</span>
-  </div>
-</footer>
+
 
 <div class="lightbox" id="mdm-lightbox"><img alt=""></div>
 </div>
@@ -757,7 +815,8 @@ nav.addEventListener("click", (e) => { if (e.target.tagName === "A") { nav.class
 
 // Кнопки с целью — предвыбирают цель в форме
 root.querySelectorAll("[data-goal]").forEach((a) => a.addEventListener("click", () => {
-  const r = root.querySelector(`input[name="goal"][value="${a.dataset.goal}"]`);
+  // Ищем по всей странице: в Tilda переключатели «Цель» стоят в штатной форме, вне нашего блока
+  const r = document.querySelector(`input[name="goal"][value="${a.dataset.goal}"]`);
   if (r) r.checked = true;
 }));
 
@@ -772,7 +831,8 @@ lb.addEventListener("click", () => lb.classList.remove("open"));
 addEventListener("keydown", (e) => { if (e.key === "Escape") lb.classList.remove("open"); });
 
 // Форма: бэкенда пока нет — собираем письмо в почтовый клиент
-$("#mdm-leadForm").addEventListener("submit", (e) => {
+const leadForm = $("#mdm-leadForm");
+if (leadForm) leadForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const f = e.target.elements;
   const name = f.name.value.trim(), contact = f.contact.value.trim();

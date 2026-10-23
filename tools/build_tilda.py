@@ -1,8 +1,10 @@
 """Собирает index.html + styles.css + main.js в один блок для Tilda (T123).
 
 Запуск из корня репозитория:  python3 tools/build_tilda.py
-Результат: tilda-block.html. Все id получают префикс mdm-, стили — область .mdm,
-фото подставляются из папки IMG (см. начало скрипта в блоке).
+Результат — два блока T123, между ними на странице стоит штатная форма Tilda:
+  tilda-block.html  — сайт целиком без формы и подвала (+ стили для формы Tilda);
+  tilda-footer.html — подвал.
+Все id получают префикс mdm-, стили — область .mdm, фото подставляются из папки IMG.
 """
 import re
 import sys
@@ -11,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tilda-block.html"
+OUT_FOOTER = ROOT / "tilda-footer.html"
 IMG_URL = "https://cdn.jsdelivr.net/gh/ohshitbutonyes/madami@main/img/"
 
 html = (ROOT / "index.html").read_text()
@@ -28,6 +31,13 @@ for i in sorted(set(re.findall(r'id="([\w-]+)"', html)), key=len, reverse=True):
     css = re.sub(rf"#{re.escape(i)}\b", f"#mdm-{i}", css)
 
 body = html.split("<body>")[1].split('<script src="main.js"></script>')[0].strip()
+# Нашу форму убираем — в Tilda её заменяет штатный блок-форма; подвал уходит во второй блок
+body = re.sub(r"\s*<!-- tilda:form-start.*?<!-- tilda:form-end -->", "", body, flags=re.S)
+footer = re.search(r"<!-- tilda:footer-start -->\s*(.*?)\s*<!-- tilda:footer-end -->", body, flags=re.S)
+if not footer or "leadForm" in body:
+    sys.exit("Не нашёл метки tilda:form / tilda:footer в index.html")
+body = body.replace(footer.group(0), "").strip()
+footer_html = footer.group(1)
 body = body.replace('src="img/ring.svg"', f'src="{ring_uri}"')
 body = re.sub(r'src="img/([\w.-]+)"', r'data-img="\1"', body)
 
@@ -106,6 +116,8 @@ OUT.write_text(f"""<!-- Из Дома МаДаМи — сайт v1. Вставл
 {fonts}
 <style>
 {css}
+
+{(ROOT / "tools" / "tilda-form.css").read_text().strip()}
 </style>
 
 <div class="mdm" id="mdm-root">
@@ -116,4 +128,9 @@ OUT.write_text(f"""<!-- Из Дома МаДаМи — сайт v1. Вставл
 {js}
 </script>
 """)
-print(f"{OUT.name}: {OUT.stat().st_size} bytes")
+OUT_FOOTER.write_text(f"""<!-- Из Дома МаДаМи — подвал. Второй блок T123, ставится после блока с формой. -->
+<div class="mdm">
+{footer_html}
+</div>
+""")
+print(f"{OUT.name}: {OUT.stat().st_size} bytes, {OUT_FOOTER.name}: {OUT_FOOTER.stat().st_size} bytes")

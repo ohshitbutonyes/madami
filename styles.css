@@ -241,7 +241,8 @@ figcaption.mono { margin-top: 8px; }
 /* Контакты */
 .contact h2 { color: var(--milk); }
 .contact .sec-side > p { color: rgba(246, 241, 231, .75); }
-.contacts { margin: 20px 0 0; border-top: 3px solid var(--sun); }
+.contacts { margin: 0 0 32px; border-top: 3px solid var(--sun); display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+.contacts div:last-child { grid-column: 1 / -1; }
 .contacts div { padding: 9px 0; border-bottom: 1px solid rgba(246, 241, 231, .2); }
 .contacts dt { font: 400 12px/1.6 var(--mono); color: rgba(246, 241, 231, .6); }
 .contacts dd { margin: 0; font-size: 19px; }
@@ -304,7 +305,7 @@ figcaption.mono { margin-top: 8px; }
 @media (max-width: 640px) {
   body { font-size: 17px; }
   .header-phone { display: none; }
-  .cols3, .cols2, .fit, .form-row { grid-template-columns: 1fr; }
+  .cols3, .cols2, .fit, .form-row, .contacts { grid-template-columns: 1fr; }
   .cols3 > div, .cols2 > div, .cols2 > div:nth-child(even) { padding: 14px 0; border-left: 0; }
   .cols3 > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
   .cols2 > div:nth-child(even) { padding-left: 0; }

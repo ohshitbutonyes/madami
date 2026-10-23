@@ -130,7 +130,8 @@ nav.addEventListener("click", (e) => { if (e.target.tagName === "A") { nav.class
 
 // Кнопки с целью — предвыбирают цель в форме
 root.querySelectorAll("[data-goal]").forEach((a) => a.addEventListener("click", () => {
-  const r = root.querySelector(`input[name="goal"][value="${a.dataset.goal}"]`);
+  // Ищем по всей странице: в Tilda переключатели «Цель» стоят в штатной форме, вне нашего блока
+  const r = document.querySelector(`input[name="goal"][value="${a.dataset.goal}"]`);
   if (r) r.checked = true;
 }));
 
@@ -145,7 +146,8 @@ lb.addEventListener("click", () => lb.classList.remove("open"));
 addEventListener("keydown", (e) => { if (e.key === "Escape") lb.classList.remove("open"); });
 
 // Форма: бэкенда пока нет — собираем письмо в почтовый клиент
-$("#leadForm").addEventListener("submit", (e) => {
+const leadForm = $("#leadForm");
+if (leadForm) leadForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const f = e.target.elements;
   const name = f.name.value.trim(), contact = f.contact.value.trim();
