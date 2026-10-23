@@ -203,11 +203,18 @@
 .mdm .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .mdm .field { display: grid; gap: 4px; border: 0; padding: 0; margin: 0; min-width: 0; }
 .mdm .field label, .mdm .field legend { font: 400 12px/1.6 var(--mono); color: var(--ink-soft); padding: 0; }
-.mdm .field input, .mdm .field select, .mdm .field textarea { font: inherit; font-size: 18px; padding: 6px 0; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); width: 100%; }
-.mdm .field input:focus, .mdm .field select:focus, .mdm .field textarea:focus { outline: none; border-bottom-color: var(--rust); }
+.mdm .field input:not([type="radio"]), .mdm .field select, .mdm .field textarea { font: inherit; font-size: 18px; padding: 6px 0; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); width: 100%;
+  -webkit-appearance: none; appearance: none; box-shadow: none; }
+.mdm .field select { padding-right: 28px; cursor: pointer;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%231f1b17' stroke-width='1.5'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") right 4px center / 12px 8px no-repeat; }
+.mdm .field input:not([type="radio"]):focus, .mdm .field select:focus, .mdm .field textarea:focus { outline: none; border-bottom-color: var(--rust); }
 .mdm .radios { display: flex; flex-wrap: wrap; gap: 6px 22px; padding-top: 4px; }
 .mdm .field label.radio { font: 400 18px/1.5 var(--serif); color: var(--ink); display: flex; gap: 8px; align-items: center; cursor: pointer; }
-.mdm .radio input { accent-color: var(--rust); margin: 0; }
+.mdm .field .radio input[type="radio"] { -webkit-appearance: none; appearance: none; flex: none; box-sizing: border-box;
+  width: 18px; height: 18px; min-width: 18px; margin: 0; padding: 0;
+  border: 1.5px solid var(--ink); border-radius: 50%; background: transparent; cursor: pointer; }
+.mdm .field .radio input[type="radio"]:checked { border-color: var(--rust); background: radial-gradient(circle, var(--rust) 0 4.5px, transparent 5px); }
+.mdm .field .radio input[type="radio"]:focus-visible { outline: 2px solid var(--sky-deep); outline-offset: 2px; }
 .mdm .radios .radio { flex: 0 0 auto; white-space: nowrap; }
 .mdm .form .btn { justify-self: start; }
 .mdm .form-ok { display: none; font-size: 16px; color: var(--olive); margin: 0; }
