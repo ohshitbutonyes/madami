@@ -78,10 +78,13 @@ const $ = (s) => root.querySelector(s);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 // Наши собаки: лента карточек, по клику — подробности
+// Сначала собаки, о которых больше всего известно: дата, родители, титулы, обследования, фото
+const richness = (d) => [d.born, d.parents, d.titles && d.titles !== "Производитель", d.hd, d.photo].filter(Boolean).length;
 const ALL_DOGS = [
   ...MALES.map((d) => ({ ...d, sex: "Кобель" })),
-  ...DOGS.map((d) => ({ ...d, sex: "Сука", titles: d.titles || "Племенная сука питомника" })),
-];
+  ...DOGS.map((d) => ({ ...d, sex: "Сука" })),
+].sort((a, b) => richness(b) - richness(a) || (b.titles || "").length - (a.titles || "").length)
+ .map((d) => ({ ...d, titles: d.titles || "Племенная сука питомника" }));
 const shortName = (n) => n.replace(/ IZ DOMA MADAMY| MADAMY| MADAMI/, "").replace(/^SENNENHUND ROSSII |^SR /, "");
 $("#dogStrip").innerHTML = ALL_DOGS.map((d, i) => `<button type="button" class="dog-tile" data-dog="${i}">
   <span class="dog-tile-sex mono">${d.sex}</span><span class="dog-tile-name">${esc(shortName(d.name))}</span></button>`).join("");
