@@ -4,6 +4,7 @@
 Результат — два блока T123, между ними на странице стоит штатная форма Tilda:
   tilda-block.html  — сайт целиком без формы и подвала (+ стили для формы Tilda);
   tilda-footer.html — подвал.
+Плюс tilda-single.html — всё одним блоком, с нашей формой (пока без штатной формы Tilda).
 Все id получают префикс mdm-, стили — область .mdm, фото подставляются из папки IMG.
 """
 import re
@@ -31,6 +32,7 @@ for i in sorted(set(re.findall(r'id="([\w-]+)"', html)), key=len, reverse=True):
     css = re.sub(rf"#{re.escape(i)}\b", f"#mdm-{i}", css)
 
 body = html.split("<body>")[1].split('<script src="main.js"></script>')[0].strip()
+body_single = re.sub(r"\s*<!-- tilda:(form|footer)-(start|end)[^>]*-->", "", body)
 # Нашу форму убираем — в Tilda её заменяет штатный блок-форма; подвал уходит во второй блок
 body = re.sub(r"\s*<!-- tilda:form-start.*?<!-- tilda:form-end -->", "", body, flags=re.S)
 footer = re.search(r"<!-- tilda:footer-start -->\s*(.*?)\s*<!-- tilda:footer-end -->", body, flags=re.S)
@@ -38,8 +40,10 @@ if not footer or "leadForm" in body:
     sys.exit("Не нашёл метки tilda:form / tilda:footer в index.html")
 body = body.replace(footer.group(0), "").strip()
 footer_html = footer.group(1)
-body = body.replace('src="img/ring.svg"', f'src="{ring_uri}"')
-body = re.sub(r'src="img/([\w.-]+)"', r'data-img="\1"', body)
+def prep(b):
+    b = b.replace('src="img/ring.svg"', f'src="{ring_uri}"')
+    return re.sub(r'src="img/([\w.-]+)"', r'data-img="\1"', b)
+body, body_single = prep(body), prep(body_single)
 
 # CSS: всё под .mdm, @media скоупим, @property/@keyframes оставляем как есть
 css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
@@ -133,4 +137,19 @@ OUT_FOOTER.write_text(f"""<!-- Из Дома МаДаМи — подвал. Вт
 {footer_html}
 </div>
 """)
-print(f"{OUT.name}: {OUT.stat().st_size} bytes, {OUT_FOOTER.name}: {OUT_FOOTER.stat().st_size} bytes")
+OUT_SINGLE = ROOT / "tilda-single.html"
+OUT_SINGLE.write_text(f"""<!-- Из Дома МаДаМи — весь сайт одним блоком T123, с нашей формой (заявка открывает почту). -->
+{fonts}
+<style>
+{css}
+</style>
+
+<div class="mdm" id="mdm-root">
+{body_single}
+</div>
+
+<script>
+{js}
+</script>
+""")
+print(f"{OUT.name}: {OUT.stat().st_size} bytes, {OUT_FOOTER.name}: {OUT_FOOTER.stat().st_size} bytes, {OUT_SINGLE.name}: {OUT_SINGLE.stat().st_size} bytes")
