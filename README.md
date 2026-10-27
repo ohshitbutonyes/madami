@@ -19,7 +19,7 @@
 - Данные оператора для политики конфиденциальности (ФИО/ИП, адрес) и проверка текста юристом.
 
 ## Tilda
-`python3 tools/build_tilda.py` собирает два блока T123: `tilda-block.html` (сайт без формы) и `tilda-footer.html` (подвал).
+`python3 tools/build_tilda.py` собирает два блока T123: `tilda-block.txt` (сайт без формы) и `tilda-footer.txt` (подвал).
 Между ними ставится штатная форма Tilda — её стили лежат в `tools/tilda-form.css` и попадают в первый блок.
 Пошагово — в [TILDA.md](TILDA.md). Черновик политики конфиденциальности — `legal/privacy-policy.md`.
 Фото подгружаются из папки, заданной в `const IMG` в начале скрипта блока.

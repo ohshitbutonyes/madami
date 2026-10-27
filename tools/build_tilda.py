@@ -2,9 +2,9 @@
 
 Запуск из корня репозитория:  python3 tools/build_tilda.py
 Результат — два блока T123, между ними на странице стоит штатная форма Tilda:
-  tilda-block.html  — сайт целиком без формы и подвала (+ стили для формы Tilda);
-  tilda-footer.html — подвал.
-Плюс tilda-single.html — всё одним блоком, с нашей формой (пока без штатной формы Tilda).
+  tilda-block.txt  — сайт целиком без формы и подвала (+ стили для формы Tilda);
+  tilda-footer.txt — подвал.
+Плюс tilda-single.txt — всё одним блоком, с нашей формой (пока без штатной формы Tilda).
 Все id получают префикс mdm-, стили — область .mdm, фото подставляются из папки IMG.
 """
 import re
@@ -13,8 +13,8 @@ import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "tilda-block.html"
-OUT_FOOTER = ROOT / "tilda-footer.html"
+OUT = ROOT / "tilda-block.txt"
+OUT_FOOTER = ROOT / "tilda-footer.txt"
 IMG_URL = "https://cdn.jsdelivr.net/gh/ohshitbutonyes/madami@main/img/"
 
 html = (ROOT / "index.html").read_text()
@@ -137,7 +137,7 @@ OUT_FOOTER.write_text(f"""<!-- Из Дома МаДаМи — подвал. Вт
 {footer_html}
 </div>
 """)
-OUT_SINGLE = ROOT / "tilda-single.html"
+OUT_SINGLE = ROOT / "tilda-single.txt"
 OUT_SINGLE.write_text(f"""<!-- Из Дома МаДаМи — весь сайт одним блоком T123, с нашей формой (заявка открывает почту). -->
 {fonts}
 <style>
