@@ -33,18 +33,17 @@
 <main id="top">
 
   <!-- ОБЛОЖКА -->
-  <section class="bg-sky hero-wrap">
+  <section class="hero-wrap">
   <div class="hero">
     <div class="hero-text">
-      <p class="mono hero-meta">FCI · РКФ № 9392 · с 2008 · Воронеж</p>
       <h1>Из Дома<br>МаДаМи</h1>
-      <p class="hero-sub">Питомник больших швейцарских зенненхундов. Собаки живут с нами в доме, щенков подбираем под семью.</p>
+      <p class="hero-sub">Питомник больших швейцарских зенненхундов под Воронежем. В системе FCI–РКФ с 2008 года. Щенков подбираем под семью.</p>
       <dl class="hero-phones">
         <div><dt>Марина</dt><dd><a href="tel:+79155851548">8 (915) 585-15-48</a></dd></div>
         <div><dt>Василий</dt><dd><a href="tel:+79102413201">8 (910) 241-32-01</a></dd></div>
       </dl>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="tel:+79155851548">Позвонить Марине</a>
+        <a class="btn btn-primary" href="tel:+79155851548" id="heroCall">Позвонить в питомник</a>
         <a class="link-arrow" href="#contact">Написать</a>
       </div>
     </div>
@@ -53,18 +52,6 @@
     </figure>
   </div>
   </section>
-
-  <!-- ЛЕНТА ФОТО -->
-  <div class="band-wrap">
-  <div class="band" aria-label="Наши собаки">
-    <img src="img/g21.jpg" alt="Новорождённые щенки" loading="lazy">
-    <img src="img/g19.jpg" alt="Щенок зевает" loading="lazy">
-    <img src="img/g12.jpg" alt="Щенок стоит" loading="lazy">
-    <img src="img/g06.jpg" alt="Взрослый гросс сидит на ступенях" loading="lazy">
-    <img src="img/g10.jpg" alt="Взрослый гросс у каменной стены" loading="lazy">
-    <img src="img/g25.jpg" alt="Щенок в зелёном ошейнике" loading="lazy">
-  </div>
-  </div>
 
   <!-- КАКУЮ СОБАКУ -->
   <section class="section bg-milk">
@@ -76,49 +63,6 @@
           <li><a href="#breed"><span class="toc-n mono">02</span><span class="toc-t">Первую собаку в жизни</span><span class="toc-d">Расскажем про породу и поможем с первыми месяцами.</span></a></li>
           <li><a href="#champ"><span class="toc-n mono">03</span><span class="toc-t">Щенка для выставок</span><span class="toc-d">Обсудим линии родителей и перспективы щенка.</span></a></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ПИТОМНИК -->
-  <section class="section bg-wood" id="home">
-    <div class="wrap sec">
-      <div class="sec-side">
-        <h2>Собаки живут дома</h2>
-        <p>Семейный питомник в 10 км от Воронежа, рядом Дон. Название сложилось из первых букв наших имён.</p>
-        <ul class="plain">
-          <li>Мы кинологи и врачи по образованию.</li>
-          <li>Щенки растут в доме, среди людей.</li>
-          <li>Не больше одного помёта за раз.</li>
-        </ul>
-      </div>
-      <div class="sec-body pair">
-        <img src="img/autumn.jpg" alt="Взрослый гросс на фоне осенней листвы" loading="lazy">
-        <img src="img/puppy-floor.jpg" alt="Щенок гросса на деревянном полу" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- ПРОВЕРКИ -->
-  <section class="section bg-milk" id="trust">
-    <div class="wrap sec">
-      <h2>Что можно проверить</h2>
-      <div class="sec-body cols3">
-        <div>
-          <h3>Здоровье родителей</h3>
-          <p>Производители проверены на дисплазию суставов.</p>
-          <p class="mono">HD-A · ED-0</p>
-        </div>
-        <div>
-          <h3>Документы</h3>
-          <p>Метрика РКФ, клеймо, ветпаспорт, родословные родителей.</p>
-          <p class="mono">FCI–РКФ № 9392</p>
-        </div>
-        <div>
-          <h3>Характер</h3>
-          <p>Знаем каждого щенка и советуем, кто подойдёт вашей семье.</p>
-          <p class="mono">Подбор после актирования</p>
-        </div>
       </div>
     </div>
   </section>
@@ -164,41 +108,28 @@
     </div>
   </section>
 
-  <!-- АНАТОМИЯ -->
-  <section class="section bg-sky plate" id="anatomy">
-    <div class="wrap sec">
-      <div class="sec-side">
-        <h2>Из чего сделан гросс</h2>
-        <div class="plate-note" id="anatCard" aria-live="polite"></div>
-        <ol class="plate-legend" id="anatLegend"></ol>
-      </div>
-      <div class="sec-body">
-        <div class="plate-stage" id="anatStage">
-          <img src="img/standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке">
-          <svg class="plate-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <line id="anatLine" x1="0" y1="0" x2="0" y2="0"/>
-          </svg>
-          <div id="anatDots"></div>
-          <span class="plate-label mono" id="anatLabel"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- СОБАКИ -->
   <section class="section bg-milk" id="dogs">
     <div class="wrap sec">
-      <h2>Наши собаки</h2>
+      <div class="sec-side">
+        <h2>Наши собаки</h2>
+        <p>Нажмите на собаку: покажем родителей, титулы и обследования.</p>
+      </div>
       <div class="sec-body">
-        <h3 class="table-title">Суки</h3>
-        <table class="catalog">
-          <thead><tr><th>Кличка</th><th>Родилась</th><th>Титулы</th><th>HD / ED</th></tr></thead>
-          <tbody id="dogsTable"></tbody>
-        </table>
-        <h3 class="table-title">Кобели в нашем разведении</h3>
-        <table class="catalog">
-          <tbody id="malesTable"></tbody>
-        </table>
+        <div class="dog-strip" id="dogStrip"></div>
+        <div class="dog-card" id="dogCard" aria-live="polite"></div>
+        <details class="registry">
+          <summary>Все собаки списком</summary>
+          <h3 class="table-title">Суки</h3>
+          <table class="catalog">
+            <thead><tr><th>Кличка</th><th>Родилась</th><th>Титулы</th><th>HD / ED</th></tr></thead>
+            <tbody id="dogsTable"></tbody>
+          </table>
+          <h3 class="table-title">Кобели в нашем разведении</h3>
+          <table class="catalog">
+            <tbody id="malesTable"></tbody>
+          </table>
+        </details>
       </div>
     </div>
   </section>
@@ -286,6 +217,69 @@
     </div>
   </section>
 
+  <!-- ПРОВЕРКИ -->
+  <section class="section bg-milk" id="trust">
+    <div class="wrap sec">
+      <h2>Что можно проверить</h2>
+      <div class="sec-body cols3">
+        <div>
+          <h3>Здоровье родителей</h3>
+          <p>Производители проверены на дисплазию суставов.</p>
+          <p class="mono">HD-A · ED-0</p>
+        </div>
+        <div>
+          <h3>Документы</h3>
+          <p>Метрика РКФ, клеймо, ветпаспорт, родословные родителей.</p>
+          <p class="mono">FCI–РКФ № 9392</p>
+        </div>
+        <div>
+          <h3>Характер</h3>
+          <p>Знаем каждого щенка и советуем, кто подойдёт вашей семье.</p>
+          <p class="mono">Подбор после актирования</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПИТОМНИК -->
+  <section class="section bg-wood" id="home">
+    <div class="wrap sec">
+      <div class="sec-side">
+        <h2>Растут в доме, с людьми</h2>
+        <p>Щенки с первых дней привыкают к дому: к людям, детям, лестницам и бытовому шуму. Семейный питомник в 10 км от Воронежа, рядом Дон.</p>
+        <ul class="plain">
+          <li>Мы кинологи и врачи по образованию.</li>
+          <li>Щенки растут в доме, среди людей.</li>
+          <li>Не больше одного помёта за раз.</li>
+        </ul>
+      </div>
+      <div class="sec-body pair">
+        <img src="img/autumn.jpg" alt="Взрослый гросс на фоне осенней листвы" loading="lazy">
+        <img src="img/puppy-floor.jpg" alt="Щенок гросса на деревянном полу" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- АНАТОМИЯ -->
+  <section class="section bg-sky plate" id="anatomy">
+    <div class="wrap sec">
+      <div class="sec-side">
+        <h2>Как узнать гросса</h2>
+        <p>Восемь черт, по которым гросса отличают от других собак. Наведите на номер или нажмите.</p>
+        <ol class="plate-legend" id="anatLegend"></ol>
+      </div>
+      <div class="sec-body">
+        <div class="plate-stage" id="anatStage">
+          <div class="plate-photo">
+            <img src="img/standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке">
+            <div id="anatDots"></div>
+          </div>
+          <div class="plate-pop" id="anatPop" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ВОПРОСЫ -->
   <section class="section bg-milk" id="faq">
     <div class="wrap sec">
@@ -295,11 +289,15 @@
   </section>
 
   <!-- АЛЬБОМ -->
-  <section class="section bg-milk" id="gallery">
-    <div class="wrap sec">
+  <section class="section bg-milk album" id="gallery">
+    <div class="wrap album-head">
       <h2>Альбом</h2>
-      <div class="sec-body gallery" id="gallery-grid"></div>
+      <div class="album-nav">
+        <button type="button" class="album-btn" data-dir="-1" aria-label="Назад">←</button>
+        <button type="button" class="album-btn" data-dir="1" aria-label="Вперёд">→</button>
+      </div>
     </div>
+    <div class="album-strip" id="gallery-grid"></div>
   </section>
 
   <!-- КОНТАКТЫ -->

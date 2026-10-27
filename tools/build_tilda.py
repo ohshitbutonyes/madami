@@ -96,12 +96,12 @@ css += """
 # JS: корень — блок, фото — из IMG
 assert "const root = document;\n" in js
 js = js.replace("const root = document;\n", "")
-js = js.replace('src="img/${g}.jpg"', 'src="${IMG}${g}.jpg"')
+js = js.replace('const PHOTO_DIR = "img/";', 'const PHOTO_DIR = IMG;')
 esc_line = next(l for l in js.splitlines() if l.startswith("const esc = "))
 js = js.replace(esc_line, esc_line + "\n\n"
                 'root.classList.add("mdm-js");\n'
                 'root.querySelectorAll("[data-img]").forEach((im) => { im.src = IMG + im.dataset.img; });', 1)
-if "${IMG}" not in js or "mdm-js" not in js:
+if "const PHOTO_DIR = IMG;" not in js or "mdm-js" not in js:
     sys.exit("main.js изменился — обновите замены в build_tilda.py")
 js = f"""(function () {{
 // Папка с фотографиями (hero.jpg, autumn.jpg, g03.jpg … — файлы из папки img/ репозитория).

@@ -16,13 +16,14 @@ const DOGS = [
   { name: "SR SANSHAIN MADAMY", born: "08.09.2015", parents: "о. Giorgio Armani from Swiss Star · м. SR Shangri’La", titles: "" },
 ];
 
+// photo — файл из img/, если известно, что на снимке именно эта собака
 const MALES = [
-  ["AMOR IZ DOMA MADAMY", "Вице-чемпион мира 2023"],
-  ["ARCHI FOR SENNENHUND ROSSII", "Чемпион мира 2016 · интерчемпион"],
-  ["RINGO STAR IZ DOMA MADAMY", "Производитель"],
-  ["GENRIH IZ DOMA MADAMY", "Производитель"],
-  ["SENNENHUND ROSSII SPARTAK", "Производитель"],
-  ["BARD NERAWIN FOREVER", "Импорт, Латвия"],
+  { name: "AMOR IZ DOMA MADAMY", titles: "Вице-чемпион мира 2023", photo: "wds-2023.jpg" },
+  { name: "ARCHI FOR SENNENHUND ROSSII", titles: "Чемпион мира 2016 · интерчемпион" },
+  { name: "RINGO STAR IZ DOMA MADAMY", titles: "Производитель" },
+  { name: "GENRIH IZ DOMA MADAMY", titles: "Производитель" },
+  { name: "SENNENHUND ROSSII SPARTAK", titles: "Производитель" },
+  { name: "BARD NERAWIN FOREVER", titles: "Импорт, Латвия" },
 ];
 
 const LITTERS = [
@@ -49,37 +50,59 @@ const FAQ = [
   ["Можно приехать?", "Да, по договорённости. 10 км от Воронежа по М-4."],
 ];
 
-// Анатомия: x/y — точка на фото, lx/ly — куда ведёт выноска (в % от ширины/высоты), side — сторона подписи
+// Анатомия: черты, по которым узнают гросса. x/y — точка на фото, в % от ширины и высоты
 const ANATOMY = [
-  { id: "brows", x: 32.5, y: 11, lx: 4, ly: 5, side: "left", name: "Бровки",
-    what: "Рыжие пятна над глазами.", why: "Делают морду выразительной, обязательны для трёхцветного окраса." },
-  { id: "muzzle", x: 26, y: 17, lx: 4, ly: 26, side: "left", name: "Морда и проточина",
-    what: "Мощная морда с белой полосой на лоб.", why: "Сильные челюсти, плотные губы — слюней немного." },
-  { id: "ears", x: 45.7, y: 19.3, lx: 96, ly: 8, side: "right", name: "Уши",
-    what: "Треугольные, высоко посажены.", why: "Поднимаются, когда гросс насторожился." },
-  { id: "chest", x: 37, y: 46, lx: 4, ly: 48, side: "left", name: "Грудь",
-    what: "Широкая, глубокая, с белой манишкой.", why: "Сердце и лёгкие тягловой собаки." },
-  { id: "back", x: 62, y: 30, lx: 96, ly: 18, side: "right", name: "Спина",
-    what: "Прямая и крепкая.", why: "Держит всю тягу. Щенку до 1,5 лет нельзя прыгать." },
-  { id: "coat", x: 58.5, y: 43, lx: 96, ly: 44, side: "right", name: "Шерсть",
-    what: "Короткая, с густым подшёрстком.", why: "Для мороза. Жару гросс переносит хуже." },
-  { id: "tail", x: 72.9, y: 28.6, lx: 96, ly: 31, side: "right", name: "Хвост",
-    what: "Толстый, до скакательных суставов.", why: "Показывает настроение." },
-  { id: "tan", x: 33, y: 76, lx: 4, ly: 70, side: "left", name: "Подпал",
-    what: "Рыжий цвет между чёрным и белым.", why: "Третий цвет трёхцветного окраса." },
-  { id: "paws", x: 50.5, y: 92, lx: 96, ly: 96, side: "right", name: "Лапы",
-    what: "Круглые, с белыми «носочками».", why: "Держат 50–70 кг и не скользят." },
-  { id: "hind", x: 74.5, y: 55, lx: 96, ly: 62, side: "right", name: "Задние ноги",
-    what: "Мощные бёдра.", why: "Толчок и сила, которой гросс тянул повозку." },
+  { id: "brows", x: 32.5, y: 11, name: "Бровки",
+    what: "Рыжие пятна над глазами есть у каждого гросса.", why: "Без них окрас не считается правильным. А ещё ими гросс хмурится и удивляется." },
+  { id: "blaze", x: 26, y: 17, name: "Белая проточина",
+    what: "Белая полоса от носа на лоб.", why: "Обязательная отметина породы — вместе с белой грудью и белыми лапами." },
+  { id: "chest", x: 37, y: 46, name: "Грудь тягача",
+    what: "Широкая и глубокая, до локтей.", why: "Гроссы возили тележки с молоком и сыром, выносливость — отсюда." },
+  { id: "size", x: 62, y: 30, name: "Самый крупный",
+    what: "Кобели — до 72 см в холке, 50–70 кг.", why: "Крупнейший из четырёх швейцарских зенненхундов." },
+  { id: "coat", x: 58.5, y: 43, name: "Короткая шерсть",
+    what: "Плотная, до 5 см, с густым подшёрстком.", why: "Так гросса отличают от бернского зенненхунда с длинной шерстью." },
+  { id: "hind", x: 74.5, y: 55, name: "Задние ноги",
+    what: "Широкие мускулистые бёдра.", why: "Гроссы таскали повозки, поэтому задние ноги у них всегда сильные." },
+  { id: "tan", x: 33, y: 76, name: "Трёхцветный окрас",
+    what: "Чёрный, рыжий и белый.", why: "Рыжий подпал всегда лежит между чёрным и белым — рисунок задан стандартом." },
+  { id: "socks", x: 50.5, y: 92, name: "Белые носочки",
+    what: "Белое на всех четырёх лапах.", why: "Признак породы: по «носочкам» гросса видно издалека." },
 ];
 
 const GALLERY = ["g03", "g12", "meadow", "g19", "g06", "newborns", "g11", "g20", "ring", "g13", "g25", "g05", "g21", "g24", "g14", "g10", "g04", "g22", "g26", "g27"];
+const PHOTO_DIR = "img/";
 
 const root = document;
 const $ = (s) => root.querySelector(s);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-// Каталог собак
+// Наши собаки: лента карточек, по клику — подробности
+const ALL_DOGS = [
+  ...MALES.map((d) => ({ ...d, sex: "Кобель" })),
+  ...DOGS.map((d) => ({ ...d, sex: "Сука", titles: d.titles || "Племенная сука питомника" })),
+];
+const shortName = (n) => n.replace(/ IZ DOMA MADAMY| MADAMY| MADAMI/, "").replace(/^SENNENHUND ROSSII |^SR /, "");
+$("#dogStrip").innerHTML = ALL_DOGS.map((d, i) => `<button type="button" class="dog-tile" data-dog="${i}">
+  <span class="dog-tile-sex mono">${d.sex}</span><span class="dog-tile-name">${esc(shortName(d.name))}</span></button>`).join("");
+const showDog = (i) => {
+  const d = ALL_DOGS[i];
+  root.querySelectorAll(".dog-tile").forEach((t) => t.classList.toggle("active", t.dataset.dog === String(i)));
+  const facts = [
+    d.born && ["Родилась", d.born],
+    d.parents && ["Родители", d.parents],
+    ["Титулы", d.titles],
+    d.sex === "Сука" && ["HD / ED", d.hd ? "A / 0" : "по запросу"],
+  ].filter(Boolean);
+  $("#dogCard").innerHTML = `${d.photo ? `<img src="${PHOTO_DIR}${d.photo}" alt="${esc(d.name)}">` : ""}
+    <div><p class="mono">${d.sex}</p><h3>${esc(d.name)}</h3>
+    <table class="spec">${facts.map(([k, v]) => `<tr><th>${k}</th><td>${esc(v)}</td></tr>`).join("")}</table></div>`;
+  $("#dogCard").classList.toggle("has-photo", !!d.photo);
+};
+$("#dogStrip").addEventListener("click", (e) => { const t = e.target.closest(".dog-tile"); if (t) showDog(+t.dataset.dog); });
+showDog(0);
+
+// Полный список собак
 $("#dogsTable").innerHTML = DOGS.map((d) => `<tr>
   <td><span class="name">${esc(d.name)}</span><span class="sub">${esc(d.parents)}</span></td>
   <td class="mono" data-label="Род.">${esc(d.born || "—")}</td>
@@ -87,17 +110,22 @@ $("#dogsTable").innerHTML = DOGS.map((d) => `<tr>
   <td class="mono" data-label="HD/ED">${d.hd ? "A / 0" : "по запросу"}</td>
 </tr>`).join("");
 
-$("#malesTable").innerHTML = MALES.map(([n, t]) => `<tr><td class="name">${esc(n)}</td><td class="muted">${esc(t)}</td></tr>`).join("");
+$("#malesTable").innerHTML = MALES.map((d) => `<tr><td class="name">${esc(d.name)}</td><td class="muted">${esc(d.titles)}</td></tr>`).join("");
 
 $("#registry").innerHTML = LITTERS.map(([date, pair, pups]) =>
   `<tr><td class="mono">${esc(date)}</td><td class="name">${esc(pair)}</td><td class="muted">${esc(pups)}</td></tr>`).join("");
 
 $("#faqList").innerHTML = FAQ.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
 
-$("#gallery-grid").innerHTML = GALLERY.map((g) => `<img src="img/${g}.jpg" alt="Гроссы питомника Из Дома МаДаМи" loading="lazy">`).join("");
+// Альбом — полоса на всю ширину, листается кнопками
+$("#gallery-grid").innerHTML = GALLERY.map((g) => `<img src="${PHOTO_DIR}${g}.jpg" alt="Гроссы питомника Из Дома МаДаМи" loading="lazy">`).join("");
+root.querySelectorAll(".album-btn").forEach((b) => b.addEventListener("click", () => {
+  const strip = $("#gallery-grid");
+  strip.scrollBy({ left: +b.dataset.dir * strip.clientWidth * 0.8, behavior: "smooth" });
+}));
 
-// Анатомия: номера на фото, легенда сбоку, выноска к активной части
-const line = $("#anatLine"), label = $("#anatLabel"), card = $("#anatCard");
+// Анатомия: номера на фото, окно с описанием прямо у точки
+const stage = $("#anatStage"), pop = $("#anatPop");
 $("#anatDots").innerHTML = ANATOMY.map((a, i) =>
   `<button class="anat-dot" data-part="${a.id}" style="left:${a.x}%;top:${a.y}%" aria-label="${esc(a.name)}">${i + 1}</button>`).join("");
 $("#anatLegend").innerHTML = ANATOMY.map((a, i) =>
@@ -106,12 +134,21 @@ const showPart = (id) => {
   const a = ANATOMY.find((p) => p.id === id);
   if (!a) return;
   root.querySelectorAll("[data-part]").forEach((b) => b.classList.toggle("active", b.dataset.part === id));
-  line.setAttribute("x1", a.x); line.setAttribute("y1", a.y);
-  line.setAttribute("x2", a.lx); line.setAttribute("y2", a.ly);
-  label.textContent = a.name;
-  label.className = `plate-label mono ${a.side}`;
-  label.style.left = a.lx + "%"; label.style.top = a.ly + "%";
-  card.innerHTML = `<h3>${esc(a.name)}</h3><p>${esc(a.what)}</p><p class="why">${esc(a.why)}</p>`;
+  pop.innerHTML = `<h3>${esc(a.name)}</h3><p>${esc(a.what)}</p><p class="why">${esc(a.why)}</p>`;
+  // Узкий экран: окно — под фото, чтобы не вылезало за край и не закрывало точки
+  const docked = stage.clientWidth < 560;
+  pop.classList.toggle("docked", docked);
+  if (docked) {
+    Object.assign(pop.style, { left: "", right: "", width: "", top: "", bottom: "" });
+  } else {
+    // Широкий: сбоку от точки, со стороны, где больше места; по высоте не выходит за фото
+    const right = a.x < 55;
+    Object.assign(pop.style, { width: "", bottom: "auto",
+      left: right ? `calc(${a.x}% + 22px)` : "auto", right: right ? "auto" : `calc(${100 - a.x}% + 22px)` });
+    const h = pop.offsetHeight, H = stage.clientHeight;
+    pop.style.top = Math.max(8, Math.min(H - h - 8, (a.y / 100) * H - h / 2)) + "px";
+  }
+  pop.classList.add("open");
 };
 root.querySelectorAll("[data-part]").forEach((b) => {
   b.addEventListener("mouseenter", () => showPart(b.dataset.part));
@@ -119,6 +156,11 @@ root.querySelectorAll("[data-part]").forEach((b) => {
   b.addEventListener("click", () => showPart(b.dataset.part));
 });
 showPart(ANATOMY[0].id);
+addEventListener("resize", () => { const a = root.querySelector(".anat-dot.active"); if (a) showPart(a.dataset.part); });
+
+// На компьютере кнопка звонка ведёт к контактам: tel:-ссылка там сразу запускает звонок через FaceTime или Skype
+const heroCall = $("#heroCall");
+if (heroCall && matchMedia("(hover: hover) and (pointer: fine)").matches) heroCall.setAttribute("href", "#contact");
 
 // Мобильное меню
 const nav = $("#nav"), burger = $("#burger");

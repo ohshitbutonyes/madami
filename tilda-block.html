@@ -58,7 +58,8 @@
 .mdm .section { padding: var(--pad) 0; }
 .mdm .bg-milk + .bg-milk .sec { border-top: 1px solid var(--line); padding-top: var(--pad); }
 .mdm .bg-milk + .bg-milk { padding-top: 0; }
-.mdm .sec { display: grid; grid-template-columns: 4fr 8fr; gap: var(--gap); align-items: start; }
+.mdm .sec { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap); align-items: start; }
+.mdm .sec-body { min-width: 0; }
 .mdm .sec > h2, .mdm .sec-side { position: sticky; top: 84px; }
 .mdm .sec-side h2 { margin-bottom: 20px; }
 .mdm .sec-side > p { color: var(--ink-soft); }
@@ -79,7 +80,7 @@
 .mdm .header-phone { text-decoration: none; color: var(--ink); font-size: 14px; }
 .mdm .burger { display: none; background: none; border: 0; width: 40px; height: 40px; cursor: pointer; padding: 8px; }
 .mdm .burger span { display: block; height: 1.5px; background: var(--ink); margin: 7px 0; }
-.mdm .hero-wrap { background: linear-gradient(180deg, #b9d3ea 0%, var(--sky) 55%, #e9eff0 100%); }
+.mdm .hero-wrap { background: linear-gradient(180deg, #cdd7b2 0%, var(--meadow-tint) 55%, var(--milk) 100%); }
 .mdm .hero { width: min(var(--wrap), 100% - 40px); margin: 0 auto; padding: 40px 0 var(--pad); display: grid; grid-template-columns: 5fr 7fr; gap: var(--gap); align-items: center; }
 .mdm .hero h1 { margin: 20px 0 24px; }
 .mdm .hero-sub { font-size: clamp(19px, 1.6vw, 22px); color: var(--ink-soft); max-width: 24em; }
@@ -90,9 +91,6 @@
 .mdm .hero-phones a { text-decoration: none; }
 .mdm .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
 .mdm .hero-photo img { width: 100%; aspect-ratio: 4 / 5; max-height: calc(100vh - 140px); object-fit: cover; object-position: 50% 35%; }
-.mdm .band-wrap { background: linear-gradient(180deg, #e9eff0 50%, var(--milk) 50%); }
-.mdm .band { width: min(var(--wrap), 100% - 40px); margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
-.mdm .band img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 .mdm .toc { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--sun); }
 .mdm .toc a { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
 .mdm .toc-n { grid-row: span 2; line-height: 34px; color: var(--wood-dark); }
@@ -126,22 +124,22 @@
 .mdm .plus li::before { content: "+"; color: var(--jade); font-weight: 500; }
 .mdm .minus li::before { content: "−"; color: var(--peach-deep); font-weight: 500; }
 .mdm .plate .plate-legend { border-top-color: var(--sky-deep); }
-.mdm .plate-stage { position: relative; aspect-ratio: 1; }
-.mdm .plate-stage img { width: 100%; height: 100%; object-fit: cover; }
-.mdm .plate-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.mdm .plate-lines line { stroke: var(--paper); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.mdm .plate-stage, .mdm .plate-photo { position: relative; }
+.mdm .plate-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 .mdm .anat-dot { position: absolute; width: 24px; height: 24px; margin: -12px 0 0 -12px; padding: 0; cursor: pointer;
   border: 1px solid var(--choc); border-radius: 50%; background: var(--paper); color: var(--choc);
   font: 500 11px/22px var(--mono); text-align: center; }
 .mdm .anat-dot:hover, .mdm .anat-dot:focus-visible, .mdm .anat-dot.active { background: var(--choc); color: var(--paper); outline: none; }
-.mdm .plate-label { position: absolute; padding: 4px 8px; background: var(--paper); color: var(--choc); border-radius: 2px;
-  white-space: nowrap; pointer-events: none; transform: translateY(-50%); }
-.mdm .plate-label.right { transform: translate(-100%, -50%); }
-.mdm .plate-note { min-height: 110px; margin-bottom: 16px; }
-.mdm .plate-note h3 { color: var(--choc); margin-bottom: 4px; }
-.mdm .plate-note p { margin: 0 0 4px; }
-.mdm .plate-note .why { color: var(--ink-soft); }
-.mdm .plate-legend { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--choc); columns: 2; column-gap: 20px; }
+.mdm .plate-pop { position: absolute; z-index: 3; width: min(270px, 62%); padding: 14px 16px 12px;
+  background: var(--paper); color: var(--ink); border-top: 3px solid var(--sun);
+  box-shadow: 0 10px 30px -12px rgba(31, 27, 23, .45); opacity: 0; transition: opacity .2s, top .2s; }
+.mdm .plate-pop.open { opacity: 1; }
+.mdm .plate-pop.docked { position: relative; width: auto; margin-top: 8px; box-shadow: none; transition: none; }
+.mdm .plate-pop h3 { color: var(--choc); font-size: 19px; margin-bottom: 4px; }
+.mdm .plate-pop p { margin: 0 0 4px; font-size: 16px; line-height: 1.4; }
+.mdm .plate-pop .why { color: var(--ink-soft); }
+.mdm .plate .sec-side > p { margin-bottom: 18px; }
+.mdm .plate-legend { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--choc); }
 .mdm .plate-legend li { break-inside: avoid; }
 .mdm .plate-legend button { display: grid; grid-template-columns: 30px 1fr; width: 100%; padding: 6px 0; text-align: left; cursor: pointer;
   background: none; border: 0; border-bottom: 1px solid rgba(91, 58, 43, .18); font: inherit; font-size: 17px; color: var(--ink); }
@@ -158,6 +156,20 @@
 .mdm .catalog .mono { font-size: 12.5px; white-space: nowrap; }
 .mdm .catalog .muted { color: var(--ink-soft); }
 .mdm #mdm-dogsTable td:first-child { width: 38%; }
+.mdm .dog-strip { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; border-top: 3px solid var(--sun); padding-top: 12px; }
+.mdm .dog-tile { flex: none; width: 138px; min-height: 96px; padding: 12px; text-align: left; cursor: pointer;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 10px;
+  background: var(--wood); border: 0; border-radius: 2px; color: var(--ink); font: inherit;
+  transition: background .15s, color .15s; }
+.mdm .dog-tile-name { font-weight: 700; font-size: 16px; line-height: 1.15; }
+.mdm .dog-tile:hover { background: #e6cfa6; }
+.mdm .dog-tile.active { background: var(--choc); color: var(--milk); }
+.mdm .dog-tile.active .mono { color: rgba(246, 241, 231, .7); }
+.mdm .dog-card { display: grid; gap: 24px; margin-top: 24px; }
+.mdm .dog-card.has-photo { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; }
+.mdm .dog-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.mdm .dog-card h3 { font-size: 26px; font-weight: 500; margin: 2px 0 14px; }
+.mdm #mdm-dogs .registry { margin-top: 36px; }
 .mdm .champ h2 { color: var(--milk); }
 .mdm .champ .mono { color: rgba(246, 241, 231, .65); }
 .mdm .champ .titles { border-top: 3px solid var(--sun); }
@@ -185,8 +197,17 @@
 .mdm .faq summary::after { content: "+"; position: absolute; right: 0; top: 12px; font-family: var(--mono); color: var(--rust); }
 .mdm .faq details[open] summary::after { content: "−"; }
 .mdm .faq details p { color: var(--ink-soft); }
-.mdm .gallery { columns: 3; column-gap: 6px; }
-.mdm .gallery img { width: 100%; margin-bottom: 6px; break-inside: avoid; cursor: zoom-in; }
+.mdm .album { padding-bottom: var(--pad); }
+.mdm .bg-milk + .album { padding-top: 0; }
+.mdm .bg-milk + .album .album-head { border-top: 1px solid var(--line); padding-top: var(--pad); }
+.mdm .album-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 24px; }
+.mdm .album-nav { display: flex; gap: 6px; }
+.mdm .album-btn { width: 44px; height: 44px; border: 1px solid var(--ink); border-radius: 2px; background: transparent; font: 400 20px/1 var(--mono); cursor: pointer; color: var(--ink); }
+.mdm .album-btn:hover { background: var(--ink); color: var(--milk); }
+.mdm .album-strip { display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin;
+  padding: 0 max(20px, calc((100vw - var(--wrap)) / 2));
+  scroll-padding-inline: max(20px, calc((100vw - var(--wrap)) / 2)); }
+.mdm .album-strip img { height: clamp(240px, 32vw, 380px); width: auto; flex: none; scroll-snap-align: start; cursor: zoom-in; }
 .mdm .lightbox { position: fixed; inset: 0; background: rgba(20, 16, 12, .92); display: none; place-items: center; z-index: 100; padding: 24px; cursor: zoom-out; }
 .mdm .lightbox.open { display: grid; }
 .mdm .lightbox img { max-height: 92vh; }
@@ -235,26 +256,24 @@
   .mdm .hero { padding-top: 20px; }
   .mdm .hero-photo { order: -1; }
   .mdm .hero-photo img { aspect-ratio: 4 / 3; max-height: none; }
-  .mdm .band { grid-template-columns: repeat(3, 1fr); }
-  .mdm .band img:nth-child(n+4) { display: none; }
-  .mdm .plate-note { min-height: 0; }
-  .mdm .gallery { columns: 2; }
 }
 @media (max-width: 640px) {
   .mdm { font-size: 17px; }
   .mdm .header-phone { display: none; }
-  .mdm .cols3, .mdm .cols2, .mdm .fit, .mdm .form-row, .mdm .contacts { grid-template-columns: 1fr; }
+  .mdm .cols3, .mdm .cols2, .mdm .fit, .mdm .form-row, .mdm .contacts, .mdm .dog-card.has-photo { grid-template-columns: 1fr; }
+  .mdm .dog-tile { width: 120px; }
   .mdm .cols3 > div, .mdm .cols2 > div, .mdm .cols2 > div:nth-child(even) { padding: 14px 0; border-left: 0; }
   .mdm .cols3 > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
   .mdm .cols2 > div:nth-child(even) { padding-left: 0; }
   .mdm .spec tr { display: grid; grid-template-columns: auto 1fr; }
-  .mdm .plate-legend { columns: 1; }
   .mdm .catalog thead { display: none; }
   .mdm .catalog tr { display: block; padding: 10px 0; border-bottom: 1px solid var(--line); }
   .mdm .catalog td { display: block; padding: 2px 0; border: 0 !important; }
   .mdm .catalog td[data-label]::before { content: attr(data-label) " "; font: 400 12px var(--mono); color: var(--ink-soft); }
   .mdm .catalog .mono { white-space: normal; }
-  .mdm .plate-label { font-size: 11px; }
+  .mdm .plate-pop { width: 64%; padding: 10px 12px; }
+  .mdm .plate-pop h3 { font-size: 17px; }
+  .mdm .plate-pop p { font-size: 14.5px; }
 }
 .mdm { overflow-x: clip; }
 .mdm table { border: 0; }
@@ -381,18 +400,17 @@
 <main id="mdm-top">
 
   <!-- ОБЛОЖКА -->
-  <section class="bg-sky hero-wrap">
+  <section class="hero-wrap">
   <div class="hero">
     <div class="hero-text">
-      <p class="mono hero-meta">FCI · РКФ № 9392 · с 2008 · Воронеж</p>
       <h1>Из Дома<br>МаДаМи</h1>
-      <p class="hero-sub">Питомник больших швейцарских зенненхундов. Собаки живут с нами в доме, щенков подбираем под семью.</p>
+      <p class="hero-sub">Питомник больших швейцарских зенненхундов под Воронежем. В системе FCI–РКФ с 2008 года. Щенков подбираем под семью.</p>
       <dl class="hero-phones">
         <div><dt>Марина</dt><dd><a href="tel:+79155851548">8 (915) 585-15-48</a></dd></div>
         <div><dt>Василий</dt><dd><a href="tel:+79102413201">8 (910) 241-32-01</a></dd></div>
       </dl>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="tel:+79155851548">Позвонить Марине</a>
+        <a class="btn btn-primary" href="tel:+79155851548" id="mdm-heroCall">Позвонить в питомник</a>
         <a class="link-arrow" href="#mdm-contact">Написать</a>
       </div>
     </div>
@@ -401,18 +419,6 @@
     </figure>
   </div>
   </section>
-
-  <!-- ЛЕНТА ФОТО -->
-  <div class="band-wrap">
-  <div class="band" aria-label="Наши собаки">
-    <img data-img="g21.jpg" alt="Новорождённые щенки" loading="lazy">
-    <img data-img="g19.jpg" alt="Щенок зевает" loading="lazy">
-    <img data-img="g12.jpg" alt="Щенок стоит" loading="lazy">
-    <img data-img="g06.jpg" alt="Взрослый гросс сидит на ступенях" loading="lazy">
-    <img data-img="g10.jpg" alt="Взрослый гросс у каменной стены" loading="lazy">
-    <img data-img="g25.jpg" alt="Щенок в зелёном ошейнике" loading="lazy">
-  </div>
-  </div>
 
   <!-- КАКУЮ СОБАКУ -->
   <section class="section bg-milk">
@@ -424,49 +430,6 @@
           <li><a href="#mdm-breed"><span class="toc-n mono">02</span><span class="toc-t">Первую собаку в жизни</span><span class="toc-d">Расскажем про породу и поможем с первыми месяцами.</span></a></li>
           <li><a href="#mdm-champ"><span class="toc-n mono">03</span><span class="toc-t">Щенка для выставок</span><span class="toc-d">Обсудим линии родителей и перспективы щенка.</span></a></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ПИТОМНИК -->
-  <section class="section bg-wood" id="mdm-home">
-    <div class="wrap sec">
-      <div class="sec-side">
-        <h2>Собаки живут дома</h2>
-        <p>Семейный питомник в 10 км от Воронежа, рядом Дон. Название сложилось из первых букв наших имён.</p>
-        <ul class="plain">
-          <li>Мы кинологи и врачи по образованию.</li>
-          <li>Щенки растут в доме, среди людей.</li>
-          <li>Не больше одного помёта за раз.</li>
-        </ul>
-      </div>
-      <div class="sec-body pair">
-        <img data-img="autumn.jpg" alt="Взрослый гросс на фоне осенней листвы" loading="lazy">
-        <img data-img="puppy-floor.jpg" alt="Щенок гросса на деревянном полу" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- ПРОВЕРКИ -->
-  <section class="section bg-milk" id="mdm-trust">
-    <div class="wrap sec">
-      <h2>Что можно проверить</h2>
-      <div class="sec-body cols3">
-        <div>
-          <h3>Здоровье родителей</h3>
-          <p>Производители проверены на дисплазию суставов.</p>
-          <p class="mono">HD-A · ED-0</p>
-        </div>
-        <div>
-          <h3>Документы</h3>
-          <p>Метрика РКФ, клеймо, ветпаспорт, родословные родителей.</p>
-          <p class="mono">FCI–РКФ № 9392</p>
-        </div>
-        <div>
-          <h3>Характер</h3>
-          <p>Знаем каждого щенка и советуем, кто подойдёт вашей семье.</p>
-          <p class="mono">Подбор после актирования</p>
-        </div>
       </div>
     </div>
   </section>
@@ -512,41 +475,28 @@
     </div>
   </section>
 
-  <!-- АНАТОМИЯ -->
-  <section class="section bg-sky plate" id="mdm-anatomy">
-    <div class="wrap sec">
-      <div class="sec-side">
-        <h2>Из чего сделан гросс</h2>
-        <div class="plate-note" id="mdm-anatCard" aria-live="polite"></div>
-        <ol class="plate-legend" id="mdm-anatLegend"></ol>
-      </div>
-      <div class="sec-body">
-        <div class="plate-stage" id="mdm-anatStage">
-          <img data-img="standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке">
-          <svg class="plate-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <line id="mdm-anatLine" x1="0" y1="0" x2="0" y2="0"/>
-          </svg>
-          <div id="mdm-anatDots"></div>
-          <span class="plate-label mono" id="mdm-anatLabel"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- СОБАКИ -->
   <section class="section bg-milk" id="mdm-dogs">
     <div class="wrap sec">
-      <h2>Наши собаки</h2>
+      <div class="sec-side">
+        <h2>Наши собаки</h2>
+        <p>Нажмите на собаку: покажем родителей, титулы и обследования.</p>
+      </div>
       <div class="sec-body">
-        <h3 class="table-title">Суки</h3>
-        <table class="catalog">
-          <thead><tr><th>Кличка</th><th>Родилась</th><th>Титулы</th><th>HD / ED</th></tr></thead>
-          <tbody id="mdm-dogsTable"></tbody>
-        </table>
-        <h3 class="table-title">Кобели в нашем разведении</h3>
-        <table class="catalog">
-          <tbody id="mdm-malesTable"></tbody>
-        </table>
+        <div class="dog-strip" id="mdm-dogStrip"></div>
+        <div class="dog-card" id="mdm-dogCard" aria-live="polite"></div>
+        <details class="registry">
+          <summary>Все собаки списком</summary>
+          <h3 class="table-title">Суки</h3>
+          <table class="catalog">
+            <thead><tr><th>Кличка</th><th>Родилась</th><th>Титулы</th><th>HD / ED</th></tr></thead>
+            <tbody id="mdm-dogsTable"></tbody>
+          </table>
+          <h3 class="table-title">Кобели в нашем разведении</h3>
+          <table class="catalog">
+            <tbody id="mdm-malesTable"></tbody>
+          </table>
+        </details>
       </div>
     </div>
   </section>
@@ -634,6 +584,69 @@
     </div>
   </section>
 
+  <!-- ПРОВЕРКИ -->
+  <section class="section bg-milk" id="mdm-trust">
+    <div class="wrap sec">
+      <h2>Что можно проверить</h2>
+      <div class="sec-body cols3">
+        <div>
+          <h3>Здоровье родителей</h3>
+          <p>Производители проверены на дисплазию суставов.</p>
+          <p class="mono">HD-A · ED-0</p>
+        </div>
+        <div>
+          <h3>Документы</h3>
+          <p>Метрика РКФ, клеймо, ветпаспорт, родословные родителей.</p>
+          <p class="mono">FCI–РКФ № 9392</p>
+        </div>
+        <div>
+          <h3>Характер</h3>
+          <p>Знаем каждого щенка и советуем, кто подойдёт вашей семье.</p>
+          <p class="mono">Подбор после актирования</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПИТОМНИК -->
+  <section class="section bg-wood" id="mdm-home">
+    <div class="wrap sec">
+      <div class="sec-side">
+        <h2>Растут в доме, с людьми</h2>
+        <p>Щенки с первых дней привыкают к дому: к людям, детям, лестницам и бытовому шуму. Семейный питомник в 10 км от Воронежа, рядом Дон.</p>
+        <ul class="plain">
+          <li>Мы кинологи и врачи по образованию.</li>
+          <li>Щенки растут в доме, среди людей.</li>
+          <li>Не больше одного помёта за раз.</li>
+        </ul>
+      </div>
+      <div class="sec-body pair">
+        <img data-img="autumn.jpg" alt="Взрослый гросс на фоне осенней листвы" loading="lazy">
+        <img data-img="puppy-floor.jpg" alt="Щенок гросса на деревянном полу" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- АНАТОМИЯ -->
+  <section class="section bg-sky plate" id="mdm-anatomy">
+    <div class="wrap sec">
+      <div class="sec-side">
+        <h2>Как узнать гросса</h2>
+        <p>Восемь черт, по которым гросса отличают от других собак. Наведите на номер или нажмите.</p>
+        <ol class="plate-legend" id="mdm-anatLegend"></ol>
+      </div>
+      <div class="sec-body">
+        <div class="plate-stage" id="mdm-anatStage">
+          <div class="plate-photo">
+            <img data-img="standard.jpg" alt="Большой швейцарский зенненхунд в выставочной стойке">
+            <div id="mdm-anatDots"></div>
+          </div>
+          <div class="plate-pop" id="mdm-anatPop" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ВОПРОСЫ -->
   <section class="section bg-milk" id="mdm-faq">
     <div class="wrap sec">
@@ -643,11 +656,15 @@
   </section>
 
   <!-- АЛЬБОМ -->
-  <section class="section bg-milk" id="mdm-gallery">
-    <div class="wrap sec">
+  <section class="section bg-milk album" id="mdm-gallery">
+    <div class="wrap album-head">
       <h2>Альбом</h2>
-      <div class="sec-body gallery" id="mdm-gallery-grid"></div>
+      <div class="album-nav">
+        <button type="button" class="album-btn" data-dir="-1" aria-label="Назад">←</button>
+        <button type="button" class="album-btn" data-dir="1" aria-label="Вперёд">→</button>
+      </div>
     </div>
+    <div class="album-strip" id="mdm-gallery-grid"></div>
   </section>
 
   <!-- КОНТАКТЫ -->
@@ -699,13 +716,14 @@ const DOGS = [
   { name: "SR SANSHAIN MADAMY", born: "08.09.2015", parents: "о. Giorgio Armani from Swiss Star · м. SR Shangri’La", titles: "" },
 ];
 
+// photo — файл из img/, если известно, что на снимке именно эта собака
 const MALES = [
-  ["AMOR IZ DOMA MADAMY", "Вице-чемпион мира 2023"],
-  ["ARCHI FOR SENNENHUND ROSSII", "Чемпион мира 2016 · интерчемпион"],
-  ["RINGO STAR IZ DOMA MADAMY", "Производитель"],
-  ["GENRIH IZ DOMA MADAMY", "Производитель"],
-  ["SENNENHUND ROSSII SPARTAK", "Производитель"],
-  ["BARD NERAWIN FOREVER", "Импорт, Латвия"],
+  { name: "AMOR IZ DOMA MADAMY", titles: "Вице-чемпион мира 2023", photo: "wds-2023.jpg" },
+  { name: "ARCHI FOR SENNENHUND ROSSII", titles: "Чемпион мира 2016 · интерчемпион" },
+  { name: "RINGO STAR IZ DOMA MADAMY", titles: "Производитель" },
+  { name: "GENRIH IZ DOMA MADAMY", titles: "Производитель" },
+  { name: "SENNENHUND ROSSII SPARTAK", titles: "Производитель" },
+  { name: "BARD NERAWIN FOREVER", titles: "Импорт, Латвия" },
 ];
 
 const LITTERS = [
@@ -732,31 +750,28 @@ const FAQ = [
   ["Можно приехать?", "Да, по договорённости. 10 км от Воронежа по М-4."],
 ];
 
-// Анатомия: x/y — точка на фото, lx/ly — куда ведёт выноска (в % от ширины/высоты), side — сторона подписи
+// Анатомия: черты, по которым узнают гросса. x/y — точка на фото, в % от ширины и высоты
 const ANATOMY = [
-  { id: "brows", x: 32.5, y: 11, lx: 4, ly: 5, side: "left", name: "Бровки",
-    what: "Рыжие пятна над глазами.", why: "Делают морду выразительной, обязательны для трёхцветного окраса." },
-  { id: "muzzle", x: 26, y: 17, lx: 4, ly: 26, side: "left", name: "Морда и проточина",
-    what: "Мощная морда с белой полосой на лоб.", why: "Сильные челюсти, плотные губы — слюней немного." },
-  { id: "ears", x: 45.7, y: 19.3, lx: 96, ly: 8, side: "right", name: "Уши",
-    what: "Треугольные, высоко посажены.", why: "Поднимаются, когда гросс насторожился." },
-  { id: "chest", x: 37, y: 46, lx: 4, ly: 48, side: "left", name: "Грудь",
-    what: "Широкая, глубокая, с белой манишкой.", why: "Сердце и лёгкие тягловой собаки." },
-  { id: "back", x: 62, y: 30, lx: 96, ly: 18, side: "right", name: "Спина",
-    what: "Прямая и крепкая.", why: "Держит всю тягу. Щенку до 1,5 лет нельзя прыгать." },
-  { id: "coat", x: 58.5, y: 43, lx: 96, ly: 44, side: "right", name: "Шерсть",
-    what: "Короткая, с густым подшёрстком.", why: "Для мороза. Жару гросс переносит хуже." },
-  { id: "tail", x: 72.9, y: 28.6, lx: 96, ly: 31, side: "right", name: "Хвост",
-    what: "Толстый, до скакательных суставов.", why: "Показывает настроение." },
-  { id: "tan", x: 33, y: 76, lx: 4, ly: 70, side: "left", name: "Подпал",
-    what: "Рыжий цвет между чёрным и белым.", why: "Третий цвет трёхцветного окраса." },
-  { id: "paws", x: 50.5, y: 92, lx: 96, ly: 96, side: "right", name: "Лапы",
-    what: "Круглые, с белыми «носочками».", why: "Держат 50–70 кг и не скользят." },
-  { id: "hind", x: 74.5, y: 55, lx: 96, ly: 62, side: "right", name: "Задние ноги",
-    what: "Мощные бёдра.", why: "Толчок и сила, которой гросс тянул повозку." },
+  { id: "brows", x: 32.5, y: 11, name: "Бровки",
+    what: "Рыжие пятна над глазами есть у каждого гросса.", why: "Без них окрас не считается правильным. А ещё ими гросс хмурится и удивляется." },
+  { id: "blaze", x: 26, y: 17, name: "Белая проточина",
+    what: "Белая полоса от носа на лоб.", why: "Обязательная отметина породы — вместе с белой грудью и белыми лапами." },
+  { id: "chest", x: 37, y: 46, name: "Грудь тягача",
+    what: "Широкая и глубокая, до локтей.", why: "Гроссы возили тележки с молоком и сыром, выносливость — отсюда." },
+  { id: "size", x: 62, y: 30, name: "Самый крупный",
+    what: "Кобели — до 72 см в холке, 50–70 кг.", why: "Крупнейший из четырёх швейцарских зенненхундов." },
+  { id: "coat", x: 58.5, y: 43, name: "Короткая шерсть",
+    what: "Плотная, до 5 см, с густым подшёрстком.", why: "Так гросса отличают от бернского зенненхунда с длинной шерстью." },
+  { id: "hind", x: 74.5, y: 55, name: "Задние ноги",
+    what: "Широкие мускулистые бёдра.", why: "Гроссы таскали повозки, поэтому задние ноги у них всегда сильные." },
+  { id: "tan", x: 33, y: 76, name: "Трёхцветный окрас",
+    what: "Чёрный, рыжий и белый.", why: "Рыжий подпал всегда лежит между чёрным и белым — рисунок задан стандартом." },
+  { id: "socks", x: 50.5, y: 92, name: "Белые носочки",
+    what: "Белое на всех четырёх лапах.", why: "Признак породы: по «носочкам» гросса видно издалека." },
 ];
 
 const GALLERY = ["g03", "g12", "meadow", "g19", "g06", "newborns", "g11", "g20", "ring", "g13", "g25", "g05", "g21", "g24", "g14", "g10", "g04", "g22", "g26", "g27"];
+const PHOTO_DIR = IMG;
 
 const $ = (s) => root.querySelector(s);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -764,7 +779,32 @@ const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">"
 root.classList.add("mdm-js");
 root.querySelectorAll("[data-img]").forEach((im) => { im.src = IMG + im.dataset.img; });
 
-// Каталог собак
+// Наши собаки: лента карточек, по клику — подробности
+const ALL_DOGS = [
+  ...MALES.map((d) => ({ ...d, sex: "Кобель" })),
+  ...DOGS.map((d) => ({ ...d, sex: "Сука", titles: d.titles || "Племенная сука питомника" })),
+];
+const shortName = (n) => n.replace(/ IZ DOMA MADAMY| MADAMY| MADAMI/, "").replace(/^SENNENHUND ROSSII |^SR /, "");
+$("#mdm-dogStrip").innerHTML = ALL_DOGS.map((d, i) => `<button type="button" class="dog-tile" data-dog="${i}">
+  <span class="dog-tile-sex mono">${d.sex}</span><span class="dog-tile-name">${esc(shortName(d.name))}</span></button>`).join("");
+const showDog = (i) => {
+  const d = ALL_DOGS[i];
+  root.querySelectorAll(".dog-tile").forEach((t) => t.classList.toggle("active", t.dataset.dog === String(i)));
+  const facts = [
+    d.born && ["Родилась", d.born],
+    d.parents && ["Родители", d.parents],
+    ["Титулы", d.titles],
+    d.sex === "Сука" && ["HD / ED", d.hd ? "A / 0" : "по запросу"],
+  ].filter(Boolean);
+  $("#mdm-dogCard").innerHTML = `${d.photo ? `<img src="${PHOTO_DIR}${d.photo}" alt="${esc(d.name)}">` : ""}
+    <div><p class="mono">${d.sex}</p><h3>${esc(d.name)}</h3>
+    <table class="spec">${facts.map(([k, v]) => `<tr><th>${k}</th><td>${esc(v)}</td></tr>`).join("")}</table></div>`;
+  $("#mdm-dogCard").classList.toggle("has-photo", !!d.photo);
+};
+$("#mdm-dogStrip").addEventListener("click", (e) => { const t = e.target.closest(".dog-tile"); if (t) showDog(+t.dataset.dog); });
+showDog(0);
+
+// Полный список собак
 $("#mdm-dogsTable").innerHTML = DOGS.map((d) => `<tr>
   <td><span class="name">${esc(d.name)}</span><span class="sub">${esc(d.parents)}</span></td>
   <td class="mono" data-label="Род.">${esc(d.born || "—")}</td>
@@ -772,17 +812,22 @@ $("#mdm-dogsTable").innerHTML = DOGS.map((d) => `<tr>
   <td class="mono" data-label="HD/ED">${d.hd ? "A / 0" : "по запросу"}</td>
 </tr>`).join("");
 
-$("#mdm-malesTable").innerHTML = MALES.map(([n, t]) => `<tr><td class="name">${esc(n)}</td><td class="muted">${esc(t)}</td></tr>`).join("");
+$("#mdm-malesTable").innerHTML = MALES.map((d) => `<tr><td class="name">${esc(d.name)}</td><td class="muted">${esc(d.titles)}</td></tr>`).join("");
 
 $("#mdm-registry").innerHTML = LITTERS.map(([date, pair, pups]) =>
   `<tr><td class="mono">${esc(date)}</td><td class="name">${esc(pair)}</td><td class="muted">${esc(pups)}</td></tr>`).join("");
 
 $("#mdm-faqList").innerHTML = FAQ.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
 
-$("#mdm-gallery-grid").innerHTML = GALLERY.map((g) => `<img src="${IMG}${g}.jpg" alt="Гроссы питомника Из Дома МаДаМи" loading="lazy">`).join("");
+// Альбом — полоса на всю ширину, листается кнопками
+$("#mdm-gallery-grid").innerHTML = GALLERY.map((g) => `<img src="${PHOTO_DIR}${g}.jpg" alt="Гроссы питомника Из Дома МаДаМи" loading="lazy">`).join("");
+root.querySelectorAll(".album-btn").forEach((b) => b.addEventListener("click", () => {
+  const strip = $("#mdm-gallery-grid");
+  strip.scrollBy({ left: +b.dataset.dir * strip.clientWidth * 0.8, behavior: "smooth" });
+}));
 
-// Анатомия: номера на фото, легенда сбоку, выноска к активной части
-const line = $("#mdm-anatLine"), label = $("#mdm-anatLabel"), card = $("#mdm-anatCard");
+// Анатомия: номера на фото, окно с описанием прямо у точки
+const stage = $("#mdm-anatStage"), pop = $("#mdm-anatPop");
 $("#mdm-anatDots").innerHTML = ANATOMY.map((a, i) =>
   `<button class="anat-dot" data-part="${a.id}" style="left:${a.x}%;top:${a.y}%" aria-label="${esc(a.name)}">${i + 1}</button>`).join("");
 $("#mdm-anatLegend").innerHTML = ANATOMY.map((a, i) =>
@@ -791,12 +836,21 @@ const showPart = (id) => {
   const a = ANATOMY.find((p) => p.id === id);
   if (!a) return;
   root.querySelectorAll("[data-part]").forEach((b) => b.classList.toggle("active", b.dataset.part === id));
-  line.setAttribute("x1", a.x); line.setAttribute("y1", a.y);
-  line.setAttribute("x2", a.lx); line.setAttribute("y2", a.ly);
-  label.textContent = a.name;
-  label.className = `plate-label mono ${a.side}`;
-  label.style.left = a.lx + "%"; label.style.top = a.ly + "%";
-  card.innerHTML = `<h3>${esc(a.name)}</h3><p>${esc(a.what)}</p><p class="why">${esc(a.why)}</p>`;
+  pop.innerHTML = `<h3>${esc(a.name)}</h3><p>${esc(a.what)}</p><p class="why">${esc(a.why)}</p>`;
+  // Узкий экран: окно — под фото, чтобы не вылезало за край и не закрывало точки
+  const docked = stage.clientWidth < 560;
+  pop.classList.toggle("docked", docked);
+  if (docked) {
+    Object.assign(pop.style, { left: "", right: "", width: "", top: "", bottom: "" });
+  } else {
+    // Широкий: сбоку от точки, со стороны, где больше места; по высоте не выходит за фото
+    const right = a.x < 55;
+    Object.assign(pop.style, { width: "", bottom: "auto",
+      left: right ? `calc(${a.x}% + 22px)` : "auto", right: right ? "auto" : `calc(${100 - a.x}% + 22px)` });
+    const h = pop.offsetHeight, H = stage.clientHeight;
+    pop.style.top = Math.max(8, Math.min(H - h - 8, (a.y / 100) * H - h / 2)) + "px";
+  }
+  pop.classList.add("open");
 };
 root.querySelectorAll("[data-part]").forEach((b) => {
   b.addEventListener("mouseenter", () => showPart(b.dataset.part));
@@ -804,6 +858,11 @@ root.querySelectorAll("[data-part]").forEach((b) => {
   b.addEventListener("click", () => showPart(b.dataset.part));
 });
 showPart(ANATOMY[0].id);
+addEventListener("resize", () => { const a = root.querySelector(".anat-dot.active"); if (a) showPart(a.dataset.part); });
+
+// На компьютере кнопка звонка ведёт к контактам: tel:-ссылка там сразу запускает звонок через FaceTime или Skype
+const heroCall = $("#mdm-heroCall");
+if (heroCall && matchMedia("(hover: hover) and (pointer: fine)").matches) heroCall.setAttribute("href", "#mdm-contact");
 
 // Мобильное меню
 const nav = $("#mdm-nav"), burger = $("#mdm-burger");
